@@ -36,9 +36,12 @@ Antes de empezar a trabajar sería bueno que te bajaras las últimas actualizaci
 `git pull`
 
 Cuando quieras subir una nueva versión deberás ejecutar los siguientes comandos:
-`git add .
-git commit -m "mensaje explicativo del commit"
-git push`
+
+`git add .`
+
+`git commit -m "mensaje explicativo del commit"`
+
+`git push`
 
 En cualquier momento puedes ver el estado de tu repositorio local tecleando
 
