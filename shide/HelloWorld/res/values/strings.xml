@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Hello World</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="hello_world2">Ea! Soy Edu y ya he cambiado ésta cosica</string>
+	<string name="hello_world1">Primeros pasos</string>
+	<string name="email">Email</string>
+	<string name="contrasenia">Contraseña</string>
+	<string name="login">Loguear en el Sistema</string>
+	<color name="rojo">#FF0000</color>
+	<color name="azul">#0000FF</color>
+	<color name="verde">#01DF3A</color>
+	<dimen name="one_pixels">1px</dimen>
+	<dimen name="five_dp">5dp</dimen>
+	<dimen name="fiveteen_dp">15dp</dimen>
+ 	<dimen name="twenty_dp">20dp</dimen>
+ 	<!-- <dimen name="1_inch">1in</dimen> Problemas con la definición al meter números lo primero? Cambiar al jre 1.7? -->
+ 	<!-- <dimen name="1_cm">10mm</dimen> Problemas con la definición al meter números lo primero? Cambiar al jre 1.7? -->
+	
+</resources>
