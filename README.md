@@ -3,7 +3,7 @@ Curso unutopico de iniciación a la programación Android
 
 Este es el repositorio oficial del curso gratuito para parados de inciación a la programación Android.
 
-http://francho.org/2012/10/03/curso-gratuito-para-desempleados-de-programacion-android/
+http://francho.org/tag/unutopia-android/
 
 A el tanto alumnos como profesor iremos subiendo el código que generemos a partir de los hangouts
 
@@ -13,7 +13,7 @@ Licencia
 ![cc by nc sa](http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png "Reconocimiento-NoComercial-CompartirIgual 3.0 Unported")
 
 Curso de introducción a la programación Android is licensed under a Creative Commons Reconocimiento-NoComercial-CompartirIgual 3.0 Unported License.
-Creado a partir de la obra en http://francho.org/2012/10/03/curso-gratuito-para-desempleados-de-programacion-android/.
+Creado a partir de la obra en http://francho.org/tag/unutopia-android
 
 Organización del repositorio
 ----------------------------
@@ -36,9 +36,9 @@ Antes de empezar a trabajar sería bueno que te bajaras las últimas actualizaci
 `git pull`
 
 Cuando quieras subir una nueva versión deberás ejecutar los siguientes comandos:
-`git add .`
-`git commit -m "mensaje explicativo del commit"`
-`git push`
+`git add .
+git commit -m "mensaje explicativo del commit"
+git push`
 
 En cualquier momento puedes ver el estado de tu repositorio local tecleando
 
