@@ -15,14 +15,20 @@
         android:textColor="@color/orange"
         android:textSize="40sp"
         android:textStyle="bold"
+        android:shadowColor="@color/shadowOrange"
+        android:shadowRadius="1.5"
+        android:shadowDx="2"
+        android:shadowDy="8"
         tools:context=".MainActivity" />
 
     <TextView
+        android:id="@+id/txvAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txvHelloWorld"
         android:layout_centerHorizontal="true"
+        android:textSize="30sp"
         android:text="@string/author"
-        android:textColor="@color/orange50" />
+        android:textColor="@color/orange75" />
 
 </RelativeLayout>
