@@ -1,8 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#101010" >
+    android:layout_height="match_parent">
+
+    
 
     <TextView
         android:id="@+id/txvHelloWorld"
@@ -11,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="@string/hello_world"
-        android:textColor="#ff8800"
+        android:textColor="@color/orange"
         android:textSize="40sp"
         android:textStyle="bold"
         tools:context=".MainActivity" />
@@ -22,6 +23,6 @@
         android:layout_below="@+id/txvHelloWorld"
         android:layout_centerHorizontal="true"
         android:text="@string/author"
-        android:textColor="#a0a0a0" />
+        android:textColor="@color/orange50" />
 
 </RelativeLayout>
