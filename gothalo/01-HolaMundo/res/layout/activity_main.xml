@@ -1,14 +1,34 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
+
+    
 
     <TextView
+        android:id="@+id/txvHelloWorld"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="@string/hello_world"
+        android:textColor="@color/orange"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:shadowColor="@color/shadowOrange"
+        android:shadowRadius="1.5"
+        android:shadowDx="2"
+        android:shadowDy="8"
         tools:context=".MainActivity" />
+
+    <TextView
+        android:id="@+id/txvAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvHelloWorld"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:text="@string/author"
+        android:textColor="@color/orange75" />
 
 </RelativeLayout>

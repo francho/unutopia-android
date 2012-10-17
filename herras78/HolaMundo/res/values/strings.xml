@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">HolaMundo</string>
+    <string name="h_mundo">Hola Mundo!</string>
+    <string name="h_android">Hola Android!</string>
+    <string name="h_todos">Hola a todos!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <color name="gris">#999999</color>
+    <color name="blue">#333366</color>
+
+</resources>
