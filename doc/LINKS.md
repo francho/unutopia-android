@@ -12,3 +12,6 @@ Recopilación de enlaces interesantes sobre programación Android
 
 * Guía de estilo de código para Android
 	> http://source.android.com/source/code-style.html
+
+* Hangout #2: resources
+	> http://developer.android.com/guide/topics/resources/
