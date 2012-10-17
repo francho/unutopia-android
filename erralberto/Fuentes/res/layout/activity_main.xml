@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+android:id="@+id/tabla"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="vertical"
+android:stretchColumns="1"
+xmlns:android="http://schemas.android.com/apk/res/android">
+	<TableRow
+	android:id="@+id/fila1"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal">
+		<TextView
+		android:id="@+id/etiquetaSans"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="#ff006666"
+		android:layout_marginRight="24sp"
+		android:text="@string/sans"
+		android:textSize="20sp">
+		</TextView>
+		<TextView
+		android:id="@+id/sans"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/hola_mundo"
+		android:textSize="20sp"
+		android:typeface="sans">
+		</TextView>
+	</TableRow>
+	
+	<TableRow
+	android:id="@+id/fila2"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal">
+		<TextView
+		android:id="@+id/etiquetaSerif"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="24sp"
+		android:text="@string/serif"
+		android:textSize="20sp"
+		android:background="#ff006666">
+		</TextView>
+		<TextView
+		android:id="@+id/serif"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/hola_mundo"
+		android:textSize="20sp"
+		android:typeface="serif">
+		</TextView>
+	</TableRow>
+	<TableRow
+	android:id="@+id/fila3"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal">
+		<TextView
+		android:id="@+id/etiquetaMonospace"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="24sp"
+		android:text="@string/monospace"
+		android:textSize="20sp"
+		android:background="#ff006666">
+		</TextView>
+		<TextView
+		android:id="@+id/monospace"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/hola_mundo"
+		android:textSize="20sp"
+		android:typeface="monospace">
+		</TextView>
+	</TableRow>
+	<TableRow
+	android:id="@+id/fila4"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal">
+		<TextView
+		android:id="@+id/etiquetaCustom"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="24sp"
+		android:text="@string/personalizado"
+		android:textSize="20sp"
+		android:background="#ff006666">
+		</TextView>
+		<TextView
+		android:id="@+id/fuente"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/hola_mundo"
+		android:textSize="20sp"
+		android:textColor="@color/verde">
+		</TextView>
+	</TableRow>
+</TableLayout>
