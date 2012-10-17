@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/linea1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/linea1"
+        android:textColor="#3FF"
+        tools:context=".MainActivity" />
+    <TextView
+        android:id="@+id/linea2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/linea1"
+        android:text="@string/linea2"
+        android:textColor="#FF6600"
+        tools:context=".MainActivity" />
+   <TextView
+        android:id="@+id/linea3"
+        android:layout_below="@+id/linea2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/linea3"
+        android:textColor="#FF0000"
+        tools:context=".MainActivity" />
+   <TextView
+        android:id="@+id/linea4"
+        android:layout_below="@+id/linea3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/linea4"
+        android:textColor="#33FF33"
+        tools:context=".MainActivity" />
+   <TextView
+        android:id="@+id/linea5"
+        android:layout_below="@+id/linea4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/linea5"
+        android:textColor="#0066CC"
+        tools:context=".MainActivity" />
+
+</RelativeLayout>
