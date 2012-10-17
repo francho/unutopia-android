@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">Hola Mundo</string>
+    <string name="linea1">Tu movil</string>
+    <string name="linea2">va a</string>
+    <string name="linea3">explotar</string>
+    <string name="linea4">en, jajaja</string>
+    <string name="linea5">10 segundos !</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+
+</resources>

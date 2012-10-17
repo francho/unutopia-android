@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_name">Hola mundo</string>
+    
+    <!-- Mensaje modificado de bienvenida -->
+    <!-- <string name="hello_world">Hello world!</string> -->
+    <string name="hello_world">Hello everbody!\nSoy Mery\nShow must go on!</string>
+    
+    <string name="menu_settings">Settings</string>
+    
+    <!-- Título modificado de la pantalla -->
+    <!-- <string name="title_activity_main">MainActivity</string> -->
+    <string name="title_activity_main">Bienvenidos</string>
+
+</resources>
