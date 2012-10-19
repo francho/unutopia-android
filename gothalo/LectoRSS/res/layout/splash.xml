@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background" >
+    
+    <LinearLayout
+        android:padding="20dp"
+        android:background="@drawable/fondo_splash" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/splash_logo_description"
+            android:src="@drawable/logo_splash" />
+        
+        <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/splash_author"
+	        android:textColor="@color/splash_text_color"
+	        tools:context=".Splash" />
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+     		android:orientation="horizontal"
+     		android:padding="5dp">
+            
+            <TextView
+                android:textStyle="italic"
+                android:textSize="@dimen/text_small"
+                android:textColor="@color/splash_text_color"
+                android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="@string/splash_version_label"/>
+            <TextView 
+                android:id="@+id/txtVersion"
+                android:textStyle="italic"
+                android:textSize="@dimen/text_small"
+                android:textColor="@color/splash_text_color"
+                android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="@string/version_value"/>
+        </LinearLayout> 
+        
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:indeterminate="true"/>
+
+	</LinearLayout>
+</RelativeLayout>

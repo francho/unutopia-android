@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LectoRSS</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_splash">LectoRSS</string>
+    <string name="version_value">1.0.0</string>
+
+    <!-- splash.xml -->
+
+    <string name="splash_logo_description">logo aplicación</string>
+    <string name="splash_author">by gothalo</string>
+    <string name="splash_version_label">Versión </string>
+    
+
+    <!-- fin splash.xml -->
+
+
+    <!-- about.xml -->
+
+    <string name="about_header">Acerca de &#8230;</string>
+	<string name="about_author">Aplicación desarrollada por gothalo.</string>
+	<string name="about_version">Versión </string>
+	<string name="about_license"></string>
+	
+    <!-- fin about.xml -->
+
+    <string name="title_activity_about">LectoRSS</string>
+
+</resources>
