@@ -7,26 +7,8 @@
     <string name="splash_title">curso android</string>
     <string name="splash_subtitle">francho.org</string>
     <string name="splash_unutopia">unutopia</string>
-    
-    <string name="about_text">
-        El curso de iniciación a la programación Android ha sido mi primera acción unutopica. Con ella pretendo protestar y revelarme con la actual situación de crisis que atravesamos ya que creo que una de las mejores herramientas para afrontarla es la educación y la mejora continua.
+    <string name="about_text">El curso de iniciación a la programación Android ha sido mi primera acción <a href="http://francho.org/2012/10/01/unutopia-otra-forma-es-posible/">unutopica</a>.\n
+\nCon ella pretendo protestar y revelarme con la actual situación de crisis que atravesamos ya que creo que una de las mejores herramientas para afrontarla es la educación y la mejora continua.
     </string>
     
-    <string name="about_license">
-        curso iniciación a Android por Francho Joven se encuentra bajo una Licencia Creative Commons Atribución-NoComercial 3.0 Unported.
-
-
-<b>Usted es libre de:</b>
-		copiar, distribuir y comunicar públicamente la obra
-		Remezclar — transformar la obra
-		
-<b>Bajo las condiciones siguientes:</b>
-		Reconocimiento — Debe reconocer los créditos de la obra de la manera especificada por el autor o el licenciador (pero no de una manera que sugiera que tiene su apoyo o apoyan el uso que hace de su obra).    
-		Nominio Público — Cuando la obra o alguno de sus elementos se halle en el dominio público según la ley vigente aplicable, esta situación no quedará afectada por la licencia.
-		Otros derechos — Los derechos siguientes no quedan afectados por la licencia de ninguna manera	Los derechos derivados de usos legítimos u otras limitaciones reconocidas por ley no se ven afectados por lo anterior.
-	•	Los derechos morales del autor;
-	•	Derechos que pueden ostentar otras personas sobre la propia obra o su uso, como por ejemploderechos de imagen o de privacidad.
-		Aviso — Al reutilizar o distribuir la obra, tiene que dejar bien claro los términos de la licencia de esta obra.
-        
-    </string>
 </resources>

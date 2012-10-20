@@ -2,7 +2,11 @@
 
     <style name="AppTheme" parent="android:Theme.Light">
        <item name="android:windowBackground">@drawable/background</item>
-        
+    </style>
+    
+    
+    <style name="AppTheme.NoTitleBar" parent="android:Theme.Light.NoTitleBar">
+       <item name="android:windowBackground">@drawable/background</item>
     </style>
 
 </resources>
