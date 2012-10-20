@@ -3,7 +3,7 @@
 
     <string name="app_name">LectoRSS</string>
     <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_settings">Configuración</string>
     <string name="title_activity_splash">LectoRSS</string>
     <string name="version_value">1.0.0</string>
 
