@@ -1,30 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+	android:background="@color/app_background"
     android:orientation="vertical"
-    android:background="@color/app_background" >
+    android:paddingRight ="20dp"
+    android:paddingLeft="20dp">
+        
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_header"
+        android:textColor="@color/default_color"
+        android:textSize="@dimen/text_large"/>
+    
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logo_splash"
+        android:contentDescription="@string/splash_logo_description"/>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/default_color"
+            android:textSize="@dimen/text_normal"
+            android:text="@string/about_version" />
+        
+        <TextView
+            android:id="@+id/txtVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/default_color"
+            android:textSize="@dimen/text_normal"
+            android:text="@string/version_value" />
+    </LinearLayout>
     
     <TextView
-        android:id="@+id/txtHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textColor="@color/default_color"
-        android:text="@string/about_header"
-        android:layout_width="wrap_content"
+        android:textSize="@dimen/text_normal"
+        android:text="@string/about_author"/>
+    
+	<TextView
+	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_xlarge"/>
-
-   	<ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
+        android:textColor="@color/default_color"
+        android:textSize="@dimen/text_normal"
+        android:text="@string/about_license" />
+	
+	<TextView 
+	    android:id="@+id/txtLicense"
+	    android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/splash_logo_description"
-        android:src="@drawable/logo_splash" />
-        
-   	<TextView
-   	    android:layout_width="wrap_content"
-   	    android:layout_height="wrap_content"
-   	    android:text="@string/about_author"
-   	    android:textSize="@dimen/text_normal"
-   	    android:textColor="@color/default_color" />
-
+        android:textColor="@color/default_color"
+        android:textSize="@dimen/text_small"
+        android:text="@string/license_terms"
+        android:maxLines="10"
+        android:scrollbars="vertical" 
+        android:padding="15dp"  />
+	
 </LinearLayout>

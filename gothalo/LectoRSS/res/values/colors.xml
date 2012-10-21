@@ -3,6 +3,7 @@
     <!--  globales -->
     <color name="app_background">#000</color>
     <color name="default_color">#c0c0c0</color>
+    
     <!--  recursos splash.xml  -->
     <color name="splash_background_start">#fcc</color>
     <color name="splash_background_end">#c33</color>

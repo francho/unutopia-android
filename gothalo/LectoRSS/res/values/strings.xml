@@ -4,6 +4,7 @@
     <string name="app_name">LectoRSS</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Configuración</string>
+	<string name="menu_about">Acerca de&#8230;</string>
     <string name="title_activity_splash">LectoRSS</string>
     <string name="version_value">1.0.0</string>
 
@@ -22,7 +23,7 @@
     <string name="about_header">Acerca de &#8230;</string>
 	<string name="about_author">Aplicación desarrollada por gothalo.</string>
 	<string name="about_version">Versión </string>
-	<string name="about_license"></string>
+	<string name="about_license">Sujeta a una licencia Creative Commons (CC BY-NC-SA 3.0 ES)</string>
 	
     <!-- fin about.xml -->
 
