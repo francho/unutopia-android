@@ -4,8 +4,6 @@ import cat.foixench.apps.lectorss.utils.Utils;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
