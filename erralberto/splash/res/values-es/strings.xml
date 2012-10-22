@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">splash</string>
+    <string name="android_course">Curso Android!</string>
+    <string name="menu_settings">Configuración</string>
+    <string name="title_activity_main">Instant News</string>
+    <string name="loading">Cargando &#8230;</string>
+
+</resources>
