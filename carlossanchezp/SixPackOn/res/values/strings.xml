@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SixPackOn RSS</string>
+    <string name="menu_settings">Configuración</string>
+	<string name="menu_about">Acerca de&#8230;</string>
+    <string name="title_activity_splash">SixPackOn RSS</string>
+    <string name="version_value">V1.0</string>
+
+    <string name="splash_logo_description">logo</string>
+    <string name="splash_http">http://carlossanchezp.wordpress.com</string>
+    <string name="splash_author">by Carlos Sánchez Pérez</string>
+    <string name="splash_version_label">Ver. </string>
+
+    <string name="about_header">Acerca de &#8230;</string>
+	<string name="about_author">App Dev - Carlos Sánchez Pérez.</string>
+	<string name="about_version">Ver. </string>
+	<string name="about_license">licencia Creative Commons</string>
+	
+    <string name="title_activity_about">SixPackOn RSS</string>
+
+</resources>

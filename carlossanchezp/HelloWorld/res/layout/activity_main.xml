@@ -3,13 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world"
-        tools:context=".MainActivity" />
+<TextView
+    android:id="@+id/txvHelloWorld"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:shadowDx="2"
+    android:shadowDy="8"
+    android:shadowRadius="1.5"
+    android:text="@string/hello_world"
+    android:textStyle="bold"
+    tools:context=".MainActivity" />
 
 </RelativeLayout>

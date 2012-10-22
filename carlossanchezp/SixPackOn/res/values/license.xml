@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="license_terms">
+        
+        <![CDATA[
+Usted es libre de \n
+\tCompartir - copiar, distribuir, ejecutar y comunicar públicamente la obra\n
+\thacer obras deribadas\n
+Bajo las siguientes condiciones:\n\n
+\tAtribución — Debe reconocer los créditos de la obra de la manera especificada por el autor o el licenciante (pero no de una manera que sugiera que tiene su apoyo o que apoyan el uso que hace de su obra).\n\n
+\tNo Comercial — No puede utilizar esta obra para fines comerciales.\n\n
+\tCompartir bajo la Misma Licencia — Si altera o transforma esta obra, o genera una obra derivada, sólo puede distribuir la obra generada bajo una licencia idéntica a ésta.\n\n         
+        ]]>
+        
+        
+        
+    </string>
+</resources>
