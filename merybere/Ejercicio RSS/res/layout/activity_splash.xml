@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".SplashActivity" >
+    >
 
     <!-- layout_centerInParent: Objeto centrado horizontal y verticalmente en el padre
          background:            Marco redondeado para el título y el subtítulo  
@@ -26,7 +26,8 @@
 	        
 	        android:text="@string/splash_title" 
 	        android:textSize="@dimen/text_h1"
-	        android:textColor="@color/deep_blue" />
+	        android:textColor="@color/deep_blue" 
+	        android:typeface="serif" />
 	    
 	    <TextView
 	        android:layout_width="wrap_content"
