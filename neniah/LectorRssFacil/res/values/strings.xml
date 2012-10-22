@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">LectorRssFacil</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="logo">Lector Rss Facil</string>
+    <string name="about">Hastalascuatro</string>
+    <string name="version">1.0</string>
+    <string name="autor">Neniah</string>
+    <string name="licencia">Creative Commons</string>
+
+</resources>
