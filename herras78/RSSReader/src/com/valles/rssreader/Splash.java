@@ -20,12 +20,14 @@ public class Splash extends Activity {
         setContentView(R.layout.splash);
         
         Loadpro = (ProgressBar) findViewById(R.id.proload);
-        TextView TxtTit= (TextView) findViewById(R.id.lbltit);
+        TextView TxtTit = (TextView) findViewById(R.id.lbltit);
+        TextView TxtNom = (TextView) findViewById(R.id.lblnom);
         TextView TxtLoad = (TextView) findViewById(R.id.loading);
        
         Typeface font1 = Typeface.createFromAsset(getAssets(),"Last Ninja.ttf");
         TxtLoad.setTypeface(font1);
         TxtTit.setTypeface(font1);
+        TxtNom.setTypeface(font1);
         
         Animation scale = AnimationUtils.loadAnimation(this, R.anim.scalealpha);
         Animation alpha = AnimationUtils.loadAnimation(this, R.anim.alpha);

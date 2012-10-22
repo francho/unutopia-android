@@ -5,23 +5,56 @@
     android:gravity="center"
     android:background="@color/silver">
     
-  <TextView 
-      android:id="@+id/lbltit" 
+  <LinearLayout 
       android:layout_width="wrap_content" 
-      android:layout_height="wrap_content" 
-      android:text="@string/empresa"
-      android:textSize="20dp" 
-      android:textColor="@color/white"
-      android:background="@drawable/marco"
-      android:padding="5dp"
-      android:layout_marginBottom="20dp"/>
+      android:layout_height="wrap_content"
+      android:background="@drawable/marco" 
+      android:orientation="vertical"
+      android:gravity="center">
+      
+      <LinearLayout 
+         android:layout_width="wrap_content" 
+     	 android:layout_height="wrap_content"
+     	 android:orientation="horizontal"
+     	 android:gravity="center_horizontal"
+     	 android:paddingTop="10dp">
+	      
+	      <ImageView
+	            android:layout_width="match_parent"
+	    		android:layout_height="wrap_content"
+	    		android:src="@drawable/rss"/>
+	      
+	      <TextView 
+		      android:id="@+id/lblnom" 
+		      android:layout_width="wrap_content" 
+		      android:layout_height="wrap_content" 
+		      android:text="@string/titmain"
+		      android:textSize="22dp" 
+		      android:textColor="@color/white"	      
+		      android:padding="5dp"
+		      android:layout_marginBottom="20dp"/>
+	      
+	  </LinearLayout>
+	  
+	  <TextView 
+	      android:id="@+id/lbltit" 
+	      android:layout_width="wrap_content" 
+	      android:layout_height="wrap_content" 
+	      android:text="@string/empresa"
+	      android:textSize="18dp" 
+	      android:textColor="@color/white"	      
+	      android:padding="5dp"
+	      android:layout_marginBottom="20dp"/>
+	  
+	  <TextView 
+	      android:id="@+id/loading" 
+	      android:layout_width="wrap_content" 
+	      android:layout_height="wrap_content"
+	      android:layout_margin="10dp" 
+	      android:text="@string/load"
+	      android:textColor="@color/white" />
   
-  <TextView 
-      android:id="@+id/loading" 
-      android:layout_width="wrap_content" 
-      android:layout_height="wrap_content" 
-      android:text="@string/load"
-      android:textColor="@color/white" />
+  </LinearLayout>
    
   <ProgressBar 
       style="@android:style/Widget.ProgressBar.Horizontal" 
@@ -30,7 +63,7 @@
       android:max="12" 
       android:layout_width="match_parent" 
       android:layout_height="15dp" 
-      android:layout_marginTop="6dp" 
+      android:layout_marginTop="10dp" 
       android:layout_marginLeft="20dp" 
       android:layout_marginRight="20dp" /> 
       
