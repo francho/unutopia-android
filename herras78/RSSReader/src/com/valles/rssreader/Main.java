@@ -33,7 +33,6 @@ public class Main extends Activity {
             	PopAcerca();            	
             }
         });
-   
     }
 	
 	public void PopAcerca(){
