@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:fitsSystemWindows="false"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:padding="5dp" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fondo_splash"
+        android:orientation="vertical"
+        android:padding="30dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_header"
+            android:textColor="@color/default_color"
+            android:textSize="@dimen/text_normal" />
+
+        <ImageView
+            android:layout_width="114dp"
+            android:layout_height="112dp"
+            android:background="@drawable/logo_splash"
+            android:contentDescription="@string/splash_logo_description" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_version"
+                android:textColor="@color/default_color"
+                android:textSize="@dimen/text_normal" />
+
+            <TextView
+                android:id="@+id/txtVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/version_value"
+                android:textColor="@color/default_color"
+                android:textSize="@dimen/text_normal" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_author"
+            android:textColor="@color/default_color"
+            android:textSize="@dimen/text_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_license"
+            android:textColor="@color/default_color"
+            android:textSize="@dimen/text_normal" />
+
+        <TextView
+            android:id="@+id/txtLicense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="10"
+            android:padding="15dp"
+            android:scrollbars="vertical"
+            android:text="@string/license_terms"
+            android:textColor="@color/default_color"
+            android:textSize="@dimen/text_small" />
+    </LinearLayout>
+
+</RelativeLayout>
