@@ -8,6 +8,16 @@
     <string name="empresa"> by Hertec Studios.</string>
     <string name="titmain">hRSS Reader</string>
     <string name="fuente">Fuentes : 0/12</string>
-    <string name="acerca">Version 1.0.0 \nDesarrollado por Hertec Studios.\n\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi eu tortor vel neque congue congue. Mauris quis erat. Vestibulum dictum ligula vel purus. Vivamus eget purus. Quisque nulla. Proin nonummy elit nec erat.\n\n Suspendisse molestie, orci sed molestie congue, erat pede consectetuer tellus, non ultricies turpis purus eget lorem.\n\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi eu tortor vel neque congue congue. Mauris quis erat. Vestibulum dictum ligula vel purus. Vivamus eget purus. Quisque nulla. Proin nonummy elit nec erat.\n\n Suspendisse molestie, orci sed molestie congue, erat pede consectetuer tellus, non ultricies turpis purus eget lorem.</string>
-
+    <string name="acerca">
+        Version 1.0.0 \n
+        Desarrollado por Hertec Studios.
+    </string>
+	<string name="licencia">
+	     Usted es libre de:  \n
+		\tCompartir - copiar, distribuir, ejecutar y comunicar públicamente la obra.\n\n
+		\tHacer obras deribadas bajo las siguientes condiciones:\n\n
+		\tAtribución — Debe reconocer los créditos de la obra de la manera especificada por el autor o el licenciante (pero no de una manera que sugiera que tiene su apoyo o que apoyan el uso que hace de su obra).\n\n
+		\tNo Comercial — No puede utilizar esta obra para fines comerciales.\n\n
+		\tCompartir bajo la Misma Licencia — Si altera o transforma esta obra, o genera una obra derivada, sólo puede distribuir la obra generada bajo una licencia idéntica a ésta.
+	</string>
 </resources>
