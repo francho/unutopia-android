@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:padding="10dp" >
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/fondo_splash"
+        android:baselineAligned="true"
+        android:gravity="center"
+        android:measureWithLargestChild="false"
+        android:orientation="vertical"
+        android:padding="30dp" >
+
+        <TextView
+            android:layout_width="217dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05"
+            android:text="@string/splash_http"
+            android:textColor="@color/splash_text_color"
+            android:textSize="@dimen/text_small" />
+        
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="156dp"
+            android:layout_height="141dp"
+            android:layout_weight="0.26"
+            android:contentDescription="@string/splash_logo_description"
+            android:src="@drawable/logo_splash" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_weight="0.51"
+            android:text="@string/splash_author"
+            android:textColor="@color/splash_text_color"
+            android:textSize="@dimen/text_small"
+            tools:context=".Splash" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/splash_version_label"
+                android:textColor="@color/splash_text_color"
+                android:textSize="@dimen/text_small"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/txtVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/version_value"
+                android:textColor="@color/splash_text_color"
+                android:textSize="@dimen/text_small"
+                android:textStyle="italic" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

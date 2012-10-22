@@ -13,6 +13,15 @@
          los otros tres son el código de color RGB -->
     <solid android:color="#4fff" />
     
+    <gradient 
+        android:startColor="@android:color/transparent"
+        android:centerColor="#3000"
+        android:endColor="#888080FF"
+        android:centerY="0.65"
+        android:angle="270"
+        
+        />
+    
     <padding 
         android:top="10dp"
         android:bottom="10dp"
