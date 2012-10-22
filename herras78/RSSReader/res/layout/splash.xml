@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent" 
+    android:orientation="vertical" 
+    android:gravity="center"
+    android:background="@color/silver">
+    
+  <TextView 
+      android:id="@+id/lbltit" 
+      android:layout_width="wrap_content" 
+      android:layout_height="wrap_content" 
+      android:text="@string/empresa"
+      android:textSize="20dp" 
+      android:textColor="@color/white"
+      android:background="@drawable/marco"
+      android:padding="5dp"
+      android:layout_marginBottom="20dp"/>
+  
+  <TextView 
+      android:id="@+id/loading" 
+      android:layout_width="wrap_content" 
+      android:layout_height="wrap_content" 
+      android:text="@string/load"
+      android:textColor="@color/white" />
+   
+  <ProgressBar 
+      style="@android:style/Widget.ProgressBar.Horizontal" 
+      android:id="@+id/proload" 
+      android:progress="0" 
+      android:max="12" 
+      android:layout_width="match_parent" 
+      android:layout_height="15dp" 
+      android:layout_marginTop="6dp" 
+      android:layout_marginLeft="20dp" 
+      android:layout_marginRight="20dp" /> 
+      
+  </LinearLayout>
