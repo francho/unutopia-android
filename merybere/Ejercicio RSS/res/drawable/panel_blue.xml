@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Marco recgtangular con bordes redondeados de color azul -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android" 
+    
+    android:shape="rectangle">
+    
+    <corners android:radius="10dp" />
+    <stroke android:color="@color/blue" android:width="4dp" />
+    
+    <!-- fondo semitransparente para el fondo del marco:
+         El primer número (4) es la transparencia (canal alfa);
+         los otros tres son el código de color RGB -->
+    <solid android:color="#4fff" />
+    
+    <padding 
+        android:top="10dp"
+        android:bottom="10dp"
+        android:left="10dp"
+        android:right="10dp" />
+
+</shape>

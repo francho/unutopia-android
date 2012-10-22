@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fondo de pantallas, en el que añadimos distintos elementos:
+     - Ruido -->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item android:drawable="@drawable/bg_noise" />
+    <item android:drawable="@drawable/logo_android"
+        android:bottom="0dp"
+        android:right="0dp"
+         />
+    <item android:drawable="@drawable/bg_sombra" />
+
+    
+</layer-list>
