@@ -61,7 +61,7 @@
 	        
 	        android:orientation="vertical"
         
-        	android:paddingBottom="50dp" >
+        	android:paddingBottom="100dp" >
 	        
 	        <TextView
 	            android:layout_width="wrap_content"
@@ -69,6 +69,14 @@
 				
 				android:text="@string/about_text"
 				android:textSize="@dimen/text_largo" />
+	        
+	        <TextView
+	            android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				
+				android:text="@string/license_title"
+				android:textColor="@color/deep_blue"
+				android:textSize="@dimen/text_h2" />
 	        
 	        <TextView
 	            android:layout_width="wrap_content"

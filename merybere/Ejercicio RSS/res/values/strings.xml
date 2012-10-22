@@ -13,11 +13,12 @@
     <!-- Textos de la pantalla Acerca de -->
     
     <string name="about_text">
-        Un curso online para desempleados, de iniciación a la programación Android totalmente gratuito y en horario nocturno.\n\n
-        Este curso está dirigido a gente desempleada con conocimientos en programación que quiera empezar a desarrollar aplicaciones Android.\n\n
+        Un curso online para desempleados, de iniciación a la programación Android totalmente gratuito y en horario nocturno.\n
+        Este curso está dirigido a gente desempleada con conocimientos en programación que quiera empezar a desarrollar aplicaciones Android.\n
         La idea original es enfocarlo a los desempleados de Cachirulo Valley, aunque si sobran plazas se llenarán con gente de otros puntos de España.
     </string>
     
+    <string name="license_title">licencia</string>
     <string name="license_text">
         Creative Commons Reconocimiento-NoComercial-CompartirIgual 3.0 Unported    
     </string>
