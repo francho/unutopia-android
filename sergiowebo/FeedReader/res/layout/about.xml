@@ -2,20 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="20dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp" >
-
+    android:layout_height="match_parent" 
+    android:padding="15dp">
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/panel_title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/panel_title" >
+        android:gravity="center" >
 
         <ImageView
+            android:id="@+id/img_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_launcher" />
@@ -27,19 +26,21 @@
             android:textSize="30dp" />
     </LinearLayout>
     
-    <ScrollView
+	<ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout2">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout2"
+        android:paddingTop="15dp">
+
 		<LinearLayout
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
-		    android:layout_alignParentLeft="true"
 		    android:layout_below="@+id/linearLayout2"
-		    android:layout_marginTop="20dp"
+		    android:layout_marginTop="20dp"		    
 		    android:orientation="vertical" >
-
+
+
 		    <ImageView
 		        android:id="@+id/img_logo"
 		        android:layout_width="wrap_content"
@@ -55,5 +56,5 @@
 	
 		</LinearLayout>
 	</ScrollView>
-
+    
 </RelativeLayout>
