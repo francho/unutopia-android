@@ -1,0 +1,25 @@
+<resources>
+
+    <string name="app_name">Ejercicio RSS</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_splash">Ejercicio RSS</string>
+    
+    <string name="splash_title">ejercicio rss</string>
+    <string name="splash_subtitle">curso android</string>
+    <string name="splash_unutopia">rss unutopia</string>
+    
+    <string name="about_version">versión 1.0</string>
+    
+    <!-- Textos de la pantalla Acerca de -->
+    
+    <string name="about_text">
+        Un curso online para desempleados, de iniciación a la programación Android totalmente gratuito y en horario nocturno.\n\n
+        Este curso está dirigido a gente desempleada con conocimientos en programación que quiera empezar a desarrollar aplicaciones Android.\n\n
+        La idea original es enfocarlo a los desempleados de Cachirulo Valley, aunque si sobran plazas se llenarán con gente de otros puntos de España.
+    </string>
+    
+    <string name="license_text">
+        Creative Commons Reconocimiento-NoComercial-CompartirIgual 3.0 Unported    
+    </string>
+
+</resources>

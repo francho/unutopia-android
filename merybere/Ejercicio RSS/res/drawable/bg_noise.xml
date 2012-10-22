@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Constructor del tile de imagen, a partir de una imagen pequeña, rellenando toda la pantalla -->
+
+<!-- src: Imagen fuente que se va a modificar en este fichero
+     gravity:  Rellenar todo el contenedor
+     tileMode: Forma de rellenar el contenido especificado en gravity, repitiendo la imagen src -->
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    
+    android:src="@drawable/bg_noise_tile"
+    android:gravity="fill"
+    android:tileMode="repeat"
+    
+    >
+    
+
+</bitmap>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Efecto degradado en una forma rectangular (gradient) -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+    
+    <!-- centerY: Para que el centro del degradado no sea justo en el centro
+                  de la pantalla, sino un poco más abajo, valores de 0.5 a 1;
+                  si se quiere que empiece más arriba del centro, de 0 a 0.5 -->
+    <gradient 
+        android:startColor="@android:color/transparent"
+        android:centerColor="#3000"
+        android:endColor="#888080FF"
+        android:centerY="0.65"
+        android:angle="270"
+        
+        />
+
+</shape>

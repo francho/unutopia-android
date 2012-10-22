@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout de la pantalla acerca de -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    android:padding="10dp" >
+    
+    <!-- Añadimos ids a los objetos TextView porque vamos a usarlos con 
+         posiciones relativas (en función del título) -->
+   	
+   	<!-- Título -->
+   	<TextView
+   	    android:id="@id/about_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:text="@string/splash_title" 
+        android:textSize="@dimen/text_h1"
+        android:textColor="@color/deep_blue" />
+    
+   	<!-- Subtítulo -->
+    <TextView
+        android:id="@+id/about_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/about_title"
+        
+        android:text="@string/splash_subtitle"
+        android:textSize="@dimen/text_h2"
+        android:textColor="@color/deep_blue" />
+
+    <!-- Versión -->
+    <TextView
+        android:id="@+id/about_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        
+        android:text="@string/about_version"
+        android:textSize="@dimen/text_small"
+        android:textColor="@color/deep_blue" />
+    
+    <!-- Scroll 
+             ancho: el del padre
+             alto:  el que se necesite en función de la cantidad de texto
+             Los Scroll sólo pueden tener un objeto dentro -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/about_subtitle"
+        
+        android:background="@drawable/panel_blue" >
+    
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        
+	        android:orientation="vertical"
+        
+        	android:paddingBottom="10dp" >
+	        
+	        <TextView
+	            android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				
+				android:text="@string/about_text"
+				android:textSize="@dimen/text_largo" />
+	        
+	        <TextView
+	            android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				
+				android:text="@string/license_text"
+				android:textSize="@dimen/text_largo" />
+	        
+	        </LinearLayout>
+	        
+    	</ScrollView>
+    
+</RelativeLayout>
