@@ -1,42 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:id="@+id/dialogacercade"
-    android:background="@drawable/marcopop">
-
-   <LinearLayout 
-         android:layout_width="wrap_content" 
-     	 android:layout_height="wrap_content"
-     	 android:orientation="horizontal"
-     	 android:gravity="center"
-     	 android:layout_marginTop="10dp">
-	      
-	      <ImageView
-	            android:layout_width="wrap_content"
-	    		android:layout_height="wrap_content"
-	    		android:src="@drawable/rss"/>
-	      
-	      <TextView  
-	          android:id="@+id/lblpoptit"
-		      android:layout_width="wrap_content" 
-		      android:layout_height="wrap_content" 
-		      android:text="@string/titmain"
-		      android:gravity="center"
-		      android:textSize="23dp"
-		      android:textColor="@color/white"
-		      android:padding="6dp" />
-	  </LinearLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+       	android:layout_width="wrap_content" 
+     	android:layout_height="wrap_content"
+     	android:id="@+id/dialogacercade">
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:gravity="center_horizontal"    
+	    android:background="@drawable/marcopop">
 	
-   <TextView 
-		 android:text="@string/acerca"
-		 android:textSize="14dp"
-		 android:textStyle="bold"
-		 android:textColor="@color/white"
-		 android:layout_margin="15dp"
-		 android:layout_width="wrap_content"
-		 android:layout_height="wrap_content"/>
-
-</LinearLayout>
+	   <LinearLayout 
+	         android:layout_width="wrap_content" 
+	     	 android:layout_height="wrap_content"
+	     	 android:orientation="horizontal"
+	     	 android:gravity="center"
+	     	 android:layout_marginTop="10dp">
+		      
+		      <ImageView
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:src="@drawable/rss"/>
+		      
+		      <TextView  
+		          android:id="@+id/lblpoptit"
+			      android:layout_width="wrap_content" 
+			      android:layout_height="wrap_content" 
+			      android:text="@string/titmain"
+			      android:gravity="center"
+			      android:textSize="23dp"
+			      android:textColor="@color/white"
+			      android:padding="6dp" />
+		  </LinearLayout>
+		
+	   <TextView 
+			 android:text="@string/acerca"
+			 android:textSize="14dp"
+			 android:textStyle="bold"
+			 android:textColor="@color/white"
+			 android:layout_margin="15dp"
+			 android:layout_width="wrap_content"
+			 android:layout_height="wrap_content"/>
+	
+	</LinearLayout>
+</ScrollView>

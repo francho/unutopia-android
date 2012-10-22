@@ -5,8 +5,6 @@
         android:duration="2500"
         android:fromXScale="0.75"
         android:fromYScale="0.75"
-        android:pivotX="50"
-        android:pivotY="50"
         android:toXScale="1"
         android:toYScale="1"/>
      
