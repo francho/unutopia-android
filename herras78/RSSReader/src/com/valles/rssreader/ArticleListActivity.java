@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
@@ -31,31 +34,37 @@ public class ArticleListActivity extends Activity {
         final ImageView acercade = (ImageView) findViewById(R.id.acercade);
         acercade.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {           	
-            	Intent intent = new Intent(ArticleListActivity.this, AboutActivity.class);     
-                startActivity(intent); 
-            	//PopAcerca();            	
+            	ToAbout();            	
             }
         });
     }
 	
-	/*public void PopAcerca(){
-
-		final AlertDialog.Builder acerca = new AlertDialog.Builder(this);
-		final View vista = LayoutInflater.from(this).inflate(R.layout.popacercade,(ViewGroup) findViewById(R.id.dialogacercade));
-		final TextView Titulo = (TextView) vista.findViewById(R.id.lblpoptit);
-		final Typeface font1 = Typeface.createFromAsset(getAssets(),"Last Ninja.ttf");
-		Titulo.setTypeface(font1);
-		
-		acerca.setIcon(R.drawable.ayudab);
-		acerca.setTitle("Acerca de...");
-		acerca.setView(vista);
-		acerca.setPositiveButton("Aceptar",new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-			} 
-		});
-		acerca.create();
-		acerca.show();
-	}*/
+	public boolean onCreateOptionsMenu(Menu menu) {  
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.layout.menu_article_list, menu);
+	    return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	        case R.id.menu_about:
+	        	ToAbout();
+	            return true;
+	        case R.id.menu_buscar:
+	           
+	            return true;
+	        case R.id.menu_mas:
+	            
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	
+	public void ToAbout(){
+		Intent intent = new Intent(ArticleListActivity.this, AboutActivity.class);     
+        startActivity(intent); 
+	}
 }
+	
 

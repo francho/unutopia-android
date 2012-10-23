@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <item android:id="@+id/menu_about"
+          android:icon="@drawable/ayuda"
+          android:title="@string/m_acercade" />
+ 
+    <item android:id="@+id/menu_mas"
+          android:icon="@drawable/mas"
+          android:title="@string/m_agregar" />
+ 
+    <item android:id="@+id/menu_buscar"
+          android:icon="@drawable/lupa"
+          android:title="@string/m_buscar" />
+</menu>

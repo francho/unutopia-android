@@ -10,10 +10,14 @@
      <LinearLayout 
          android:layout_width="match_parent" 
      	 android:layout_height="wrap_content"
+     	 android:orientation="vertical"
+      	 android:background="@drawable/degwg"> 
+     <LinearLayout 
+         android:layout_width="match_parent" 
+     	 android:layout_height="wrap_content"
      	 android:orientation="horizontal"
      	 android:gravity="center"
-     	 android:paddingTop="10dp"
-      	 android:background="@drawable/degwg">
+     	 android:paddingTop="10dp">
 	      
 	      <ImageView
 	            android:layout_width="wrap_content"
@@ -29,7 +33,6 @@
 		      android:textSize="23dp"
 		      android:textColor="@color/white"
 		      android:padding="6dp" />
-	      
 	  </LinearLayout>
      
      <LinearLayout
@@ -42,11 +45,14 @@
          <TextView 
             android:id="@+id/contfuentes"
             android:layout_width="match_parent"
-    		android:layout_height="wrap_content"
+    		android:layout_height="match_parent"
     		android:layout_weight="1"
-    		android:padding="2dp"
+    		android:gravity="center_vertical"
+    		android:paddingLeft="2dp"
     		android:text="@string/fuente"
     		android:textSize="17dp"
+    		android:textStyle="bold"
+    		android:textColor="@color/white"
     		android:background="@drawable/marcocabe"/>
           <ImageView 
             android:id="@+id/agrega"
@@ -73,6 +79,7 @@
     		android:src="@drawable/ayuda"
     		android:background="@drawable/marcocabe"/>
     
+     </LinearLayout>
      </LinearLayout>
      <ListView 
         android:id="@+id/newslist"

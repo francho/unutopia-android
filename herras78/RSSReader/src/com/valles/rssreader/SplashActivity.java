@@ -18,6 +18,7 @@ public class SplashActivity extends Activity {
 	private ProgressBar Loadpro;
 	private TextView Continuar;
 	private TextView TxtLoad ;
+	private CountDownTimer timer;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +38,8 @@ public class SplashActivity extends Activity {
         TxtNom.setTypeface(font1);
         
         Continuar.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {           	
+            public void onClick(View v) {
+            	timer.cancel();
             	Intent intent = new Intent(SplashActivity.this, ArticleListActivity.class);     
                 startActivity(intent);             	
             }
@@ -57,19 +59,27 @@ public class SplashActivity extends Activity {
 	public void SimuCargando(){
 		final Animation alpha = AnimationUtils.loadAnimation(this, R.anim.alpha);
 
-			new CountDownTimer(7000, 500) {  	
+			timer = new CountDownTimer(20000, 500) {  	
 				int progreso=0;
 	    		 public void onTick(long millisUntilFinished) {   			
-	    			progreso++;
-	    			Loadpro.setProgress(progreso);
+	    			 progreso++;
+	    			 
+	    			 if(progreso<=12){
+	    				Loadpro.setProgress(progreso);
+	    			 }
+	    			 
+	    			 if(progreso==12){
+	    				 //Loadpro.setProgress(12);
+		    			 alpha.cancel();
+		    			 TxtLoad.setAnimation(null);		 
+		    			 TxtLoad.setVisibility(View.GONE);
+		    			 Continuar.setVisibility(View.VISIBLE); 
+	    			 }
 	    		 }
 	    		 public void onFinish() {
-	    			 Loadpro.setProgress(12);
-	    			 alpha.cancel();
-	    			 TxtLoad.setAnimation(null);		 
-	    			 TxtLoad.setVisibility(View.GONE);
-	    			 Continuar.setVisibility(View.VISIBLE); 
+	    			 Intent intent = new Intent(SplashActivity.this, ArticleListActivity.class);     
+	                 startActivity(intent); 
 	    		 }
-	    	}.start();      
+	    	}.start();     
 		}
 }
