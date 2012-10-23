@@ -14,7 +14,6 @@
     <string name="splash_author">by gothalo</string>
     <string name="splash_version_label">Versió </string>
     
-
     <!-- fin splash.xml -->
 
 
@@ -24,9 +23,15 @@
 	<string name="about_author">Aplicació desenvolupada per gothalo.</string>
 	<string name="about_version">Versió </string>
 	<string name="about_license">Sota una llicència Creative Commons \nReconeixement-NoComercial-CompartirIgual 3.0 Espanya\n(CC BY-NC-SA 3.0 ES)</string>
+	<string name="title_activity_about">LectoRSS</string>
 	
     <!-- fin about.xml -->
 
-    <string name="title_activity_about">LectoRSS</string>
+    
+    <!-- articlelist.xml -->
+    
+    <string name="title_activiy_articlelist">LectoRSS</string>
+    
+	<!--  fin articlelist.xml -->
 
 </resources>

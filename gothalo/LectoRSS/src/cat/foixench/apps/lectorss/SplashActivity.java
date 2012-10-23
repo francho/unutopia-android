@@ -1,64 +1,97 @@
 package cat.foixench.apps.lectorss;
 
+import cat.foixench.apps.lectorss.utils.LectoRSSInterface;
 import cat.foixench.apps.lectorss.utils.Utils;
 import android.os.Bundle;
+import android.os.Handler;
 import android.app.Activity;
 import android.content.Intent;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class SplashActivity extends Activity {
+public class SplashActivity extends Activity implements OnClickListener , LectoRSSInterface {
 	
-	final int ABOUT_ACTIVITY = 1;
+	SplashActivity splash;
+	
+	LinearLayout splashBox;
+	private Handler delayed;
+	
+	private Runnable delayedTask = new Runnable () {
+
+		public void run() {
+			
+			Toast toast = Toast.makeText (splash, "cargando", Toast.LENGTH_LONG);
+			toast.show ();
+			// eliminamos posibles entradas en la cola de este runnable
+			delayed.removeCallbacks(this);
+			
+			// lamamos al método onclick de la splashbox
+			onClick (splashBox);
+		}
+		
+		
+	};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // guardamos una referencia global a esta clase
+        splash = this;
+        
+        // cargamos el layout splash.xml
         setContentView(R.layout.splash);
         
         // actualizamos la etiqueta de version
         TextView txtVersion = (TextView) findViewById(R.id.txtVersion);
         txtVersion.setText(Utils.getManifestVersionName(this));
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.splash, menu);
-        return true;
-    }
-    
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-    	boolean result = false;
-        // Handle item selection
-        switch (item.getItemId()) {
-        	case R.id.menu_about :
-        		
-        		this.showActivity (ABOUT_ACTIVITY);
-        		
-        		result = true;
-        		break;
-        	
-        	default:
-                result = super.onOptionsItemSelected(item);
-        }
         
-        return result;
+        // recuperamos el recuadro de fondo del splash para hacerlo clickable.
+        splashBox = (LinearLayout) findViewById (R.id.splash_box);
+        splashBox.setOnClickListener(this);
+        
+        // creamos un temporizador para que, pasados 30 segundos, se muestre la activity ArticleListActivity
+        delayed = new Handler ();
+        delayed.removeCallbacks(delayedTask);
+        delayed.postDelayed(delayedTask, 30000);
+        
+        
     }
     
+    /**
+     * procesa el evento click sobre el cuadro de información de la activity. En este caso
+     * se muestra la activity ArticleListActivity.
+     */
+	public void onClick(View v) {
+		// desactivamos el timer
+		delayed.removeCallbacks(delayedTask);
+		
+		// mostramos la activity ArticleListActivity
+		this.showActivity (ARTICLE_LIST_ACTIVITY);
+	}
+	
     /**
      * lanza una activity
      * @param activity identificador de la activity a lanzar
      */
     private void showActivity (int activity) {
-    	switch (activity) {
-    		case ABOUT_ACTIVITY :
-    		
-    			Intent i = new Intent (this, AboutActivity.class);
-    			startActivity(i);
-    			break;
+    	Intent i = null;
     	
+    	switch (activity) {
+    		case ABOUT_ACTIVITY :	
+    			i = new Intent (this, AboutActivity.class);
+    			break;
+    		case ARTICLE_LIST_ACTIVITY :
+    			i = new Intent (this, ArticleListActivity.class);
+    			break;
 		}
+    	if (i != null) {
+    		startActivity(i);
+    	} else {
+    		Log.e (SPLASH_ACTIVITY_TAG, "activity no válida");
+    	}
     }
 }
