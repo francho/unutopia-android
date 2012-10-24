@@ -1,5 +1,8 @@
 package com.webo.FeedReader;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -12,6 +15,8 @@ import android.widget.RelativeLayout;
 
 public class SplashActivity extends Activity implements OnTouchListener {
 	
+	private long splashDelay = 5000; // 5 segundos
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +25,22 @@ public class SplashActivity extends Activity implements OnTouchListener {
         //Listener de toda la pantalla
         RelativeLayout relativeLayout = (RelativeLayout)findViewById(R.id.relativeLayout_splash);
         relativeLayout.setOnTouchListener(this);
+        
+        //Timer para pasar a la siguiente pantalla sino se pulsa la pantalla
+        TimerTask task = new TimerTask(){
+        	
+        	@Override
+        	public void run(){
+        		finish();
+        		Context context = SplashActivity.this;
+    			Intent intent = new Intent(context, ArticleListActivity.class);
+    			startActivity(intent);
+        	}
+        };
+        
+        Timer timer = new Timer();
+        timer.schedule(task, splashDelay);
+        
     }
 
     @Override

@@ -6,4 +6,12 @@
        <item name="android:windowBackground">@drawable/background</item>
     </style>
     
+    <!-- Ventana flotante -->
+    <style name="MyFloatingWindow">
+	    <item name="android:background">@android:color/transparent</item>
+	    <item name="android:windowIsFloating">true</item>
+	    <item name="android:windowNoTitle">true</item>
+	</style>
+    
+    
 </resources>
