@@ -23,7 +23,7 @@
         android:textSize="@dimen/text_h2" />
 
     <TextView
-        android:id="@+id/about_version"
+        android:id="@id/about_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/about_title"
@@ -45,14 +45,17 @@
             android:orientation="vertical" >
 
             <TextView
+                android:id="@id/about_intro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autoLink="web"
+                
                 android:text="@string/about_text"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
+                android:id="@id/about_legal"
                 android:layout_marginTop="20dp"
+                
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/about_license"

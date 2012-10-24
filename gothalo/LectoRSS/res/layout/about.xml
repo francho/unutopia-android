@@ -6,13 +6,6 @@
     android:orientation="vertical"
     android:paddingRight ="20dp"
     android:paddingLeft="20dp">
-        
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/about_header"
-        android:textColor="@color/default_color"
-        android:textSize="@dimen/text_large"/>
     
     <ImageView 
         android:layout_width="wrap_content"
@@ -48,22 +41,32 @@
         android:textSize="@dimen/text_normal"
         android:text="@string/about_author"/>
     
-	<TextView
-	    android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/default_color"
-        android:textSize="@dimen/text_normal"
-        android:text="@string/about_license" />
-	
-	<TextView 
-	    android:id="@+id/txtLicense"
-	    android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/default_color"
-        android:textSize="@dimen/text_small"
-        android:text="@string/license_terms"
-        android:maxLines="10"
-        android:scrollbars="vertical" 
-        android:padding="15dp"  />
-	
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+			<TextView
+			    android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/default_color"
+		        android:textSize="@dimen/text_normal"
+		        android:text="@string/about_license" />
+			
+			<TextView 
+			    android:id="@+id/txtLicense"
+			    android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/default_color"
+		        android:textSize="@dimen/text_small"
+		        android:text="@string/license_terms"
+		        android:paddingLeft="15dp"
+		        android:paddingTop="10dp"
+		        android:paddingRight="15dp"
+		        android:paddingBottom="5dp"  />
+		</LinearLayout>
+	</ScrollView>
 </LinearLayout>

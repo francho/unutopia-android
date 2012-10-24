@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cat.foixench.apps.lectorss"
     android:versionCode="1"
-    android:versionName="1.0.1"
+    android:versionName="1.0.2.2"
     android:installLocation="auto" >
 
     <uses-sdk
@@ -14,7 +14,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".SplashActivity"
-            android:label="@string/title_activity_splash" >
+            android:label="@string/title_activity_splash" 
+            android:noHistory="true">
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,11 +24,12 @@
         </activity>
         <activity
             android:name=".AboutActivity"
-            android:label="@string/title_activity_about" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:label="@string/title_activity_about"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity 
+            android:name=".ArticleListActivity" 
+            android:label="@string/title_activiy_articlelist" >
         </activity>
     </application>
 

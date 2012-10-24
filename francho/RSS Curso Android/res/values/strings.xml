@@ -1,14 +1,15 @@
 <resources>
 
     <string name="app_name">RSS Curso Android</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_about">Acerca de…</string>
     <string name="title_activity_splash">Curso Android</string>
     
     <string name="splash_title">curso android</string>
     <string name="splash_subtitle">francho.org</string>
     <string name="splash_unutopia">unutopia</string>
-    <string name="about_text">El curso de iniciación a la programación Android ha sido mi primera acción <a href="http://francho.org/2012/10/01/unutopia-otra-forma-es-posible/">unutopica</a>.\n
+    <string name="about_text">El curso de iniciación a la programación Android ha sido mi primera acción unutopica (http://francho.org/tag/unutopia).\n
 \nCon ella pretendo protestar y revelarme con la actual situación de crisis que atravesamos ya que creo que una de las mejores herramientas para afrontarla es la educación y la mejora continua.
     </string>
-    
+    <string name="about_version" formatted="false">v.%1$s (r%2$d)</string>
+	<string name="about_unknown_version">versión desconocida</string>
 </resources>

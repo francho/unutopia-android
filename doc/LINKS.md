@@ -15,3 +15,10 @@ Recopilación de enlaces interesantes sobre programación Android
 
 * Hangout #2: resources
 	> http://developer.android.com/guide/topics/resources/
+
+* Hangout #3: Activity
+	> developer.android.com/reference/android/app/Activity.html
+
+* Servicio de testeo de apps en dispositivos reales
+	> http://www.perfectomobile.com/ 
+

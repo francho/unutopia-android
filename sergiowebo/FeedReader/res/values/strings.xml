@@ -3,29 +3,38 @@
     <string name="app_name">FeedReader</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
-    
+
     <!-- Pantalla splash.xml -->
     <string name="credits">Created by: Sergio Castellote</string>
     <string name="version">Version: 0.1</string>
-	
+
     <!-- Pantalla about.xml -->
-    <string name="cc_license">Usted es libre de:
-		
-		copiar, distribuir y comunicar públicamente la obra
-		Remezclar — transformar la obra
-		Bajo las condiciones siguientes:
-		
-		Reconocimiento — Debe reconocer los créditos de la obra de la manera especificada por el autor o el licenciador (pero no de una manera que sugiera que tiene su apoyo o apoyan el uso que hace de su obra).
-		No comercial — No puede utilizar esta obra para fines comerciales.
-		Entendiendo que:
-		
-		Renuncia — Alguna de estas condiciones puede no aplicarse si se obtiene el permiso del titular de los derechos de autor
-		Dominio Público — Cuando la obra o alguno de sus elementos se halle en el dominio público según la ley vigente aplicable, esta situación no quedará afectada por la licencia.
-		Otros derechos — Los derechos siguientes no quedan afectados por la licencia de ninguna manera:
-		Los derechos derivados de usos legítimos u otras limitaciones reconocidas por ley no se ven afectados por lo anterior.
-		Los derechos morales del autor;
-		Derechos que pueden ostentar otras personas sobre la propia obra o su uso, como por ejemplo derechos de imagen o de privacidad.
-		Aviso — Al reutilizar o distribuir la obra, tiene que dejar bien claro los términos de la licencia de esta obra.
-	</string>
+    <string name="cc_license">        Usted es libre de: \n
+		 "\t"copiar, distribuir y comunicar públicamente la obra "\n"
+		 "\t"Remezclar — transformar la obra "\n"
+		"\n"
+		Bajo las condiciones siguientes:"\n"
+		 "\t"Reconocimiento — Debe reconocer los créditos de la obra de la manera especificada por el autor o el licenciador (pero no de una manera que sugiera que tiene su apoyo o apoyan el uso que hace de su obra)."\n"
+		 "\t"No comercial — No puede utilizar esta obra para fines comerciales."\n"
+		"\n"
+		Entendiendo que:"\n"
+		 "\t"Renuncia — Alguna de estas condiciones puede no aplicarse si se obtiene el permiso del titular de los derechos de autor"\n"
+		 "\t"Dominio Público — Cuando la obra o alguno de sus elementos se halle en el dominio público según la ley vigente aplicable, esta situación no quedará afectada por la licencia."\n"
+		"\n"
+		Otros derechos — Los derechos siguientes no quedan afectados por la licencia de ninguna manera:"\n"
+		 "\t"Los derechos derivados de usos legítimos u otras limitaciones reconocidas por ley no se ven afectados por lo anterior."\n"
+		 "\t"Los derechos morales del autor;"\n"
+		 "\t"Derechos que pueden ostentar otras personas sobre la propia obra o su uso, como por ejemplo derechos de imagen o de privacidad."\n"
+		"\n"
+		Aviso — Al reutilizar o distribuir la obra, tiene que dejar bien claro los términos de la licencia de esta obra.	</string>
+
+    <!--  -->
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_article_list">ArticleListActivity</string>
+
+    <!-- Menu aplicacion -->
+    <string name="about">About</string>
+    <string name="title_activity_about">AboutActivity</string>
 
 </resources>
