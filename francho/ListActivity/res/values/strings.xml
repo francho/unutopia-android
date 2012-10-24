@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="app_name">ListActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string-array name="datos">
+        <item>Madrid</item>
+        <item>Barcelona</item>
+        <item>Zaragoza</item>
+        <item>Huesca</item>
+        <item>Teruel</item>
+    </string-array>
+
+</resources>
