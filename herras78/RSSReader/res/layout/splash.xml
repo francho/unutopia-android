@@ -53,6 +53,16 @@
 	      android:layout_margin="10dp" 
 	      android:text="@string/load"
 	      android:textColor="@color/white" />
+	  <TextView 
+	      android:id="@+id/btnloading" 
+	      android:layout_width="wrap_content" 
+	      android:layout_height="wrap_content"
+	      android:layout_margin="10dp"
+	      android:padding="3dp"
+	      android:textStyle="bold" 
+	      android:text="@string/btncontinuar"
+	      android:textColor="@color/blue"
+	      android:background="@drawable/botones" />
   
   </LinearLayout>
    

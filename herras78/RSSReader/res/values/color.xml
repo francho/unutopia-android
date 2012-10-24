@@ -1,6 +1,8 @@
 <resources>
 
+    <color name="black">#222222</color>
     <color name="white">#FFFFFF</color>
     <color name="blue">#4682B4</color>
 	<color name="silver">#C0C0C0</color>
+	
 </resources>

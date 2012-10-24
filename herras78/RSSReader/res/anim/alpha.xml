@@ -8,6 +8,6 @@
 		android:duration="1400"
         android:fromAlpha="1"
         android:toAlpha="0"
-        android:repeatCount="6"/>
+        android:repeatCount="infinite"/>"
 
 </set>

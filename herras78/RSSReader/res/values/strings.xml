@@ -1,13 +1,18 @@
 <resources>
 
-    <string name="app_name">hRSS Reader</string>
+    <string name="app_name">HRSS Reader</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">Cargando...</string>
+    <string name="title_activity_main">HRSS Reader</string>
     <string name="menu">Menu Principal</string>
     <string name="load">Cargando...</string>
     <string name="empresa"> by Hertec Studios.</string>
-    <string name="titmain">hRSS Reader</string>
+    <string name="titmain">RSS Reader</string>
     <string name="fuente">Fuentes : 0/12</string>
+    <string name="btnaceptar">Aceptar</string>
+    <string name="btncontinuar">Continuar</string>
+    <string name="m_acercade">Acerca de..</string>
+    <string name="m_buscar">Buscar</string>
+    <string name="m_agregar">Agregar</string> 
     <string name="acerca">
         Version 1.0.0 \n
         Desarrollado por Hertec Studios.
@@ -18,6 +23,7 @@
 		\tHacer obras deribadas bajo las siguientes condiciones:\n\n
 		\tAtribución — Debe reconocer los créditos de la obra de la manera especificada por el autor o el licenciante (pero no de una manera que sugiera que tiene su apoyo o que apoyan el uso que hace de su obra).\n\n
 		\tNo Comercial — No puede utilizar esta obra para fines comerciales.\n\n
+		\tCompartir bajo la Misma Licencia — Si altera o transforma esta obra, o genera una obra derivada, sólo puede distribuir la obra generada bajo una licencia idéntica a ésta.\n\n
 		\tCompartir bajo la Misma Licencia — Si altera o transforma esta obra, o genera una obra derivada, sólo puede distribuir la obra generada bajo una licencia idéntica a ésta.
 	</string>
 </resources>

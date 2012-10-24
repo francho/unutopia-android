@@ -2,14 +2,13 @@
 <resources>
 
     <string name="app_name">LectoRSS</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Configuració</string>
 	<string name="menu_about">Sobre &#8230;</string>
-    <string name="title_activity_splash">LectoRSS</string>
     <string name="version_value">1.0.0</string>
 
     <!-- splash.xml -->
 
+    <string name="title_activity_splash">LectoRSS</string>
     <string name="splash_logo_description">logo aplicació</string>
     <string name="splash_author">by gothalo</string>
     <string name="splash_version_label">Versió </string>
@@ -19,11 +18,10 @@
 
     <!-- about.xml -->
 
-    <string name="about_header">Sobre &#8230;</string>
-	<string name="about_author">Aplicació desenvolupada per gothalo.</string>
+    <string name="about_author">Aplicació desenvolupada per gothalo.</string>
 	<string name="about_version">Versió </string>
 	<string name="about_license">Sota una llicència Creative Commons \nReconeixement-NoComercial-CompartirIgual 3.0 Espanya\n(CC BY-NC-SA 3.0 ES)</string>
-	<string name="title_activity_about">LectoRSS</string>
+	<string name="title_activity_about">Sobre &#8230;</string>
 	
     <!-- fin about.xml -->
 
