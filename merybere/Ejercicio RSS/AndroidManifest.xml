@@ -20,6 +20,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- Declaración de actividad ArticleList -->
+        <activity
+            android:name=".ArticleListActivity">
+            
+        </activity>
+        
+        <!-- Declaración de actividad Acerca de -->
+        <activity
+            android:name=".AboutActivity">
+            
+        </activity>
     </application>
 
 </manifest>

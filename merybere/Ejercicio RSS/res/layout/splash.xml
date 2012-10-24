@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
+
+    <!--
+         layout_centerInParent: Objeto centrado horizontal y verticalmente en el padre
+         background:            Marco redondeado para el título y el subtítulo  
+         gravity:               Desde el padre, indicación a los hijos 
+                                (título y subtítulo) de centrado
+    -->
+
+    <ImageView
+        android:id="@+id/rssLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/splash_unutopia"
+        android:src="@drawable/rss_logo" />
+
+    <LinearLayout
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rssLogo"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/panel_blue"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/splash_title"
+            android:textColor="@color/deep_blue"
+            android:textSize="@dimen/text_h1"
+            android:typeface="serif" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/splash_subtitle"
+            android:textColor="@color/deep_blue"
+            android:textSize="@dimen/text_h2" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titulo"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
