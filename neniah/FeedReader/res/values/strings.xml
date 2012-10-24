@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">Feed Reader</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="autor">Neniah</string>
+    <string name="version">2.0</string>
+    <string name="about">About</string>
+    <string name="leer">Lista de Artículos</string>
+
+</resources>
