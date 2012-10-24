@@ -7,12 +7,12 @@
     android:paddingRight ="20dp"
     android:paddingLeft="20dp">
         
-    <TextView
+    <!-- <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/about_header"
         android:textColor="@color/default_color"
-        android:textSize="@dimen/text_large"/>
+        android:textSize="@dimen/text_large"/> -->
     
     <ImageView 
         android:layout_width="wrap_content"
