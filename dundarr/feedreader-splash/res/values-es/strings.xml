@@ -1,8 +1,0 @@
-<resources>
-
-    <string name="app_name">FeedReader Splash</string>
-    <string name="menu_settings">Settings</string>
-    <string name="title_activity_aboutscreen">Acerca de</string>
-    <string name="splash_loading_msg">Cargando &#8230;</string>
-
-</resources>
