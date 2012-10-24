@@ -18,7 +18,7 @@ public class ArticleListActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		
 		getMenuInflater().inflate(R.menu.article_list, menu);
-		return super.onCreateOptionsMenu(menu);
+		return true;
 	}
 
 }
