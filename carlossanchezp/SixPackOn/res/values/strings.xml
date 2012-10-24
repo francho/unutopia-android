@@ -17,6 +17,12 @@
 	<string name="about_version">Ver. </string>
 	<string name="about_license">licencia Creative Commons</string>
 	
+	<string name="seguir">Lista</string>
+	<string name="article_list">Lista</string>
+	<string name="arti">Artículo</string>
+		
+	
+		
     <string name="title_activity_about">SixPackOn RSS</string>
 
 </resources>

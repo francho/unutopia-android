@@ -15,7 +15,9 @@
         android:layout_height="match_parent"
         android:background="@drawable/fondo_splash"
         android:orientation="vertical"
-        android:padding="30dp" >
+        android:padding="30dp"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="horizontal|vertical" >
 
         <TextView
             android:layout_width="wrap_content"
