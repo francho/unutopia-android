@@ -4,14 +4,19 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_splash">Ejercicio RSS</string>
     
+    <!-- Textos de la pantalla inicial -->
     <string name="splash_title">ejercicio rss</string>
     <string name="splash_subtitle">curso android</string>
     <string name="splash_unutopia">rss unutopia</string>
     
-    <string name="about_version">versión 1.0</string>
-    <string name="about_menu">Acerca de</string>
+    <!-- Textos de los menús -->
+    <string name="menu_about">Acerca de</string>
+    
+    <!-- Textos de la lista de artículos -->
+    <string name="article_list_title">Listado</string>
     
     <!-- Textos de la pantalla Acerca de -->
+    <string name="about_version">versión 1.0</string>
     
     <string name="about_text">
         Un curso online para desempleados, de iniciación a la programación Android totalmente gratuito y en horario nocturno.\n

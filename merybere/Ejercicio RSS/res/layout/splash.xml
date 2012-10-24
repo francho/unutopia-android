@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/rssLogo"
         android:layout_centerHorizontal="true"
+        
         android:background="@drawable/panel_blue"
         android:gravity="center"
         android:orientation="vertical" >
@@ -34,6 +35,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            
             android:text="@string/splash_title"
             android:textColor="@color/deep_blue"
             android:textSize="@dimen/text_h1"
@@ -42,6 +44,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            
             android:text="@string/splash_subtitle"
             android:textColor="@color/deep_blue"
             android:textSize="@dimen/text_h2" />
