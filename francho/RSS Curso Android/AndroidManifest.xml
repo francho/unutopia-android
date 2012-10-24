@@ -13,12 +13,34 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".SplashActivity"
+            android:excludeFromRecents="false"
             android:label="@string/title_activity_splash"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ArticleListActivity"
+            android:clearTaskOnLaunch="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="unutopia.intent.category.LIST_ARTICLES" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.Dialog" >
+            <intent-filter>
+                <action android:name="unutopia.intent.category.ABOUT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
