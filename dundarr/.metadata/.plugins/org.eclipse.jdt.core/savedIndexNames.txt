@@ -1,0 +1,6 @@
+INDEX VERSION 1.126+D:\Docs de Niki\dev\android\GitHub_unutopia_android\unutopia-android\dundarr\.metadata\.plugins\org.eclipse.jdt.core
+2749459112.index
+1593167721.index
+30451331.index
+333790528.index
+1547844950.index
