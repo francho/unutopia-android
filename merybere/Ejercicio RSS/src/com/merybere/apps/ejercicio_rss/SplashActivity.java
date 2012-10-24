@@ -16,7 +16,9 @@ public class SplashActivity extends Activity {
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
+		
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.splash);
         
         // Cachear el objeto título clickable
@@ -28,7 +30,7 @@ public class SplashActivity extends Activity {
 			public void onClick(View arg0) {
 				
 				Context context = SplashActivity.this;
-				// Mensajero (se crea el mensaje que se va a pasar
+				// Mensajero (se crea el mensaje que se va a pasar)
 				Intent intent = new Intent(context, ArticleListActivity.class);
 				
 				startActivity(intent);
