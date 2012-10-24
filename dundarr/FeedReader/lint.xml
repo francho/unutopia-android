@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ContentDescription">
+        <ignore path="res\layout\splash.xml" />
+    </issue>
+    <issue id="HardcodedText">
+        <ignore path="res\layout\splash.xml" />
+    </issue>
+</lint>

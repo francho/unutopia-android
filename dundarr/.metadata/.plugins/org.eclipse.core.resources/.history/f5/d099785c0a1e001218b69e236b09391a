@@ -1,0 +1,31 @@
+package org.cacahuete.app.feedreader;
+
+import org.cacahuete.app.feedreader.R;
+
+import android.os.Bundle;
+import android.view.View;
+import android.app.Activity;
+//import android.view.Menu;
+import android.content.DialogInterface.OnClickListener;
+
+
+/**
+* About screen activity
+*
+*/
+public class AboutScreenActivity extends Activity {
+	
+
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.about);
+		
+	}		
+	
+	private OnClickListener mCorkyListener = new OnClickListener() {
+	    public void onClick(View v) {
+	      
+	    }
+	};
+}
