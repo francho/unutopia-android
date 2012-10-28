@@ -30,6 +30,8 @@
     <!-- articlelist.xml -->
     
     <string name="title_activiy_articlelist">LectoRSS</string>
+    <string name="articlelist_author_label">Por </string>
+    <string name="articlelist_date_label">Fecha : </string>
     
 	<!--  fin articlelist.xml -->
 

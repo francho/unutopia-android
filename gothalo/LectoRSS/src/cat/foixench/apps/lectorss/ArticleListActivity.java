@@ -1,12 +1,17 @@
 package cat.foixench.apps.lectorss;
 
-import android.app.Activity;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SimpleAdapter;
 
-public class ArticleListActivity extends Activity {
+public class ArticleListActivity extends ListActivity {
 
 	/**
 	 *  Crea la activity, cargando el layout asociado articlelist.xml
@@ -14,14 +19,16 @@ public class ArticleListActivity extends Activity {
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
 		// indicamos el layout articlelist que usa esta activity
 		setContentView(R.layout.articlelist);
+
+		
+		SimpleAdapter adapter = this.getAdapter ();
+		// asociamos el adapter a la list view.
+		setListAdapter(adapter);
 	}
-
-
+		
 	/**
 	 * genera el menœ de 
 	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
@@ -56,5 +63,36 @@ public class ArticleListActivity extends Activity {
 		}
 		return result;
 
+	}
+	
+	/**
+	 * funcion que genera el adapter para esta ListActivity
+	 * @return el adapter a mostrar en la ListActivity
+	 */
+	private SimpleAdapter getAdapter () {
+
+		
+		// definimos los valores de la lista
+		// from nos define las claves del hashmap que usaremos. To indica los id's donde los mostraremos.
+		// se hace un match por posici—n.
+		String [] from = new String [] {"title", "date", "author"};
+		int [] to = new  int [] {R.id.title, R.id.date, R.id.author};
+		
+		List <HashMap <String,String>> values = new ArrayList <HashMap <String,String>> ();
+		
+		// rellenar la lista con datos ficticios
+		for (int i = 1; i < 10; i++) {
+			HashMap <String, String> item = new HashMap <String, String> ();
+			item.put("title", "Titulo " + i);
+			item.put("author", "Autor " + i);
+			item.put("date", "0" + i + "/10/2010");
+			
+			values.add (item);
+		}
+		
+		// creamos el adapter, pasando los valores, el layout a usar y el mapeo de claves hash / etiquetas layout
+		SimpleAdapter adapter = new SimpleAdapter(this, values, R.layout.articlelistitem, from, to);
+		
+		return adapter;
 	}
 }

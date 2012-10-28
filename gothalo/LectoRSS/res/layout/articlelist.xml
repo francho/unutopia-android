@@ -2,7 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@color/app_background">
+	    
+	<ListView
+	    android:id="@android:id/list"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@color/app_background"
+	    android:cacheColorHint="@color/app_background"
+	    android:divider="@color/divider_color"
+	    android:dividerHeight="1dp">
+	</ListView>
     
-
 </LinearLayout>
