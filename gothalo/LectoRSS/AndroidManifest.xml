@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cat.foixench.apps.lectorss"
     android:versionCode="1"
-    android:versionName="1.0.2.2"
+    android:versionName="1.0.2.3"
     android:installLocation="auto" >
 
     <uses-sdk
@@ -25,7 +25,7 @@
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
-            android:theme="@android:style/Theme.Dialog" >
+            android:theme="@style/AppTheme.Dialog" >
         </activity>
         <activity 
             android:name=".ArticleListActivity" 

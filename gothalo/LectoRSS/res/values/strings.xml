@@ -18,6 +18,7 @@
 
     <!-- about.xml -->
 
+	<string name="about_header">Acerca de&#8230;</string>
     <string name="about_author">Aplicación desarrollada por gothalo.</string>
 	<string name="about_version">Versión </string>
 	<string name="about_license">Sujeta a una licencia Creative Commons \nReconocimiento-NoComercial-CompartirIgual 3.0 España\n(CC BY-NC-SA 3.0 ES)</string>
