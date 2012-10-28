@@ -34,5 +34,11 @@
     <string name="articlelist_date_label">Data : </string>
     
 	<!--  fin articlelist.xml -->
+	
+	<!-- articledetail.xml -->
+	
+	<string name="title_activity_articledetail">LectoRSS</string>
+	
+	<!-- fin articledetail.xml -->
 
 </resources>

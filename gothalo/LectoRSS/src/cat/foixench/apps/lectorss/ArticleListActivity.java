@@ -4,14 +4,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import cat.foixench.apps.lectorss.utils.LectoRSSInterface;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
-public class ArticleListActivity extends ListActivity {
+public class ArticleListActivity extends ListActivity implements LectoRSSInterface{
 
 	/**
 	 *  Crea la activity, cargando el layout asociado articlelist.xml
@@ -27,8 +32,31 @@ public class ArticleListActivity extends ListActivity {
 		SimpleAdapter adapter = this.getAdapter ();
 		// asociamos el adapter a la list view.
 		setListAdapter(adapter);
+		
 	}
 		
+	
+	
+	
+	/**
+	 * gestiona el evento click en un elemento de la lista. en este caso
+	 * muestra llama la activity ArticleDetailActivity
+	 * @see android.app.ListActivity#onListItemClick(android.widget.ListView, android.view.View, int, long)
+	 */
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+
+		// creamos un intent para abrir la activity deseada
+		Intent intent = new Intent (this, ArticleDetailActivity.class);
+		
+		intent.putExtra(PARAM_TITLE, ((TextView) v.findViewById(R.id.title)).getText ());
+		
+		startActivity (intent);
+	}
+
+
+
+
 	/**
 	 * genera el menœ de 
 	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)

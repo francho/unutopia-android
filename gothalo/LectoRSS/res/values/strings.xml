@@ -35,4 +35,10 @@
     
 	<!--  fin articlelist.xml -->
 
+
+	<!-- articledetail.xml -->
+	
+	<string name="title_activity_articledetail">LectoRSS</string>
+	
+	<!-- fin articledetail.xml -->
 </resources>
