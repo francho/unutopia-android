@@ -20,9 +20,14 @@
 	<string name="seguir">Lista</string>
 	<string name="article_list">Lista</string>
 	<string name="arti">Artículo</string>
-		
-	
+	<string name="main">Principal</string>
 		
     <string name="title_activity_about">SixPackOn RSS</string>
 
+    
+    <string name="title_activiy_articlelist">SixPackOn RSS</string>
+    <string name="articlelist_author_label">Por </string>
+    <string name="articlelist_date_label">Fecha : </string>
+    <string name="title_activity_articledetail">SixPackOn RSS</string>
+    
 </resources>

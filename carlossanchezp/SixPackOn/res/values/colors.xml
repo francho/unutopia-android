@@ -5,4 +5,5 @@
     <color name="splash_background_start">#ffcc22</color>
     <color name="splash_background_end">#cc11</color>
     <color name="splash_text_color">#ffff</color>
+    <color name="divider_color">#300000</color>
 </resources>

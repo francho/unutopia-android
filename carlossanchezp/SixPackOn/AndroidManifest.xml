@@ -28,6 +28,11 @@
             android:name=".ArticleListActivity"
             android:label="@string/title_activity_splash" >
         </activity>
+        <activity
+            android:name=".ArticleDetailActivity"
+            android:label="@string/title_activity_articledetail">
+        </activity>
+        
         </application>
 
 </manifest>
