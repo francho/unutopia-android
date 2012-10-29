@@ -13,7 +13,7 @@
     <string name="menu_about">Acerca de</string>
     
     <!-- Textos de la lista de artículos -->
-    <string name="article_list_title">Listado</string>
+    <string name="article_list_title">Artículos</string>
     
     <!-- Textos de la pantalla Acerca de -->
     <string name="about_version">versión 1.0</string>
