@@ -83,7 +83,7 @@
         android:id="@+id/feedlist"
         android:layout_width="match_parent"
     	android:layout_height="match_parent"
-    	android:layout_marginTop="3dp">
+    	android:layout_margin="4dp">
  
      </ListView>
 

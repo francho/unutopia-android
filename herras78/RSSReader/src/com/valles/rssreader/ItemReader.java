@@ -23,8 +23,8 @@ public class ItemReader extends Activity {
 	    LblTitulo.setTypeface(font1);
 	    
 	    final TextView TxtDate = (TextView) findViewById(R.id.date_reader);
-	    final TextView TxtTit = (TextView) findViewById(R.id.tit_reader);
-	    final ImageView ImgReader = (ImageView)findViewById(R.id.img_reader);
+	    final TextView TxtTit = (TextView) findViewById(R.id.titulo_reader);
+	    final ImageView ImgReader = (ImageView)findViewById(R.id.imgen_reader);
 	    
 	    TxtDate.setText(bundle.getString("FECHA"));
 	    TxtTit.setText(bundle.getString("TITULO"));

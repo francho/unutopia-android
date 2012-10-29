@@ -174,7 +174,7 @@ public class ArticleListActivity extends Activity {
 		long dia = 86400000;
 		long hora = 3600000;
 		long minuto = 60000;
-		String StrElapsedtime = new java.sql.Date(DateIn)+"";
+		String StrElapsedtime = new java.sql.Date(DateIn).toString();
 		
 		if((ElapsedTime/dia)>=1){				
 			StrElapsedtime += "("+(ElapsedTime/dia)+"d)";
