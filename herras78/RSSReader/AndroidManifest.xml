@@ -28,15 +28,21 @@
         
         <activity
             android:name=".ArticleListActivity"
-            android:label="@string/menu"
             android:noHistory="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         
         <activity
             android:name=".AboutActivity"
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/NoTitleDialog"/>
+        
+        <activity
+            android:name=".ItemReader"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         
     </application>
 

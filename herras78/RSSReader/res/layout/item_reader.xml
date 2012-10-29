@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/silver"
+    android:orientation="vertical" 
+    android:gravity="center_horizontal" >
+    
+    <LinearLayout 
+         android:layout_width="match_parent" 
+     	 android:layout_height="wrap_content"
+     	 android:orientation="horizontal"
+     	 android:gravity="center"
+     	 android:paddingTop="10dp"
+     	 android:background="@drawable/degwg">
+	      
+	      <ImageView
+	            android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:src="@drawable/rss"/>
+	       
+	      <TextView
+	          android:id="@+id/lbl_titulo_reader"
+		      android:layout_width="wrap_content" 
+		      android:layout_height="wrap_content" 
+		      android:text="@string/titmain"
+		      android:gravity="center"
+		      android:textSize="23dp"
+		      android:textColor="@color/white"
+		      android:padding="6dp"/>
+	 
+	 </LinearLayout>
+	 
+	<TextView
+	    android:id="@+id/date_reader"
+	    android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="@color/blue"
+		android:textSize="22dp"
+		android:layout_marginTop="10dp"/>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:gravity="center_vertical">
+		
+		<ImageView
+	        android:id="@+id/img_reader"
+	        android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginLeft="3dp" />
+
+        <TextView
+            android:id="@+id/tit_reader"
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_marginLeft="3dp"
+    		android:textSize="20dp"
+    		android:textStyle="bold"
+    		android:textColor="@color/blue"/>
+    </LinearLayout>
+    
+	<TextView
+	    android:text="@string/licencia"
+	    android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="@color/black"
+		android:textSize="15dp"
+		android:layout_margin="6dp"/>
+	
+
+</LinearLayout>
