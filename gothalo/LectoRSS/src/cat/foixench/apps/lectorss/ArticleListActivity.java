@@ -1,12 +1,22 @@
 package cat.foixench.apps.lectorss;
 
-import android.app.Activity;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import cat.foixench.apps.lectorss.utils.LectoRSSInterface;
+
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
-public class ArticleListActivity extends Activity {
+public class ArticleListActivity extends ListActivity implements LectoRSSInterface{
 
 	/**
 	 *  Crea la activity, cargando el layout asociado articlelist.xml
@@ -14,12 +24,37 @@ public class ArticleListActivity extends Activity {
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
 		// indicamos el layout articlelist que usa esta activity
 		setContentView(R.layout.articlelist);
+
+		
+		SimpleAdapter adapter = this.getAdapter ();
+		// asociamos el adapter a la list view.
+		setListAdapter(adapter);
+		
 	}
+		
+	
+	
+	
+	/**
+	 * gestiona el evento click en un elemento de la lista. en este caso
+	 * muestra llama la activity ArticleDetailActivity
+	 * @see android.app.ListActivity#onListItemClick(android.widget.ListView, android.view.View, int, long)
+	 */
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+
+		// creamos un intent para abrir la activity deseada
+		Intent intent = new Intent (this, ArticleDetailActivity.class);
+		
+		intent.putExtra(PARAM_TITLE, ((TextView) v.findViewById(R.id.title)).getText ());
+		
+		startActivity (intent);
+	}
+
+
 
 
 	/**
@@ -56,5 +91,36 @@ public class ArticleListActivity extends Activity {
 		}
 		return result;
 
+	}
+	
+	/**
+	 * funcion que genera el adapter para esta ListActivity
+	 * @return el adapter a mostrar en la ListActivity
+	 */
+	private SimpleAdapter getAdapter () {
+
+		
+		// definimos los valores de la lista
+		// from nos define las claves del hashmap que usaremos. To indica los id's donde los mostraremos.
+		// se hace un match por posici—n.
+		String [] from = new String [] {"title", "date", "author"};
+		int [] to = new  int [] {R.id.title, R.id.date, R.id.author};
+		
+		List <HashMap <String,String>> values = new ArrayList <HashMap <String,String>> ();
+		
+		// rellenar la lista con datos ficticios
+		for (int i = 1; i < 10; i++) {
+			HashMap <String, String> item = new HashMap <String, String> ();
+			item.put("title", "Titulo " + i);
+			item.put("author", "Autor " + i);
+			item.put("date", "0" + i + "/10/2010");
+			
+			values.add (item);
+		}
+		
+		// creamos el adapter, pasando los valores, el layout a usar y el mapeo de claves hash / etiquetas layout
+		SimpleAdapter adapter = new SimpleAdapter(this, values, R.layout.articlelistitem, from, to);
+		
+		return adapter;
 	}
 }

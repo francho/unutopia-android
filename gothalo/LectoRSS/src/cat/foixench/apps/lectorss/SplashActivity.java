@@ -61,14 +61,27 @@ public class SplashActivity extends Activity implements OnClickListener , LectoR
         
     }
     
-    /**
+    
+    
+    /** 
+     * cuando la activity entra en pausa, desactivamos la tarea en pausa
+	 * @see android.app.Activity#onPause()
+	 */
+	@Override
+	protected void onPause() {
+		super.onPause();
+		// desactivamos el timer
+		delayed.removeCallbacks(delayedTask);
+		
+	}
+
+
+
+	/**
      * procesa el evento click sobre el cuadro de informaci—n de la activity. En este caso
      * se muestra la activity ArticleListActivity.
      */
 	public void onClick(View v) {
-		// desactivamos el timer
-		delayed.removeCallbacks(delayedTask);
-		
 		// mostramos la activity ArticleListActivity
 		this.showActivity (ARTICLE_LIST_ACTIVITY);
 	}

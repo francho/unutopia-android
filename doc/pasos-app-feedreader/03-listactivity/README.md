@@ -1,28 +1,22 @@
-PASO 2 - activity básicos
-========================
+PASO 3 - listado de artículos
+=============================
 
 Objetivo
 --------
 
-Crear los Activity iniciales para los layouts que tenemos creados.
+Crear la primera versión del listado de artículos con datos ficticios
 
 Pasos
 -----
 
-- Crea una nueva activity llamada `SplashActivity`
-	- Haz que esta Activity cargue el layout `splash.xml`
-	- Defínela en el `AndroidManifest.xml` para que sea la primera que se lanza al pulsar el icono de la aplicación.
-- Crea una nueva activity llamada `ArticleListActivity`
-	- De momento está activity debe mostrar un layout vacio
-	- Acuerdate de incluirla (sin filtros) en el `AndroidManifest.xml`
-- Crea una nueva activity llamada `AboutActivity`
-	- Esta activity debe mostrar el layout `about.xml`
-	- Acuerdate de incluirla (sin filtros) en el `AndroidManifest.xml`
-- Define una zona clickable en `SplashActivity` de tal forma que cuando el usuario pulse en ella salte a `ArticleListActivity`
-- Modifica el menú de `ArticleListActivity` para que tenga una opción con el texto "Acerca de..." cuando se pulse se deberá mostrar `AboutActivity`
+- Haz que `ArticleListActivity` extienda de `ListActivity`
+	- Create una colección de artículos ficticia ¿un ArrayList de HashMap? y rellenala con datos inventados
+	- Usa un Adapter (el que más rabia te da) para mostrar el listado de artículos disponibles
+	- En el listado, por cada artículo deberá aparecer el título y la fecha de creación
+	- Al pulsar sobre un item del listado se deberá abrir una nueva activity llamada 'ArticleDetailActivity' donde se muestre el título. (recuerda los pasos que diste para crear el resto de activity).
 
 Para nota
 ---------
 
-- Programa un timer `SplashActivity` para que si el usuario no ha pulsado en 30segundos salte a la siguiente activity de forma automática
-- Define y aplica un tema específico para `AboutActivity` de forma que se muestre como ventana flotante
+- Trata de personalizar el aspecto de cada una de las filas del listado
+- En vez de usar uno de los adapters que vienen con el SDK create uno propio

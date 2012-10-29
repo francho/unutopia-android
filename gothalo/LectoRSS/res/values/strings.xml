@@ -18,6 +18,7 @@
 
     <!-- about.xml -->
 
+	<string name="about_header">Acerca de&#8230;</string>
     <string name="about_author">Aplicación desarrollada por gothalo.</string>
 	<string name="about_version">Versión </string>
 	<string name="about_license">Sujeta a una licencia Creative Commons \nReconocimiento-NoComercial-CompartirIgual 3.0 España\n(CC BY-NC-SA 3.0 ES)</string>
@@ -29,7 +30,15 @@
     <!-- articlelist.xml -->
     
     <string name="title_activiy_articlelist">LectoRSS</string>
+    <string name="articlelist_author_label">Por </string>
+    <string name="articlelist_date_label">Fecha : </string>
     
 	<!--  fin articlelist.xml -->
 
+
+	<!-- articledetail.xml -->
+	
+	<string name="title_activity_articledetail">LectoRSS</string>
+	
+	<!-- fin articledetail.xml -->
 </resources>

@@ -10,4 +10,8 @@
 		<item name="android:textColor">@color/default_color</item>
     </style>
 
+    <style name="AppTheme.Dialog" parent="android:Theme.Dialog" >
+   		<item name="android:windowNoTitle">true</item>
+   	</style>
+    
 </resources>
