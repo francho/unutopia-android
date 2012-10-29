@@ -28,7 +28,7 @@ public class SplashActivity extends Activity {
 	private final long startTime = 30000;
 	private final long interval = 1000;
 	private CspCountDownTimer countDownTimer;
-
+	private long timeElapsed;
 	
 	
 	private final Handler progressHandler = new Handler() {
@@ -122,7 +122,7 @@ public class SplashActivity extends Activity {
 	// CountDownTimer class
 	public class CspCountDownTimer extends CountDownTimer
 		{
-		private long timeElapsed;
+		
 
 			public CspCountDownTimer(long startTime, long interval)
 				{
@@ -145,5 +145,15 @@ public class SplashActivity extends Activity {
 				}
 		}
 
+	@Override
+	protected void onPause() {
+		super.onPause();
+		
+		if(null != countDownTimer) {
+			countDownTimer.cancel();
+			countDownTimer=null;
+		}
+		
+	}
  
 }
