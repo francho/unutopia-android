@@ -53,8 +53,7 @@ public class MainActivity extends ListActivity {
 		
 		adapter = new SimpleCursorAdapter(context, layout, c, from, to, flags);
 		setListAdapter(adapter);
-		
-		
+
     }
     
     @Override
