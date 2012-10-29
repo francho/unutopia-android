@@ -24,17 +24,18 @@
         <!-- Declaración de actividad ArticleList -->
         <activity
             android:name=".ArticleListActivity">
-            <intent-filter>
-                <action android:name="unutopia.intent.action.ARTICLE_LIST" />
-                
-                <category android:name="android.intent.category.DEFAULT" />"
-            </intent-filter>
             
         </activity>
         
         <!-- Declaración de actividad Acerca de -->
         <activity
             android:name=".AboutActivity">
+            
+        </activity>
+        
+        <!-- Declaración de actividad Artículo -->
+        <activity
+            android:name=".ArticleDetailActivity">
             
         </activity>
     </application>

@@ -10,7 +10,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 public class ArticleListActivity extends ListActivity {
 
@@ -62,6 +65,17 @@ public class ArticleListActivity extends ListActivity {
 	    //               Cadenas del HashMap, Ids del Fichero XML del diseño de cada fila)
 	    SimpleAdapter listAdapter = new SimpleAdapter(this, articles, R.layout.article_row, from, to);
 	    setListAdapter(listAdapter);
+	}
+
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		
+		// Intent para cargar la activity del detalle de artículo
+		Intent intent = new Intent(this, ArticleDetailActivity.class);
+		
+		intent.putExtra("title", ((TextView) v.findViewById(R.id.article_row_title)).getText());
+		
+		startActivity(intent);
 	}
 
 	@Override
