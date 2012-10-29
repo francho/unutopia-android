@@ -45,11 +45,13 @@ public class ArticleListActivity extends ListActivity implements LectoRSSInterfa
 	 */
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-
+	
 		// creamos un intent para abrir la activity deseada
 		Intent intent = new Intent (this, ArticleDetailActivity.class);
 		
-		intent.putExtra(PARAM_TITLE, ((TextView) v.findViewById(R.id.title)).getText ());
+		intent.putExtra (PARAM_TITLE, ((TextView) v.findViewById(R.id.title)).getText ());
+		intent.putExtra (PARAM_AUTHOR, ((TextView) v.findViewById (R.id.author)).getText ());
+		intent.putExtra (PARAM_DATE, ((TextView) v.findViewById (R.id.date)).getText ());
 		
 		startActivity (intent);
 	}
@@ -111,7 +113,11 @@ public class ArticleListActivity extends ListActivity implements LectoRSSInterfa
 		// rellenar la lista con datos ficticios
 		for (int i = 1; i < 10; i++) {
 			HashMap <String, String> item = new HashMap <String, String> ();
-			item.put("title", "Titulo " + i);
+			if (i == 5) {
+				item.put("title", "este es un t’tulo especialemnte largo hecho para ver como se ajusta en el layout");
+			} else {
+				item.put("title", "Titulo " + i);
+			}
 			item.put("author", "Autor " + i);
 			item.put("date", "0" + i + "/10/2010");
 			

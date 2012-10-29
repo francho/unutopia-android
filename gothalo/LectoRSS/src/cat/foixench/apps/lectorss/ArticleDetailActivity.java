@@ -28,11 +28,18 @@ public class ArticleDetailActivity extends Activity implements LectoRSSInterface
 		
 		// recuperamos los parametros via Intent
 		Intent intent = this.getIntent ();
-		String text = intent.getStringExtra(PARAM_TITLE);
+		String strTitle = intent.getStringExtra(PARAM_TITLE);
+		String strDate = intent.getStringExtra (PARAM_DATE);
+		String strAuthor = intent.getStringExtra (PARAM_AUTHOR);
 		
-		TextView detailTitle = (TextView) findViewById (R.id.detail_title);
-
-		detailTitle.setText (text);
+		TextView tvDetailTitle = (TextView) findViewById (R.id.detail_title);
+		tvDetailTitle.setText (strTitle);
+		
+		TextView tvDate = (TextView) findViewById (R.id.date);
+		tvDate.setText (strDate);
+		
+		TextView tvAuthor = (TextView) findViewById (R.id.author);
+		tvAuthor.setText (strAuthor);
 		
 	}
 	
