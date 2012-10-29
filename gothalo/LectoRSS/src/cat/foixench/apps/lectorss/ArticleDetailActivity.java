@@ -7,6 +7,8 @@ import cat.foixench.apps.lectorss.utils.LectoRSSInterface;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 /**
@@ -42,6 +44,40 @@ public class ArticleDetailActivity extends Activity implements LectoRSSInterface
 		tvAuthor.setText (strAuthor);
 		
 	}
+
+	/** 
+	 * genera el menœ de la aplicaci—n en esta Activity
+	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+	 */
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.articlelist, menu);
+		return true;
+	}
+
+	/**
+	 * gestiona el click en los elementos del menœ.
+	 * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
+	 */
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		boolean result = false;
+		
+		switch (item.getItemId ()) {
+			case R.id.menu_about :
+				// mostramos la activity AboutActivity
+				Intent intent = new Intent (this, AboutActivity.class);
+				startActivity (intent);
+				result = true;
+				break;
+				
+			default :
+				result = false;
+		}
+		return result;
+	}
+	
+	
 	
 	
 
