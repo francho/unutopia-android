@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">splash</string>
+    <string name="android_course">Android Course !
+		\n<b>Alberto Rodríguez Montiel</b> 
+		\n<i>Instant News<sup>1.0</sup></i> 
+    </string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Instant News</string>
+    <string name="loading">Loading &#8230;</string>
+    <string name="image_logo">Instant News -> Mobile Feed Reader</string>
+    <string name="title_activity_splash">Curso Android</string>
+    <string name="version">version</string>
+    <string name="splash_title">curso android</string>
+    <string name="splash_subtitle">francho.org</string>
+    <string name="splash_unutopia">unutopia</string>
+    <string name="about_text">El curso de iniciación a la programación Android ha sido mi primera acción <a href="http://francho.org/2012/10/01/unutopia-otra-forma-es-posible/">unutopica</a>.\n
+\nCon ella pretendo protestar y revelarme con la actual situación de crisis que atravesamos ya que creo que una de las mejores herramientas para afrontarla es la educación y la mejora continua.
+    </string>
+    
+</resources>
