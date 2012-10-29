@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.merybere.apps.ejercicio_rss"
+    package="com.merybere.app.intent"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -12,31 +12,13 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".SplashActivity"
-            android:label="@string/title_activity_splash" >
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        
-        <!-- Declaración de actividad ArticleList -->
-        <activity
-            android:name=".ArticleListActivity">
-            
-        </activity>
-        
-        <!-- Declaración de actividad Acerca de -->
-        <activity
-            android:name=".AboutActivity">
-            
-        </activity>
-        
-        <!-- Declaración de actividad Artículo -->
-        <activity
-            android:name=".ArticleDetailActivity">
-            
         </activity>
     </application>
 
