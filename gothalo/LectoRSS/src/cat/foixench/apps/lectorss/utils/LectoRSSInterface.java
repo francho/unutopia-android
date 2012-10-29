@@ -29,4 +29,6 @@ public interface LectoRSSInterface {
 	 * 
 	 */
 	final static String PARAM_TITLE = "titulo"; 
+	final static String PARAM_AUTHOR = "autor";
+	final static String PARAM_DATE = "fecha";
 }

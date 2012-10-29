@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="5dp" >
+    android:padding="10dp"
+    android:background="@drawable/fondo_list_item" >
     
     <TextView
         android:id="@+id/title"
@@ -11,7 +12,8 @@
         android:layout_height="wrap_content"
         android:text="@+id/title"
         android:textSize="@dimen/text_large"
-        android:textColor="@color/default_color" >
+        android:textColor="@color/default_color"
+        android:textStyle="bold" >
     </TextView>
     
     <LinearLayout
@@ -21,7 +23,7 @@
         
         <TextView
             android:text ="@string/articlelist_date_label"
-            android:textSize="@dimen/text_normal"
+            android:textSize="@dimen/text_small"
             android:textColor="@color/shadow_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,7 +32,7 @@
         <TextView
             android:id="@+id/date"
             android:text="@+id/date"
-            android:textSize="@dimen/text_normal"
+            android:textSize="@dimen/text_small"
             android:textColor="@color/default_color" 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +40,7 @@
         
         <TextView
             android:text ="@string/articlelist_author_label"
-            android:textSize="@dimen/text_normal"
+            android:textSize="@dimen/text_small"
             android:textColor="@color/shadow_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,7 +49,7 @@
         <TextView
             android:id="@+id/author"
             android:text="@+id/author"
-            android:textSize="@dimen/text_normal"
+            android:textSize="@dimen/text_small"
             android:textColor="@color/default_color" 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

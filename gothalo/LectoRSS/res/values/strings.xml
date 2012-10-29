@@ -32,6 +32,7 @@
     <string name="title_activiy_articlelist">LectoRSS</string>
     <string name="articlelist_author_label">Por </string>
     <string name="articlelist_date_label">Fecha : </string>
+    <string name="article_list_header">Últimos artículos.</string>
     
 	<!--  fin articlelist.xml -->
 
@@ -39,6 +40,9 @@
 	<!-- articledetail.xml -->
 	
 	<string name="title_activity_articledetail">LectoRSS</string>
-	
+	<string name="articledetail_author_label">Por </string>
+    <string name="articledetail_date_label">Fecha : </string>
+    
 	<!-- fin articledetail.xml -->
+	
 </resources>

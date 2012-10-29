@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/silver"
+    android:orientation="vertical" 
+    android:gravity="center_horizontal">
+    
+    <LinearLayout 
+         android:layout_width="match_parent" 
+     	 android:layout_height="wrap_content"
+     	 android:orientation="horizontal"
+     	 android:gravity="center"
+     	 android:paddingTop="10dp"
+     	 android:background="@drawable/degwg">
+	      
+	      <ImageView
+	            android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:src="@drawable/rss"/>
+	       
+	      <TextView
+	          android:id="@+id/lbl_titulo_reader"
+		      android:layout_width="wrap_content" 
+		      android:layout_height="wrap_content" 
+		      android:text="@string/titmain"
+		      android:gravity="center"
+		      android:textSize="23dp"
+		      android:textColor="@color/white"
+		      android:padding="6dp"/>
+	 </LinearLayout>
+
+	<LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:gravity="center_vertical"
+    	android:layout_margin="3dp"
+    	android:background="@drawable/marcoitem">
+		
+		<ImageView
+	        android:id="@+id/imgen_reader"
+	        android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_margin="3dp"/>
+
+        <TextView
+            android:id="@+id/titulo_reader"
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_marginLeft="3dp"
+    		android:textSize="20dp"
+    		android:textStyle="bold"
+    		android:textColor="@color/blue"/>
+    </LinearLayout>
+    
+	<LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="vertical"
+    	android:gravity="center_horizontal"
+    	android:layout_margin="3dp"
+    	android:background="@drawable/marcoitem">
+		
+		<TextView
+		    android:id="@+id/date_reader"
+		    android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:textColor="@color/blue"
+			android:textSize="18dp"
+			android:layout_marginTop="10dp"/>
+		
+		<TextView
+		    android:text="@string/licencia"
+		    android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:textColor="@color/black"
+			android:textSize="15dp"
+			android:layout_marginLeft="4dp"/>
+	</LinearLayout>
+
+</LinearLayout>

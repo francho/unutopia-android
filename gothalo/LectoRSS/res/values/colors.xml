@@ -14,5 +14,12 @@
     
     <!-- recursos articlelist.xml -->
     <color name="divider_color">#300000</color>
+  
     
+    <!-- recursos articlelistitem.xml -->
+    <color name="listitem_background_color">#c33</color>
+    
+  
+    <!-- recursos list_selector -->
+    <color name="list_selector_focused">#a0cc3333</color>
 </resources>
