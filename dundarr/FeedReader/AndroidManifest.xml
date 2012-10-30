@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".SplashScreenActivity"
+            android:noHistory="true"
             android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,12 +25,41 @@
         <activity
             android:name=".AboutScreenActivity"
             android:label="@string/title_activity_aboutscreen" 
+            android:exported="false"
             android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="android.intent.action.ABOUT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
             
         </activity>
         <activity
             android:name=".ArticleListActivity"
-            android:label="@string/title_activity_articlelist" >
+            android:label="@string/title_activity_articlelist" 
+            android:exported="false"
+            android:clearTaskOnLaunch="true"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.LIST_ARTICLES" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            
+            
+        </activity>
+        <activity
+            android:name=".ArticleDetailActivity"
+            android:label="@string/title_activity_articledetail" 
+            android:exported="false"
+            android:clearTaskOnLaunch="true"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.LIST_ARTICLES" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            
             
         </activity>
     </application>
