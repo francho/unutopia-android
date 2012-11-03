@@ -4,11 +4,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import cat.foixench.apps.lectorss.db.RssDbHelper;
+import cat.foixench.apps.lectorss.db.RssContract.FeedsTable;
 import cat.foixench.apps.lectorss.utils.LectoRSSInterface;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +23,9 @@ import android.widget.TextView;
 
 public class ArticleListActivity extends ListActivity implements LectoRSSInterface{
 
+	
+	private SimpleCursorAdapter adapter;
+	
 	/**
 	 *  Crea la activity, cargando el layout asociado articlelist.xml
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -28,8 +36,12 @@ public class ArticleListActivity extends ListActivity implements LectoRSSInterfa
 		// indicamos el layout articlelist que usa esta activity
 		setContentView(R.layout.articlelist);
 
+		// // generamos un adapter desde codigo
+		// SimpleAdapter adapter = this.getAdapter ();
 		
-		SimpleAdapter adapter = this.getAdapter ();
+		// definimos un adapter para la lista,de modo que se acceda a una bbdd
+		adapter = this.getDBAdapter();
+		
 		// asociamos el adapter a la list view.
 		setListAdapter(adapter);
 		
@@ -38,6 +50,35 @@ public class ArticleListActivity extends ListActivity implements LectoRSSInterfa
 	
 	
 	
+	/** 
+	 * en este metodo inicializamos abrimos el cursor a la base de datos.
+	 * @see android.app.Activity#onStart()
+	 */
+	@Override
+	protected void onStart() {
+		super.onStart();
+		
+		adapter.changeCursor(this.getFeeds());
+		
+	}
+
+
+
+
+	/**
+	 * en este método liveramos el cursor, para que cuando la app pase a segundo plano, no consuma recursos extras.
+	 * @see android.app.Activity#onStop()
+	 */
+	@Override
+	protected void onStop() {
+		super.onStop();
+		
+		adapter.changeCursor(null);
+	}
+
+
+
+
 	/**
 	 * gestiona el evento click en un elemento de la lista. en este caso
 	 * muestra llama la activity ArticleDetailActivity
@@ -128,5 +169,34 @@ public class ArticleListActivity extends ListActivity implements LectoRSSInterfa
 		SimpleAdapter adapter = new SimpleAdapter(this, values, R.layout.articlelistitem, from, to);
 		
 		return adapter;
+	}
+	
+	private SimpleCursorAdapter getDBAdapter () {
+		
+		String [] from = new String [] {FeedsTable.COLUMN_TITLE, FeedsTable.COLUMN_DESCRIPTION, FeedsTable.COLUMN_PUB_DATE};
+		int [] to = new  int [] {R.id.title, R.id.author, R.id.date};
+		
+		SimpleCursorAdapter adapter = new SimpleCursorAdapter (this, R.layout.articlelistitem, null, from, to, SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+	
+		return adapter;
+	}
+	
+	private Cursor getFeeds () {
+	
+		// recuperamos la base de datos mediante el helper de la bbdd.
+		RssDbHelper helper = new RssDbHelper(this);
+		SQLiteDatabase db = helper.getReadableDatabase();
+		
+		
+		// parametros de la table
+		String table = FeedsTable.TABLE_NAME;
+		String [] columns = new String [] {FeedsTable._ID, FeedsTable.COLUMN_TITLE, FeedsTable.COLUMN_DESCRIPTION, FeedsTable.COLUMN_PUB_DATE};
+		String selection = null;
+		String [] selectionArgs = null;
+		String groupBy = null;
+		String having = null;
+		String orderBy = FeedsTable.COLUMN_PUB_DATE + " DESC";
+		
+		return db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
 	}
 }
