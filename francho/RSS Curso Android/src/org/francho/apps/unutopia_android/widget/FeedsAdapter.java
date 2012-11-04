@@ -1,27 +1,46 @@
 package org.francho.apps.unutopia_android.widget;
 
-import java.util.List;
-import java.util.Map;
-
 import org.francho.apps.unutopia_android.R;
 import org.francho.apps.unutopia_android.data.FeedContract;
+import org.francho.apps.unutopia_android.data.FeedDbHelper;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.text.format.DateUtils;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-public class FeedsAdapter extends SimpleAdapter  {
-	private static final String[] FROM = new String[] { FeedContract.TITLE, FeedContract.DATE };
+public class FeedsAdapter extends SimpleCursorAdapter  {
+	private static final String[] FROM = new String[] { FeedContract.Articles.TITLE, FeedContract.Articles.PUB_DATE };
 	private static final int[] TO = new int[] { R.id.feed_listitem_title,
 			R.id.feed_listitem_date };
 	private Context context;
 	
 
-	public FeedsAdapter(Context context, List<? extends Map<String, ?>> data) {
-		super(context, data, R.layout.feed_listitem, FROM, TO);
+	public FeedsAdapter(Context context) {
+		super(context, R.layout.feed_listitem , null, FROM, TO, FLAG_REGISTER_CONTENT_OBSERVER);
 		
 		this.context = context;
+		initArticlesCursor(context);
+	}
+
+
+	private void initArticlesCursor(Context context) {
+		final FeedDbHelper helper = new FeedDbHelper(context);
+		final SQLiteDatabase db = helper.getReadableDatabase();
+		
+		String table = FeedContract.Articles.TABLE_NAME;
+		String[] columns = new String[]{FeedContract.Articles._ID, FeedContract.Articles.TITLE, FeedContract.Articles.PUB_DATE};
+		String selection = null;
+		String[] selectionArgs = null;
+		String groupBy = null;
+		String having = null;
+		String orderBy = FeedContract.Articles.PUB_DATE + " DESC";
+		
+		Cursor cursor = db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
+		
+		this.swapCursor(cursor);
 	}
 
 
