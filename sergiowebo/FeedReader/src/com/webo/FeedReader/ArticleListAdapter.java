@@ -46,6 +46,9 @@ public class ArticleListAdapter extends BaseAdapter{
 	    TextView author = (TextView) view.findViewById(R.id.author);
 	    author.setText(item.getAuthor());
 		
+	    TextView date = (TextView) view.findViewById(R.id.date);
+	    date.setText(item.getDate());
+	    
 		return view;
 	}
 	
