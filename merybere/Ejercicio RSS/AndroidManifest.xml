@@ -35,8 +35,13 @@
         
         <!-- Declaración de actividad Artículo -->
         <activity
-            android:name=".ArticleDetailActivity">
-            
+            android:name=".ArticleDetailActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="unutopia.intent.category.VIEW_ARTICLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 
