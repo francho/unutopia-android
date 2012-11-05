@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">splash</string>
-    <string name="android_course">
-        <u>Curso Android !</u>
-		\n<b>Alberto Rodríguez Montiel</b> 
-		\n<i>Instant News<sup>1.0</sup></i>       
-        </string>
-    <string name="menu_settings">Configuración</string>
-    <string name="title_activity_main">Instant News</string>
+    <string name="app_name">Instant News</string>
+    <string name="android_course"><b><u>Curso Android</u></b></string>
+    <string name="menu_about">Acerca de</string>
+    <string name="menu_exit">salir</string>
     <string name="loading">Cargando &#8230;</string>
-    <string name="about_version" formatted="false">v.%1$s (r%2$d)</string>
+    <string name="image_logo">Instant News -> Lector de feed para móvil</string>
+    <string name="title_activity_about">Android Course 2012</string>
+    <string name="about_version" formatted="false">versión v.%1$s (r%2$d)</string>
+    <string name="splash_botton">ACEPTAR</string>
 </resources>

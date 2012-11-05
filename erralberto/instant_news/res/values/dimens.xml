@@ -3,4 +3,5 @@
     <dimen name="text_h1">40dp</dimen>
     <dimen name="text_h2">30dp</dimen>
     <dimen name="text_small">10dp</dimen>
+    
 </resources>
