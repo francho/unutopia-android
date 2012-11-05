@@ -1,18 +1,19 @@
 package com.merybere.apps.ejercicio_rss;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import app.AppIntent;
 
 public class SplashActivity extends Activity {
 
-    private static final String TAG = "SplashActivity";
-	private View titulo;
+    private View titulo;
+	private CountDownTimer timer = null;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,37 +42,52 @@ public class SplashActivity extends Activity {
 
     @Override
 	protected void onPause() {
-		Log.d(TAG, "onPause");
 		super.onPause();
-	}
-
-	@Override
-	protected void onRestart() {
-		Log.d(TAG, "onRestart");
-		super.onRestart();
+		
+		if(null != timer) {
+			timer.cancel();
+			timer = null;
+		}
 	}
 
 	@Override
 	protected void onResume() {
-		Log.d(TAG, "onResume");
 		super.onResume();
+		
+		// Contador a 10 segundos
+		timer = new SplashTimer(10000, 10000);
+		timer.start();
 	}
 
-	@Override
-	protected void onStart() {
-		Log.d(TAG, "onStart");
-		super.onStart();
-	}
-
-	@Override
-	protected void onStop() {
-		Log.d(TAG, "onStop");
-		super.onStop();
-	}
 
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.splash, menu);
         return true;
+    }
+	
+	private void nextActivity() {
+		
+		// Mensajero (se crea el mensaje que se va a pasar)
+		final Intent intent = AppIntent.getArticleListIntent();
+		startActivity(intent);
+	}
+	
+	//Timer Class inside my Activity
+    class SplashTimer extends CountDownTimer{
+
+        public SplashTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        @Override
+        public void onFinish() {
+            nextActivity();
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+        	
+        }
     }
 }

@@ -1,54 +1,75 @@
 package carloscsanchezperez.gmail.sixpackon;
 
-
+import carloscsanchezperez.gmail.sixpackon.FeedsAdapter;
+import carloscsanchezperez.gmail.sixpackon.MembersContract.FeedsTable;
+//------------------------------------------
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-
 import android.widget.SimpleAdapter;
-
 import android.app.ListActivity;
-
 import android.widget.ListView;
+
+import android.util.Log;
+
 
 
 
 public class ArticleListActivity extends ListActivity {
-
+   
+	   
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		// Tiene q linkar el layout xml con la Activity
 		setContentView(R.layout.articlelist);
-		
-  		// Acoplamos el adaptador con los datos en articlelist
-		SimpleAdapter adapter = this.getAdapter ();
+
+				
+		final FeedsAdapter adapter = new FeedsAdapter(this);
+
 		setListAdapter(adapter);
+	
+		
+
 	}
 	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-	
-		Intent intent = new Intent (this, ArticleDetailActivity.class);
-		startActivity (intent);
+		Intent intent = AppIntent.getArticleIntent(id);
+		
+		startActivity(intent);
 	}
+
 
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.articlelist, menu);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.articlelist, menu);
 		return true;
 	}
 
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_about:
+			startActivity(AppIntent.getAboutIntent());
+			return true;
+		default:
+			return super.onMenuItemSelected(featureId, item);
+		}
 
-	
-	private SimpleAdapter getAdapter () {
+	}
+
+	// This method is: manual load data
+	private SimpleAdapter getAdapterrrrr () {
 
 		String [] cab = new String [] {"title", "author", "date", "info" };
 		int [] dat = new  int [] {R.id.title, R.id.author, R.id.date, R.id.info};
