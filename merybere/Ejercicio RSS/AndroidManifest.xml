@@ -23,13 +23,26 @@
         
         <!-- Declaración de actividad ArticleList -->
         <activity
-            android:name=".ArticleListActivity">
+            android:name=".ArticleListActivity"
+            android:exported="false" >
+            
+            <intent-filter>
+                <action android:name="unutopia.intent.category.ARTICLE_LIST" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
             
         </activity>
         
         <!-- Declaración de actividad Acerca de -->
         <activity
-            android:name=".AboutActivity">
+            android:name=".AboutActivity"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="unutopia.intent.category.ABOUT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
             
         </activity>
         

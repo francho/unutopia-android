@@ -8,7 +8,6 @@ import data.DummyArticles;
 import widget.ArticlesAdapter;
 
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -60,9 +59,8 @@ public class ArticleListActivity extends ListActivity {
 		// Acciones para los ítems del menú
 		switch (item.getItemId()) {
 			case R.id.menu_about:
-				Context context = ArticleListActivity.this;
 				// Mensajero (se crea el mensaje que se va a pasar)
-				Intent intent = new Intent(context, AboutActivity.class);
+				final Intent intent = AppIntent.getAboutIntent();
 				
 				startActivity(intent);
 				return true;
