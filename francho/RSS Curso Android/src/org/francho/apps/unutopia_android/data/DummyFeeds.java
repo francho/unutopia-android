@@ -1,30 +1,29 @@
 package org.francho.apps.unutopia_android.data;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.text.format.Time;
 
-public class DummyFeeds extends ArrayList<HashMap<String,Object>> {
-	public DummyFeeds () {
-		addFeed("Art’culo 1", "2012-10-13T16:00:00.000Z");
-		addFeed("Otro art’culo", "2012-10-13T16:00:00.000Z");
-		addFeed("M‡s de lo mismo", "2012-10-17T15:00:00.000Z");
-		addFeed("Otro", "2012-10-13T10:30:00.000Z");
+public class DummyFeeds {
+	public static void insertDummyFeeds(SQLiteDatabase db) {
+		addFeed(db, "Art’culo 1", "2012-10-13T16:00:00.000Z");
+		addFeed(db, "Otro art’culo", "2012-10-13T16:00:00.000Z");
+		addFeed(db, "M‡s de lo mismo", "2012-10-17T15:00:00.000Z");
+		addFeed(db, "Otro", "2012-10-13T10:30:00.000Z");
 	}
 	
-	public void addFeed(String title, String date) {
-		HashMap<String, Object> feedMap = new HashMap<String,Object>();
+	public static void addFeed(SQLiteDatabase db, String title, String date) {
+		ContentValues values = new ContentValues();
 		
-		feedMap.put(FeedContract.TITLE, title);
+		values.put(FeedContract.Articles.TITLE, title);
 		
 		Long millis = parseDate(date);
-		feedMap.put(FeedContract.DATE, millis);
+		values.put(FeedContract.Articles.PUB_DATE, millis);
 
-		add(feedMap);
+		db.insert(FeedContract.Articles.TABLE_NAME, null, values);
 	}
 
-	private Long parseDate(String date) {
+	private static Long parseDate(String date) {
 		Time time = new  Time();
 		time.parse3339(date);
 		Long millis = time.normalize(false);

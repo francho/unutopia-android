@@ -3,8 +3,6 @@ package org.francho.unutopia_android.persistencia;
 import org.francho.unutopia_android.persistencia.db.MembersContract.UsersTable;
 import org.francho.unutopia_android.persistencia.db.MyDbHelper;
 
-import android.os.Bundle;
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.ContentValues;
 import android.content.Context;
@@ -12,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.SimpleCursorAdapter;
@@ -23,7 +22,7 @@ public class MainActivity extends ListActivity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        // setContentView(R.layout.activity_main);
         
         // getFilesDir();
         // getCacheDir();

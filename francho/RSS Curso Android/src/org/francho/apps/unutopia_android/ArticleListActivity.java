@@ -23,19 +23,14 @@ public class ArticleListActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		final FeedsAdapter adapter = new FeedsAdapter(this, new DummyFeeds());
+		final FeedsAdapter adapter = new FeedsAdapter(this);
 
 		setListAdapter(adapter);
 	}
 	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		final Adapter adapter = l.getAdapter();
-		HashMap<String,Object> feed = (HashMap) adapter.getItem(position);
-		
-		final String title = (String) feed.get(FeedContract.TITLE);
-		
-		Intent intent = AppIntent.getArticleIntent(title);
+		Intent intent = AppIntent.getArticleIntent(id);
 		
 		startActivity(intent);
 	}

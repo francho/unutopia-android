@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     
@@ -12,10 +12,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         
-        android:padding="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
         
-        android:text="@string/article_list_title"
+        android:text="@string/article_detail_title"
         android:textColor="@color/deep_blue"
-        android:textSize="@dimen/text_h2" />
+        android:textSize="@dimen/text_title" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/article_detail_pub_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/article_detail_title"
+        android:layout_alignParentRight="true"
+        
+        android:paddingRight="10dp"
+        
+        android:text="@string/article_detail_pub_date"
+        android:textSize="@dimen/text_small" />
+
+</RelativeLayout>
