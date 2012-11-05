@@ -14,6 +14,12 @@
     
     <!-- Textos de la lista de artículos -->
     <string name="article_list_title">Artículos</string>
+    <string name="article_row_title">Aquí el título del artículo</string>
+    <string name="article_row_pub_date">Aquí la fecha de publicación</string>
+    
+    <!-- Textos del detalle de artículo -->
+    <string name="article_detail_title">Aquí el título del artículo</string>
+    <string name="article_detail_pub_date">Aquí la fecha de publicación</string>
     
     <!-- Textos de la pantalla Acerca de -->
     <string name="about_version">versión 1.0</string>

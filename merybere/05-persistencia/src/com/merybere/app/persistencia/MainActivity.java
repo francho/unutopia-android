@@ -34,6 +34,7 @@ public class MainActivity extends ListActivity {
         values.put(UsersTable.EMAIL, "pepe@super.man");
         values.put(UsersTable.USERNAME, "Pepe");
         
+        // Id autoincremental que hemos puesto
         long id = db.insert(UsersTable.TABLE_NAME, null, values);
         db.close();
         

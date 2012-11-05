@@ -1,40 +1,60 @@
 package widget;
 
-import java.util.List;
-import java.util.Map;
-
 import com.merybere.apps.ejercicio_rss.R;
 
-import data.ArticleContract;
+import data.ArticlesContract;
+import data.ArticlesContract.Articles;
+import data.ArticlesDbHelper;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.text.format.DateUtils;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 // SimpleAdapter con el proceso de inicialización
-public class ArticlesAdapter extends SimpleAdapter {
+public class ArticlesAdapter extends SimpleCursorAdapter {
 
     // Correspondencia del HashMap con los ids de los objetos que se muestran:
     // - elementos del Array de HashMaps de eventos (from)
     // - elementos del diseño en XML de cada una de las filas (to)
-    private static final String[] FROM = new String[] {ArticleContract.TITLE, ArticleContract.DATE};
+    private static final String[] FROM = new String[] {ArticlesContract.Articles.TITLE, ArticlesContract.Articles.PUB_DATE};
     private static final int[] TO = new int[]{R.id.article_row_title, R.id.article_row_date};
     
 	private Context context;
     
-	// Constructor: recibe dos únicos parámetros
+	// Constructor: recibe un único
 	//   - Contexto que se tiene que pasar cuando se instancia
-	//   - Lista de elementos que queremos mostrar
-	public ArticlesAdapter(Context context, List<? extends Map<String, ?>> data) {
+	public ArticlesAdapter(Context context) {
 		
 		// Llamamos al super utilizando lo que hemos definido como constantes
 		// El layout que se pasa es el que hemos definido para una línea de artículo
-		super(context, data, R.layout.article_row, FROM, TO);
+		super(context, R.layout.article_row, null, FROM, TO, FLAG_REGISTER_CONTENT_OBSERVER);
 		
 		this.context = context;
+		initArticlesCursor(context);
 	}
 	
+	private void initArticlesCursor(Context context) {
+		
+		// Para obtener el cursor, montamos una query
+        final ArticlesDbHelper helper = new ArticlesDbHelper(context);
+        // Obtener la BD en modo lectura, para obtener el cursor, ya que los datos ya están insertados
+        final SQLiteDatabase db = helper.getReadableDatabase();
+		
+		String table = Articles.TABLE_NAME;
+		String[] columns = new String[] { Articles._ID, Articles.TITLE, Articles.PUB_DATE};
+		String selection = null;
+		String[] selectionArgs = null;
+		String orderBy = Articles.TITLE + " DESC";
+		String groupBy = null;
+		String having = null;
+		Cursor cursor = db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
+		
+		this.swapCursor(cursor);
+	}
+
 	// Método que se utiliza para mostrar campos de texto
 	@Override
 	public void setViewText(TextView v, String text) {

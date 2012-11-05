@@ -1,10 +1,5 @@
 package com.merybere.apps.ejercicio_rss;
 
-import java.util.HashMap;
-
-import data.ArticleContract;
-import data.DummyArticles;
-
 import widget.ArticlesAdapter;
 
 import android.app.ListActivity;
@@ -14,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.ListView;
 import app.AppIntent;
 
@@ -25,7 +19,7 @@ public class ArticleListActivity extends ListActivity {
 		
 		super.onCreate(savedInstanceState);
 		
-		final ArticlesAdapter adapter = new ArticlesAdapter(this, new DummyArticles());
+		final ArticlesAdapter adapter = new ArticlesAdapter(this);
 		
 		// Layout de la activity
 		setListAdapter(adapter);
@@ -34,14 +28,7 @@ public class ArticleListActivity extends ListActivity {
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		
-		// Cargar la activity del detalle de artículo
-		final Adapter adapter = l.getAdapter();
-		
-		HashMap<String,Object> article = (HashMap) adapter.getItem(position);
-		
-		final String title = (String) article.get(ArticleContract.TITLE);
-		
-		Intent intent = AppIntent.getArticleIntent(title);
+		Intent intent = AppIntent.getArticleDetailIntent(id);
 		
 		startActivity(intent);
 	}
