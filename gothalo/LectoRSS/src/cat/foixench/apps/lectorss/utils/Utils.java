@@ -2,8 +2,10 @@ package cat.foixench.apps.lectorss.utils;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.text.format.DateUtils;
 
 public class Utils {
 	/**
@@ -23,6 +25,17 @@ public class Utils {
     	}
     	return strVersion;
     	
+    	
+    }
+    
+    public static String millisToDate (Context context, long millis) {
+    	
+    	return (String) DateUtils.getRelativeTimeSpanString (context, millis);
+    	
+    }
+    public static String millisToDate (Context context, String millis) {
+    	
+    	return Utils.millisToDate (context, Long.parseLong (millis));
     	
     }
 }

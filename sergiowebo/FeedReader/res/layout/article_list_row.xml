@@ -1,43 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:orientation="horizontal" >
+	
+	<ImageView
+	 android:id="@+id/feed_image"
+	 android:layout_width="wrap_content"
+	 android:layout_height="wrap_content"
+	 android:src="@drawable/ic_launcher"
+	 android:layout_margin="8dp" />
+	
+	<LinearLayout
+	 android:layout_width="fill_parent"
+	 android:layout_height="wrap_content"
+	 android:layout_marginBottom="5dp"
+	 android:layout_marginTop="5dp"
+	 android:orientation="vertical"
+	 android:paddingLeft="0px"
+	 android:paddingRight="5dp" >
+			
+		<TextView
+		 android:id="@+id/title"
+		 android:layout_width="wrap_content"
+		 android:layout_height="wrap_content"
+		 android:textSize="20dp"/>
+		
+		<TextView
+		 android:id="@+id/author"
+		 android:layout_width="wrap_content"
+		 android:layout_height="wrap_content"
+		 android:layout_marginTop="4dp"
+		 android:textSize="15dp" />
+		 
+		<TextView
+		 android:id="@+id/date"
+		 android:layout_width="wrap_content"
+		 android:layout_height="wrap_content"
+		 android:textSize="15dp"/>
+		
+	 </LinearLayout>
 
- 
-    <!-- Title Of Song-->
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rihanna Love the way lie"
-        android:textColor="#040404"
-        android:typeface="sans"
-        android:textSize="15dip"
-        android:textStyle="bold"/>
- 
-    <!-- Artist Name -->
-    <TextView
-        android:id="@+id/author"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/title"
-        android:textColor="#343434"
-        android:textSize="10dip"
-        android:layout_marginTop="1dip"
-        android:text="Just gona stand there and ..." />
- 
-    <!-- Rightend Duration -->
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/title"
-        android:gravity="right"
-        android:text="5:45"
-        android:layout_marginRight="5dip"
-        android:textSize="10dip"
-        android:textColor="#10bcc9"
-        android:textStyle="bold"/>
-
-</RelativeLayout>
+</LinearLayout>

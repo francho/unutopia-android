@@ -4,6 +4,8 @@ import cat.foixench.apps.lectorss.db.RssContract.FeedsTable;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.format.Time;
+import android.util.Log;
 
 public class RssDbHelper extends SQLiteOpenHelper {
 	
@@ -24,25 +26,57 @@ public class RssDbHelper extends SQLiteOpenHelper {
 		String strQuery = "CREATE TABLE " + FeedsTable.TABLE_NAME + " "
 				        + "(" + FeedsTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT "
 				        + "," + FeedsTable.COLUMN_TITLE + " TEXT " 
-				        + "," + FeedsTable.COLUMN_DESCRIPTION + " TEXT "
+				        + "," + FeedsTable.COLUMN_AUTHOR + " TEXT "
 				        + "," + FeedsTable.COLUMN_LINK + " TEXT "
 				        + "," + FeedsTable.COLUMN_PUB_DATE + " DATE "
-				        + "," + FeedsTable.COLUMN_CONTENT + " TEXT "
+				        + "," + FeedsTable.COLUMN_DESCRIPTION + " TEXT "
 				        + ")";
 		
 		db.execSQL(strQuery);
 		
 		
 		
+		Time ahora = new Time ();
+		ahora.setToNow();
+		
 		// insertamos los valores iniciales de la base de datos, para tener
-		String [] queryArgs = new String [] {"Titulo 01", "Una descripci—n del trasto.", "http://www.gothalo.net", "2012-11-01 00:00:00.000", "contenido"};
+		String [] queryArgs = new String [] {"Titulo 01"
+				 						   , "Perico de los palotes"
+				 						   , "http://www.gothalo.net"
+				 						   , Long.valueOf (ahora.toMillis (true)).toString ()
+				 						   , "contenido del post. aqui se supone que deberia ir un titulo muy laaaaaaaaaaaaaaaargo, pero no tengo muchas ganas de hacer cositas."};
+		
 		strQuery = "INSERT INTO " + FeedsTable.TABLE_NAME 
 				 + " (" 
 				 + FeedsTable.COLUMN_TITLE + ", " 
-				 + FeedsTable.COLUMN_DESCRIPTION + ", "
+				 + FeedsTable.COLUMN_AUTHOR + ", "
 				 + FeedsTable.COLUMN_LINK + ", "
 				 + FeedsTable.COLUMN_PUB_DATE + ", "
-				 + FeedsTable.COLUMN_CONTENT 
+				 + FeedsTable.COLUMN_DESCRIPTION
+				 + ") "
+				 + "VALUES (?, ?, ?, ?, ?)";
+		
+		db.execSQL(strQuery, queryArgs);
+		
+		// fijamos la fecha del articulo en 01/11/2012 15:30:00)
+		ahora.set (0, 30, 15, 1, 10, 2012);
+		
+		
+		Log.d ("DATABASE", ahora.toString ());
+		
+		queryArgs = new String [] {"Titulo 02"
+								 , "John Doe"
+								 , "http://www.foo.net"
+								 , Long.valueOf (ahora.toMillis (true)).toString ()
+								 , "otro post. este para ver como van algunas de las cositas que hemos hecho."};
+		
+		strQuery = "INSERT INTO " + FeedsTable.TABLE_NAME 
+				 + " (" 
+				 + FeedsTable.COLUMN_TITLE + ", " 
+				 + FeedsTable.COLUMN_AUTHOR + ", "
+				 + FeedsTable.COLUMN_LINK + ", "
+				 + FeedsTable.COLUMN_PUB_DATE + ", "
+				 + FeedsTable.COLUMN_DESCRIPTION
 				 + ") "
 				 + "VALUES (?, ?, ?, ?, ?)";
 		

@@ -2,6 +2,7 @@ package com.webo.FeedReader;
 
 public class ArticleItem {
     
+	private long id;
 	private String title;
 	private String author;
 	private String date;
@@ -9,6 +10,10 @@ public class ArticleItem {
     
     public ArticleItem(){
         super();
+    }
+    
+    public long getId(){
+    	return id;
     }
     
     public String getTitle(){
@@ -35,8 +40,9 @@ public class ArticleItem {
     	this.date = date;
     }
     
-    public ArticleItem(String title, String author, String date) {
+    public ArticleItem(long id,String title, String author, String date) {
         super();
+        this.id = id;
         this.title = title;
         this.author = author;
         this.date = date;

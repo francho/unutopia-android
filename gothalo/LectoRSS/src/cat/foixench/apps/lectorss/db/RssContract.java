@@ -29,7 +29,7 @@ public class RssContract {
 		public static final String COLUMN_LINK = "link";
 		public static final String COLUMN_PUB_DATE = "pubDate";
 		public static final String COLUMN_DESCRIPTION = "description";
-		public static final String COLUMN_CONTENT = "content";
+		public static final String COLUMN_AUTHOR = "author";
 		
 	}
 
