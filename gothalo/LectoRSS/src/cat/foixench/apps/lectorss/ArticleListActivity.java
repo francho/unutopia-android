@@ -1,6 +1,6 @@
 package cat.foixench.apps.lectorss;
 
-import cat.foixench.apps.lectorss.db.RssDbHelper;
+import cat.foixench.apps.lectorss.db.RssContract;
 import cat.foixench.apps.lectorss.db.RssContract.FeedsTable;
 import cat.foixench.apps.lectorss.utils.LectoRSSInterface;
 import cat.foixench.apps.lectorss.widget.FeedsAdapter;
@@ -8,7 +8,7 @@ import cat.foixench.apps.lectorss.widget.FeedsAdapter;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +16,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ArticleListActivity extends ListActivity implements LectoRSSInterface{
+public class ArticleListActivity extends ListActivity implements LectoRSSInterface {
 
 	
 	private FeedsAdapter adapter;
@@ -49,8 +49,7 @@ public class ArticleListActivity extends ListActivity implements LectoRSSInterfa
 	@Override
 	protected void onStart() {
 		super.onStart();
-		
-		adapter.changeCursor(this.getFeeds());
+		adapter.swapCursor(this.getFeeds());
 		
 	}
 
@@ -61,8 +60,7 @@ public class ArticleListActivity extends ListActivity implements LectoRSSInterfa
 	@Override
 	protected void onStop() {
 		super.onStop();
-		
-		adapter.changeCursor(null);
+		adapter.swapCursor(null);
 	}
 
 
@@ -125,22 +123,36 @@ public class ArticleListActivity extends ListActivity implements LectoRSSInterfa
 
 	}
 	
+//	private Cursor getFeeds () {
+//	
+//		// recuperamos la base de datos mediante el helper de la bbdd.
+//		RssDbHelper helper = new RssDbHelper(this);
+//		SQLiteDatabase db = helper.getReadableDatabase();
+//		
+//		// parametros de la table
+//		String table = FeedsTable.TABLE_NAME;
+//		String [] columns = new String [] {FeedsTable._ID, FeedsTable.COLUMN_TITLE, FeedsTable.COLUMN_AUTHOR, FeedsTable.COLUMN_PUB_DATE};
+//		String selection = null;
+//		String [] selectionArgs = null;
+//		String groupBy = null;
+//		String having = null;
+//		String orderBy = FeedsTable.COLUMN_PUB_DATE + " DESC";
+//		
+//		return db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
+//	}
+
 	private Cursor getFeeds () {
-	
-		// recuperamos la base de datos mediante el helper de la bbdd.
-		RssDbHelper helper = new RssDbHelper(this);
-		SQLiteDatabase db = helper.getReadableDatabase();
 		
+		//LectoRSSContentProvider lectorssData = new LectoRSSContentProvider();
 		
-		// parametros de la table
-		String table = FeedsTable.TABLE_NAME;
-		String [] columns = new String [] {FeedsTable._ID, FeedsTable.COLUMN_TITLE, FeedsTable.COLUMN_AUTHOR, FeedsTable.COLUMN_PUB_DATE};
-		String selection = null;
-		String [] selectionArgs = null;
-		String groupBy = null;
-		String having = null;
-		String orderBy = FeedsTable.COLUMN_PUB_DATE + " DESC";
+		Cursor cursor;
+		Uri uri = RssContract.FeedsTable.getUri();
+		String projection [] = new String [] {FeedsTable._ID, FeedsTable.COLUMN_TITLE, FeedsTable.COLUMN_AUTHOR, FeedsTable.COLUMN_PUB_DATE};
+		String sortOrder = FeedsTable.COLUMN_PUB_DATE + " DESC";
+				
 		
-		return db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
+		cursor = getContentResolver().query (uri, projection, null, null, sortOrder);
+		
+		return cursor;
 	}
 }

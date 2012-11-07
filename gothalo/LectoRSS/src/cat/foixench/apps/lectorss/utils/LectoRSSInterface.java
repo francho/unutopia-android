@@ -31,4 +31,9 @@ public interface LectoRSSInterface {
 	final static String PARAM_TITLE = "titulo"; 
 	final static String PARAM_AUTHOR = "autor";
 	final static String PARAM_DATE = "fecha";
+	
+	/**
+	 * identificadores de callbacks de carga
+	 */
+	final static int LOADER_LECTORSS_CONTENT_PROVIDER = 1;
 }
