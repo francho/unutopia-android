@@ -106,6 +106,71 @@ public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> 
 		cursor.close();		
 	}
 
+	// Test de select de varios registros:
+	//   - tras insertar un dato nuevo devolverá una uri única
+	//   - el test consiste en consultar por la uri de la colección de datos, y que devuelva 
+	//     todos los registros que cumplen la cláusula where
+	public void testSelectLike() {
+		// Necesitamos un objeto ContentValues, cargar en él los datos que queremos insertar
+		ContentValues values = new ContentValues();
+		values.put(MembersContract.UsersTable.USERNAME, "Clark Kent");
+		values.put(MembersContract.UsersTable.EMAIL, "super@man.com");
+		
+		// Necesitamos una uri, a la que pasarle los valores y tiene que hacer el insert
+		Uri uri = UsersTable.getUri();
+		
+		// Llamada al insert, que devolverá una uri de registro único
+		Uri newUri = mContentResolver.insert(uri, values);
+		
+		// Comprobación de que newUri es correcta
+		assertNotNull(newUri);
+		
+		// Limpiamos el ContentValues para reutilizarlo
+		values.clear();
+		values.put(MembersContract.UsersTable.USERNAME, "James Bond");
+		values.put(MembersContract.UsersTable.EMAIL, "james@bond.com");
+		
+		// Llamada al insert, que devolverá una uri de registro único
+		newUri = mContentResolver.insert(uri, values);
+		
+		// Comprobación de que newUri es correcta
+		assertNotNull(newUri);
+		
+		// Limpiamos el ContentValues para reutilizarlo
+		values.clear();
+		values.put(MembersContract.UsersTable.USERNAME, "Bilbo Bolson");
+		values.put(MembersContract.UsersTable.EMAIL, "bilbo@bolson.es");
+		
+		// Llamada al insert, que devolverá una uri de registro único
+		newUri = mContentResolver.insert(uri, values);
+		
+		// Comprobación de que newUri es correcta
+		assertNotNull(newUri);
+		
+		String selection = UsersTable.EMAIL + " LIKE '%.com'";
+		// Lanzar una query con esa uri, que devuelva todos los campos, sin límites de selección ni
+		// argumentos ni ordenación, que devuelva un cursor para acceder a los datos que cumplen el where
+		String sortOrder = "_ID";
+		Cursor cursor = mContentResolver.query(uri, null, selection, null, sortOrder );
+		
+		// Comprobación para asegurarse de que el número de filas del cursor es 2
+		assertEquals(cursor.getCount(), 2);
+		
+		cursor.moveToFirst();
+		// Como en la consulta para obtener el cursor no hemos forzado ningún orden en las columnas,
+		// obtener los campos nombre y email por búsqueda de los índices de esas columnas
+		String email = cursor.getString(cursor.getColumnIndex(UsersTable.EMAIL));
+
+		assertEquals("super@man.com", email);
+		
+		// Mover el cursor al segundo registro
+		cursor.moveToNext();
+		email = cursor.getString(cursor.getColumnIndex(UsersTable.EMAIL));
+		assertEquals("james@bond.com", email);
+		
+		cursor.close();		
+	}
+	
 	// Test de borrado de un registro de la tabla
 	public void testDeleteOne() {
 		// Necesitamos un objeto ContentValues, cargar en él los datos que queremos insertar
@@ -134,11 +199,6 @@ public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> 
 		values.put(MembersContract.UsersTable.USERNAME, "Clark Kent");
 		values.put(MembersContract.UsersTable.EMAIL, "super@man.com");
 		
-		// Necesitamos un objeto ContentValues, cargar en él los datos que queremos insertar
-		ContentValues values2 = new ContentValues();
-		values2.put(MembersContract.UsersTable.USERNAME, "James Bond");
-		values2.put(MembersContract.UsersTable.EMAIL, "james@bond.com");
-		
 		// Necesitamos una uri, a la que pasarle los valores y tiene que hacer el insert
 		Uri uri = UsersTable.getUri();
 		
@@ -148,8 +208,13 @@ public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> 
 		// Comprobación de que newUri es correcta
 		assertNotNull(newUri);
 		
+		// Limpiamos el ContentValues para reutilizarlo
+		values.clear();
+		values.put(MembersContract.UsersTable.USERNAME, "James Bond");
+		values.put(MembersContract.UsersTable.EMAIL, "james@bond.com");
+		
 		// Llamada al insert, que devolverá una uri de registro único
-		newUri = mContentResolver.insert(uri, values2);
+		newUri = mContentResolver.insert(uri, values);
 		
 		// Comprobación de que newUri es correcta
 		assertNotNull(newUri);

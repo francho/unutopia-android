@@ -131,10 +131,16 @@ public class MyContentProvider extends ContentProvider {
 		// Obtener una bd en modo lectura, para lanzar todas las posibles queries
 		final SQLiteDatabase db = mDbHelper.getReadableDatabase();
 		
+		String table;
+		String groupBy;
+		String having;
+		Cursor cursor;
+		
 		// Cuando llamen a la query, ver de qué tipo es
 		switch(sUriMatcher.match(uri)) {
 		case TYPE_USERS_ITEM:
-			// Del id que nos han pasado en la uri, quedarnos con la última parte (es una cadena)
+			// Del id que nos han pasado en la uri, quedarnos con la última parte
+			// (es una cadena de texto con el id del registro)
 			String id = uri.getLastPathSegment();
 			
 			// Si ya han pasado una cláusula where en el parámetro selection, concatenarle un AND,
@@ -148,10 +154,17 @@ public class MyContentProvider extends ContentProvider {
 			selection += UsersTable._ID + "==" + id;
 			
 			// Montar la query
-			String table = UsersTable.TABLE_NAME;
-			String groupBy = null;
-			String having = null;
-			Cursor cursor = db.query(table, projection, selection, selectionArgs, groupBy, having, sortOrder);
+			table = UsersTable.TABLE_NAME;
+			groupBy = null;
+			having = null;
+			cursor = db.query(table, projection, selection, selectionArgs, groupBy, having, sortOrder);
+			return cursor;
+		case TYPE_USERS_COLLECTION: 
+			// Montar la query
+			table = UsersTable.TABLE_NAME;
+			groupBy = null;
+			having = null;
+			cursor = db.query(table, projection, selection, selectionArgs, groupBy, having, sortOrder);
 			return cursor;
 		default:
 			return null;
