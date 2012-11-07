@@ -6,6 +6,7 @@ import com.webo.FeedReader.data.DB;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +17,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 
-public class ArticleListActivity extends Activity {
+public class ArticleListActivity extends ListActivity {
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
