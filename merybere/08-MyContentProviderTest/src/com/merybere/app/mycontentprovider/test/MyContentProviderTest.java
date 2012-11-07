@@ -126,7 +126,41 @@ public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> 
 		
 		assertEquals(1, dels);
 	}
+
+	// Test de borrado de todos los registros de la tabla
+	public void testDeleteAll() {
+		// Necesitamos un objeto ContentValues, cargar en él los datos que queremos insertar
+		ContentValues values = new ContentValues();
+		values.put(MembersContract.UsersTable.USERNAME, "Clark Kent");
+		values.put(MembersContract.UsersTable.EMAIL, "super@man.com");
+		
+		// Necesitamos un objeto ContentValues, cargar en él los datos que queremos insertar
+		ContentValues values2 = new ContentValues();
+		values2.put(MembersContract.UsersTable.USERNAME, "James Bond");
+		values2.put(MembersContract.UsersTable.EMAIL, "james@bond.com");
+		
+		// Necesitamos una uri, a la que pasarle los valores y tiene que hacer el insert
+		Uri uri = UsersTable.getUri();
+		
+		// Llamada al insert, que devolverá una uri de registro único
+		Uri newUri = mContentResolver.insert(uri, values);
+		
+		// Comprobación de que newUri es correcta
+		assertNotNull(newUri);
+		
+		// Llamada al insert, que devolverá una uri de registro único
+		newUri = mContentResolver.insert(uri, values2);
+		
+		// Comprobación de que newUri es correcta
+		assertNotNull(newUri);
+		
+		// Para borrar toda la tabla, pasar un 1 en la cláusula where
+		int dels = mContentResolver.delete(uri, "1", null);
+		
+		assertEquals(2, dels);
+	}
 	
+	// Test actualizar un registro
 	public void testUpdate() {
 		// Necesitamos un objeto ContentValues, cargar en él los datos que queremos insertar
 		ContentValues values = new ContentValues();

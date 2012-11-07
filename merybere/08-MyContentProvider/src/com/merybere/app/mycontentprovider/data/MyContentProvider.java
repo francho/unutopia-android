@@ -71,9 +71,11 @@ public class MyContentProvider extends ContentProvider {
 		// Obtener la BD en modo escritura
 		final SQLiteDatabase db = mDbHelper.getWritableDatabase();
 		int numRows;
-		
+					
 		switch(uriType) {
 		case TYPE_USERS_ITEM:
+			String id = uri.getLastPathSegment();
+			
 			// Si ya han pasado una cláusula where en el parámetro selection, concatenarle un AND,
 			// para poder añadirle nuestra condición con el id de la uri
 			if(!TextUtils.isEmpty(selection)) {
@@ -82,9 +84,12 @@ public class MyContentProvider extends ContentProvider {
 				// Si el where era nulo, asignarle cadena vacía para que al concatenarlo no use el null
 				selection = "";
 			}
-			String id = uri.getLastPathSegment();
+			
 			selection += UsersTable._ID + "==" + id;
 			// Delete (si funciona, devolverá un id, el autoincremental)
+			numRows = db.delete(UsersTable.TABLE_NAME, selection, selectionArgs);
+			return numRows;
+		case TYPE_USERS_COLLECTION: 
 			numRows = db.delete(UsersTable.TABLE_NAME, selection, selectionArgs);
 			return numRows;
 		default:
