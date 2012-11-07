@@ -3,7 +3,8 @@ package carloscsanchezperez.gmail.sixpackon;
 import static android.provider.BaseColumns._ID;
 import static carloscsanchezperez.gmail.sixpackon.Constants.AUTHORITY;
 import static carloscsanchezperez.gmail.sixpackon.Constants.CONTENT_URI;
-import static carloscsanchezperez.gmail.sixpackon.Constants.TABLE_NAME;
+
+import carloscsanchezperez.gmail.sixpackon.MembersContract.FeedsTable;
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -52,7 +53,7 @@ public class EventsProvider extends ContentProvider {
 
       // Get the database and run the query
       SQLiteDatabase db = events.getReadableDatabase();
-      Cursor cursor = db.query(TABLE_NAME, projection, selection,
+      Cursor cursor = db.query(FeedsTable.TABLE_NAME, projection, selection,
             selectionArgs, null, null, orderBy);
 
       // Tell the cursor what uri to watch, so it knows when its
@@ -88,7 +89,7 @@ public class EventsProvider extends ContentProvider {
       }
 
       // Insert into database
-      long id = db.insertOrThrow(TABLE_NAME, null, values);
+      long id = db.insertOrThrow(FeedsTable.TABLE_NAME, null, values);
 
       // Notify any watchers of the change
       Uri newUri = ContentUris.withAppendedId(CONTENT_URI, id);
@@ -105,11 +106,11 @@ public class EventsProvider extends ContentProvider {
       int count;
       switch (uriMatcher.match(uri)) {
       case EVENTS:
-         count = db.delete(TABLE_NAME, selection, selectionArgs);
+         count = db.delete(FeedsTable.TABLE_NAME, selection, selectionArgs);
          break;
       case EVENTS_ID:
          long id = Long.parseLong(uri.getPathSegments().get(1));
-         count = db.delete(TABLE_NAME, appendRowId(selection, id),
+         count = db.delete(FeedsTable.TABLE_NAME, appendRowId(selection, id),
                selectionArgs);
          break;
       default:
@@ -130,12 +131,12 @@ public class EventsProvider extends ContentProvider {
       int count;
       switch (uriMatcher.match(uri)) {
       case EVENTS:
-         count = db.update(TABLE_NAME, values, selection,
+         count = db.update(FeedsTable.TABLE_NAME, values, selection,
                selectionArgs);
          break;
       case EVENTS_ID:
          long id = Long.parseLong(uri.getPathSegments().get(1));
-         count = db.update(TABLE_NAME, values, appendRowId(
+         count = db.update(FeedsTable.TABLE_NAME, values, appendRowId(
                selection, id), selectionArgs);
          break;
       default:

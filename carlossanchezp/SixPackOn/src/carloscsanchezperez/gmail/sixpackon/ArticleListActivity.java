@@ -35,8 +35,6 @@ public class ArticleListActivity extends ListActivity {
 		final FeedsAdapter adapter = new FeedsAdapter(this);
 
 		setListAdapter(adapter);
-	
-		
 
 	}
 	
