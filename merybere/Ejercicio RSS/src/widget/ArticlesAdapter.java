@@ -3,7 +3,6 @@ package widget;
 import com.merybere.apps.ejercicio_rss.R;
 
 import data.ArticlesContract;
-import data.ArticlesContract.Articles;
 import data.ArticlesDbHelper;
 
 import android.content.Context;
@@ -43,15 +42,17 @@ public class ArticlesAdapter extends SimpleCursorAdapter {
         // Obtener la BD en modo lectura, para obtener el cursor, ya que los datos ya están insertados
         final SQLiteDatabase db = helper.getReadableDatabase();
 		
-		String table = Articles.TABLE_NAME;
-		String[] columns = new String[] { Articles._ID, Articles.TITLE, Articles.PUB_DATE};
+        // Crear la consulta que nos devuelve los datos a mostrar
+		String table = ArticlesContract.Articles.TABLE_NAME;
+		String[] columns = new String[] { ArticlesContract.Articles._ID, ArticlesContract.Articles.TITLE, ArticlesContract.Articles.PUB_DATE};
 		String selection = null;
 		String[] selectionArgs = null;
-		String orderBy = Articles.TITLE + " DESC";
+		String orderBy = ArticlesContract.Articles.PUB_DATE + " DESC";
 		String groupBy = null;
 		String having = null;
 		Cursor cursor = db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
 		
+		// Cambiar el cursor que tenía (null) por el cursor actual que tiene los datos que se van a mostrar
 		this.swapCursor(cursor);
 	}
 

@@ -63,6 +63,7 @@ public class ArticleDetailActivity extends Activity {
 		final Long date_article = cursor.getLong(cursor.getColumnIndex(Articles.PUB_DATE));
 		date_article_view.setText(DateUtils.getRelativeTimeSpanString(date_article));
 		
+		// Una vez que se ha acabado de utilizar el cursor, hay que cerrarlo para liberar
 		cursor.close();
 	}
 

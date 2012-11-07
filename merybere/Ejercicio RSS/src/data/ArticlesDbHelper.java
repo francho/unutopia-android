@@ -1,7 +1,5 @@
 package data;
 
-import data.ArticlesContract.Articles;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -10,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class ArticlesDbHelper extends SQLiteOpenHelper {
 
 	// Versión de la base de datos
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 4;
 
 	// Constructor público que recibe como parámetro el contexto
 	public ArticlesDbHelper(Context context) {
@@ -37,16 +35,16 @@ public class ArticlesDbHelper extends SQLiteOpenHelper {
 
 	private void createTableArticles(SQLiteDatabase db) {
 		// Si la tabla ya existe, eliminarla; así se puede utilizar este método también en el Upgrade
-		db.execSQL("DROP TABLE IF EXISTS " + Articles.TABLE_NAME);
+		db.execSQL("DROP TABLE IF EXISTS " + ArticlesContract.Articles.TABLE_NAME);
 		
 		// Creación de la tabla Artículos
-		db.execSQL("CREATE TABLE " + Articles.TABLE_NAME + "("
-					+ Articles._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-					+ Articles.TITLE + " STRING,"
-					+ Articles.LINK + " STRING,"
-					+ Articles.PUB_DATE + " LONG,"
-					+ Articles.DESCRIPTION + " TEXT,"
-					+ Articles.CONTENT + " TEXT"
+		db.execSQL("CREATE TABLE " + ArticlesContract.Articles.TABLE_NAME + "("
+					+ ArticlesContract.Articles._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+					+ ArticlesContract.Articles.TITLE + " STRING,"
+					+ ArticlesContract.Articles.LINK + " STRING,"
+					+ ArticlesContract.Articles.PUB_DATE + " LONG,"
+					+ ArticlesContract.Articles.DESCRIPTION + " TEXT,"
+					+ ArticlesContract.Articles.CONTENT + " TEXT"
 					+ ")"
 					);
 		
