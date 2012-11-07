@@ -79,14 +79,10 @@ public class MyContentProvider extends ContentProvider {
 		switch(sUriMatcher.match(uri)) {
 		case TYPE_USERS_ITEM:
 			String id = uri.getLastPathSegment();
-			
-			if(!TextUtils.isEmpty(selection)) {
-				selection += " AND";
-			} else {
-				selection = "";
-			}
+			if(selection==null) { selection = ""; } 
+			selection += (!TextUtils.isEmpty(selection)) ? " AND" : "";
 			selection += UsersTable._ID + "==" + id;
-			
+		case TYPE_USERS_COLLECTION:
 			String table = UsersTable.TABLE_NAME;
 			String groupBy = null;
 			String having = null;
