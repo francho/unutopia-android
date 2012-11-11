@@ -13,18 +13,45 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".SplashActivity"
-            android:label="@string/title_activity_main"
             android:excludeFromRecents="false"    
-            android:noHistory="true" 
-            android:theme="@style/AppTheme.NoTitleBar" 
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoTitleBar"  
             android:configChanges="orientation|keyboardHidden">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />		    
+                <action android:name="android.intent.action.MAIN" />
+                		    
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ArticleListActivity">  </activity>
-        <activity android:name=".AboutActivity">  </activity>
+        <activity
+            android:name=".ArticleListActivity"
+            android:clearTaskOnLaunch="true"
+            android:exported="false" 
+            android:configChanges="orientation|keyboardHidden">
+            <intent-filter>
+                <action android:name="unutopia.intent.action.LIST_ARTICLES" />
+                
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".AboutActivity">  
+            <intent-filter>
+                <action android:name="unutopia.intent.action.ABOUT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".ArticleActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="unutopia.intent.action.VIEW_ARTICLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
                     
     </application>
 

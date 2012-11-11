@@ -22,15 +22,34 @@
         </activity>
         <activity
             android:name=".AboutActivity"
-            android:label="@string/title_activity_about" >
+            android:label="@string/title_activity_about"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="sixpackon.intent.category.ABOUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            
         </activity>
         <activity
             android:name=".ArticleListActivity"
-            android:label="@string/title_activity_splash" >
+            android:label="@string/title_activity_splash" 
+            android:clearTaskOnLaunch="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="sixpackon.intent.category.LIST_ARTICLES" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            
+            
         </activity>
         <activity
             android:name=".ArticleDetailActivity"
-            android:label="@string/title_activity_articledetail">
+            android:label="@string/title_activity_articledetail"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="sixpackon.intent.category.VIEW_ARTICLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         
         </application>

@@ -19,14 +19,48 @@
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbars="horizontal|vertical" >
     
-	     <TextView
-	        android:id="@+id/detail_title"
-	        android:text="@+id/detail_title"
-	        android:textSize="@dimen/text_normal"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_marginRight="5dp" />
-    
+         
+
+         <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                
+                android:textColor="@color/default_color"
+                android:textSize="@dimen/text_normal" />
+         
+         <TextView
+                android:id="@+id/link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                
+                android:textColor="@color/default_color"
+                android:textSize="@dimen/text_normal" />
+ 
+         
+         <TextView
+                android:id="@+id/pubDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                
+                android:textColor="@color/default_color"
+                android:textSize="@dimen/text_normal" />
+ 
+         <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                
+                android:textColor="@color/default_color"
+                android:textSize="@dimen/text_normal" />
+         <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                
+                android:textColor="@color/default_color"
+                android:textSize="@dimen/text_normal" />
+         	     
     </LinearLayout>
 	
 </RelativeLayout>

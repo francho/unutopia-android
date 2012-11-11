@@ -4,10 +4,20 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_aboutscreen">About</string>
     <string name="title_activity_articlelist">Article List</string>
+    <string name="title_activity_articledetail">Article Detail</string>
     <string name="splash_loading_msg">Loading &#8230;</string>
     <string name="splash_loading_footer">unutopia-android 2012</string>
 	<string name="about_screen_footer">unutopia-android 2012</string>
 	<string name="about_screen_version">1.0</string>
 	<string name="about_screen_details">Lector de noticias RSS</string>
 	<string name="aboutscreen_button">OK</string>
+	
+	
+	    <string-array name="datos">
+        <item>Madrid</item>
+        <item>Barcelona</item>
+        <item>Zaragoza</item>
+        <item>Huesca</item>
+        <item>Teruel</item>
+    </string-array>
 </resources>

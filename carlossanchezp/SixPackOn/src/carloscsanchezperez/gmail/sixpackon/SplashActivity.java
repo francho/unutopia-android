@@ -1,8 +1,5 @@
 package carloscsanchezperez.gmail.sixpackon;
 
-
-
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.CountDownTimer;
@@ -10,10 +7,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
-
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.view.MenuItem;
 
@@ -29,6 +26,7 @@ public class SplashActivity extends Activity {
 	private final long interval = 1000;
 	private CspCountDownTimer countDownTimer;
 	private long timeElapsed;
+	private SimpleCursorAdapter adapter;
 	
 	
 	private final Handler progressHandler = new Handler() {
@@ -45,6 +43,8 @@ public class SplashActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
+        
+        
         setContentView(R.layout.splash);
         
         
@@ -53,6 +53,13 @@ public class SplashActivity extends Activity {
         countDownTimer = new CspCountDownTimer(startTime, interval);
         countDownTimer.start();
         // --------------------------------------------------------------
+        
+ 	
+		
+		
+       
+        
+        //--------------------------------------------------------------
         View continueButton = findViewById(R.id.button1);
         continueButton.setOnClickListener(new OnClickListener() {
 
@@ -144,6 +151,8 @@ public class SplashActivity extends Activity {
 					timeElapsed = startTime - millisUntilFinished;
 				}
 		}
+
+
 
 	@Override
 	protected void onPause() {
