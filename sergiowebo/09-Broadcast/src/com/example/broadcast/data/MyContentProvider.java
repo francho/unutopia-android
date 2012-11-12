@@ -1,6 +1,6 @@
-package org.francho.unutopia.mycontenterprovider.data;
+package com.example.broadcast.data;
 
-import org.francho.unutopia.mycontenterprovider.data.MembersContract.UsersTable;
+import com.example.broadcast.data.CallsContract.UsersTable;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -22,8 +22,8 @@ public class MyContentProvider extends ContentProvider {
 	static {
 		sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 		
-		sUriMatcher.addURI(MembersContract.AUTHORITY, "users", TYPE_USERS_COLLECTION);
-		sUriMatcher.addURI(MembersContract.AUTHORITY, "users/#", TYPE_USERS_ITEM);
+		sUriMatcher.addURI(CallsContract.AUTHORITY, "calls", TYPE_USERS_COLLECTION);
+		sUriMatcher.addURI(CallsContract.AUTHORITY, "calls/#", TYPE_USERS_ITEM);
 	}
 	
 	
@@ -37,9 +37,9 @@ public class MyContentProvider extends ContentProvider {
 	public String getType(Uri uri) {
 		switch(sUriMatcher.match(uri)) {
 		case TYPE_USERS_COLLECTION:
-			return "android.cursor.dir/vnd.org.francho.unutopia.mycontentprovider.users";
+			return "android.cursor.dir/vnd.com.example.broadcast.calls";
 		case TYPE_USERS_ITEM:
-			return "android.cursor.item/vnd.org.francho.unutopia.mycontentprovider.users";
+			return "android.cursor.item/vnd.com.example.broadcast.calls";
 		default:
 			return null;
 		}
@@ -47,8 +47,26 @@ public class MyContentProvider extends ContentProvider {
 	
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
-		// TODO Auto-generated method stub
-		return 0;
+		final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+		int rowsDeleted = 0;
+		int uriType = sUriMatcher.match(uri);
+		
+		switch(sUriMatcher.match(uri)) {
+		case TYPE_USERS_COLLECTION:
+			rowsDeleted = db.delete(UsersTable.TABLE_NAME, selection, selectionArgs);
+			break;
+		case TYPE_USERS_ITEM:
+			String id = uri.getLastPathSegment();
+			if (TextUtils.isEmpty(selection)){
+				rowsDeleted = db.delete(UsersTable.TABLE_NAME, UsersTable._ID + "=" + id ,null);
+			} else {
+				rowsDeleted = db.delete(UsersTable.TABLE_NAME, UsersTable._ID + "=" + id + " and " + selection,selectionArgs);
+			}
+		default:
+
+		}	
+		
+		return rowsDeleted;
 	}
 
 	
@@ -79,10 +97,14 @@ public class MyContentProvider extends ContentProvider {
 		switch(sUriMatcher.match(uri)) {
 		case TYPE_USERS_ITEM:
 			String id = uri.getLastPathSegment();
-			if(selection==null) { selection = ""; } 
-			selection += (!TextUtils.isEmpty(selection)) ? " AND" : "";
+			
+			if(!TextUtils.isEmpty(selection)) {
+				selection += " AND";
+			} else {
+				selection = "";
+			}
 			selection += UsersTable._ID + "==" + id;
-		case TYPE_USERS_COLLECTION:
+			
 			String table = UsersTable.TABLE_NAME;
 			String groupBy = null;
 			String having = null;
@@ -97,8 +119,25 @@ public class MyContentProvider extends ContentProvider {
 	@Override
 	public int update(Uri uri, ContentValues values, String selection,
 			String[] selectionArgs) {
-		// TODO Auto-generated method stub
-		return 0;
+		final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+		int rowsUpdated = 0;
+		int uriType = sUriMatcher.match(uri);
+		
+		switch(sUriMatcher.match(uri)) {
+		case TYPE_USERS_COLLECTION:
+			rowsUpdated = db.update(UsersTable.TABLE_NAME, values, selection, selectionArgs);
+			break;
+		case TYPE_USERS_ITEM:
+			String id = uri.getLastPathSegment();
+			if (TextUtils.isEmpty(selection)){
+				rowsUpdated = db.update(UsersTable.TABLE_NAME, values, UsersTable._ID + "=" + id, null);
+			} else {
+				rowsUpdated = db.update(UsersTable.TABLE_NAME, values, UsersTable._ID + "=" + id + " and " + selection, selectionArgs);
+			}
+		default:
+
+		}	
+		return rowsUpdated;
 	}
 
 }

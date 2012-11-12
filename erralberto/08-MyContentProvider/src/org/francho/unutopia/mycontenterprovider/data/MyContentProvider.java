@@ -47,9 +47,51 @@ public class MyContentProvider extends ContentProvider {
 	
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
-		// TODO Auto-generated method stub
-		return 0;
+		int count=0;
+		final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+		switch(sUriMatcher.match(uri)) {
+	      case TYPE_USERS_COLLECTION:
+	        count = db.delete(UsersTable.TABLE_NAME, selection, selectionArgs);
+	        break;
+	      case TYPE_USERS_ITEM:
+	        String id = uri.getPathSegments().get(1);
+	        count = db.delete(UsersTable.TABLE_NAME, UsersTable._ID
+	        + " = "
+	        + id
+	        + (!TextUtils.isEmpty(selection) ? " AND (" + selection
+	        + ')' : ""), selectionArgs);
+	        break;
+	      default:
+	        throw new IllegalArgumentException("Unknown URI " + uri);
+	    }
+	    getContext().getContentResolver().notifyChange(uri, null);
+	    return count;
+
 	}
+	
+	@Override
+	  public int update(Uri uri, ContentValues values, String selection,String[] selectionArgs) {
+		 int count = 0;
+		    final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+		    switch(sUriMatcher.match(uri)) {
+		      case TYPE_USERS_COLLECTION:
+		        count = db.update(UsersTable.TABLE_NAME, values, selection,selectionArgs);
+		        break;
+		      case TYPE_USERS_ITEM:
+		    	  String id = uri.getPathSegments().get(1);
+		    	  count = db.update(UsersTable.TABLE_NAME, values, UsersTable._ID
+		    		        + " = "
+		    		        + id
+		    		        + (!TextUtils.isEmpty(selection) ? " AND (" + selection
+		    		        + ')' : ""), selectionArgs);
+		    	  break;
+		    	  default:
+		    	  throw new IllegalArgumentException("Unknown URI " + uri);
+		    }
+		    getContext().getContentResolver().notifyChange(uri, null);
+		    return count;
+	  }
+	 
 
 	
 
@@ -79,10 +121,14 @@ public class MyContentProvider extends ContentProvider {
 		switch(sUriMatcher.match(uri)) {
 		case TYPE_USERS_ITEM:
 			String id = uri.getLastPathSegment();
-			if(selection==null) { selection = ""; } 
-			selection += (!TextUtils.isEmpty(selection)) ? " AND" : "";
+			
+			if(!TextUtils.isEmpty(selection)) {
+				selection += " AND";
+			} else {
+				selection = "";
+			}
 			selection += UsersTable._ID + "==" + id;
-		case TYPE_USERS_COLLECTION:
+			
 			String table = UsersTable.TABLE_NAME;
 			String groupBy = null;
 			String having = null;
@@ -90,15 +136,6 @@ public class MyContentProvider extends ContentProvider {
 			return cursor;
 		default:
 			return null;
-		}
-		
+		}		
 	}
-
-	@Override
-	public int update(Uri uri, ContentValues values, String selection,
-			String[] selectionArgs) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }
