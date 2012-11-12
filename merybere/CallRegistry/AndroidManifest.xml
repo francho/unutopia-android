@@ -24,6 +24,7 @@
             </intent-filter>
         </activity>
         <provider android:name=".db.MyContentProvider"
+            android:exported="false"
             android:authorities="com.merybere.app.callregistry">
         </provider>
         

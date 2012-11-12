@@ -38,7 +38,8 @@
         
        <!-- Declaramos un intent propio: en el momento que mande un mensaje de broadcast
             con esta cadena, el broadcast se levantará y se llamará el método correspondiente -->
-        <receiver android:name=".MyBroadcastReceiver2">
+        <receiver android:name=".MyBroadcastReceiver2"
+            android:exported="false">
             <intent-filter>
                 <action android:name="merybere.app.HOLA_MUNDO" />
             </intent-filter>
