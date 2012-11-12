@@ -1,0 +1,40 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.merybere.app.callregistry"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="15" />
+    <!-- Declaración de la interacción con el teléfono:
+         - usamos el permiso READ_PHONE_STATE: autorizamos a que se vea el estado del teléfono -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <provider android:name=".db.MyContentProvider"
+            android:authorities="com.merybere.app.callregistry">
+        </provider>
+        
+        <!-- Declaración del Broadcast -->
+        <receiver android:name="MyBroadcastReceiver">
+            <!-- Filtro de estado del teléfono, para que se lance cuando haya un cambio
+                 en el teléfono, en este caso una llamada entrante -->
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
