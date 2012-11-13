@@ -1,8 +1,8 @@
 <resources>
 
-    <string name="app_name">Ejer-registrollamadas</string>
+    <string name="app_name">Calls Register</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">Log Llamadas</string>
+    <string name="title_activity_calls_list">Calls Register</string>
 
 </resources>
