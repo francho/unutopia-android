@@ -44,6 +44,8 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         
+        <service android:name=".LoaderIntentService"></service>
+        
     </application>
 
 </manifest>
