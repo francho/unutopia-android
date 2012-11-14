@@ -17,7 +17,7 @@ import android.provider.BaseColumns;
 		public static final String TITLE = "title";
 		public static final String PUB_DATE = "pub_date";
 		public static final String IMAGE = "image";
-		public static final String DESCRIPTION = "image";
+		public static final String DESCRIPTION = "description";
 		public static final String CONTENT = "content";
 		public static final String AUTOR = "autor";
 		public static final String CATEGORY = "category";

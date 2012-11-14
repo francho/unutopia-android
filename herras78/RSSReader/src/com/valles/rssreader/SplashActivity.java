@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,15 +27,20 @@ public class SplashActivity extends Activity {
 	private TextView TxtLoad ;
 	private CountDownTimer timer;
 	private Animation alpha;
+	String TAG ="SplashActivity";
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
-        
-        Intent intentService = new Intent(SplashActivity.this, LoaderIntentService.class);
+              	
+        /*Intent intentService = new Intent(SplashActivity.this,LoaderIntentService.class);
         intentService.putExtra("progress", 0);
-		startService(intentService);
-        
+        this.startService(intentService);*/
+        	
+        Intent intentService = new Intent("com.valles.rssreader.ACTION_INTENT_SERVICE");
+        intentService.putExtra("progress", 0);
+    	this.startService(intentService);	             
+ 
        final TextView TxtTit = (TextView) findViewById(R.id.lbltit);
        final TextView TxtNom = (TextView) findViewById(R.id.lblnom);
        Continuar = (TextView) findViewById(R.id.btnloading);

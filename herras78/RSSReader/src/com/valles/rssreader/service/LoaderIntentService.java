@@ -21,33 +21,34 @@ public class LoaderIntentService extends IntentService {
 	public static final String START_LOAD = "com.valles.rssreader.START";
 	public static final String SET_PROGRESS = "com.valles.rssreader.PROGRESS";
 	public static final String END_LOAD = "com.valles.rssreader.END";
-	String TAG = "RSSREADER";
+	static String TAG = "LoaderIntentService";
 
 	public LoaderIntentService() {
-		super("LoaderIntentService");
+		super(TAG);
 		Log.d(TAG,"Contructor LoaderIntentService");
 	}
 
 	protected void onHandleIntent(Intent intent) {
-		Log.d(TAG,"onHandleIntent");
+		
 		final RssDbHelper helper = new RssDbHelper(this);
 		final URL url;
 		int progress = intent.getIntExtra("progress", 0);
 		
 		try {
-			Log.d(TAG,"Primera linea de Try");
+			
 			url = new URL("http://francho.org/feed");
 			RssFeed feed = RssReader.read(url);
 			ArrayList<RssItem> rssItems = feed.getRssItems();
-			Log.d(TAG,"Realizada lectura de la URL");
+		
 			Intent BroadCastIntent = new Intent();
 			BroadCastIntent.setAction(START_LOAD);
 			BroadCastIntent.putExtra("set_max", rssItems.size());
 			BroadCastIntent.putExtra("progress", progress);
 			sendBroadcast(BroadCastIntent);
-			Log.d(TAG,"START_LOAD enviado");
+			
 			final SQLiteDatabase db = helper.getWritableDatabase();
-			Log.d(TAG,"Abriendo db para escritura");
+			db.execSQL("DELETE FROM "+ FeedsTable.TABLE_NAME);
+			
 			for(RssItem rssItem : rssItems) {
 				ContentValues values = new ContentValues();
 		        values.put(FeedsTable.TITLE, rssItem.getTitle());
@@ -75,4 +76,16 @@ public class LoaderIntentService extends IntentService {
 			Log.d(TAG,e + "");
 		}
 	}
+	
+	public void onCreate() {
+		Log.d(TAG, "onCreate");
+		super.onCreate();
+	}
+
+	@Override
+	public void onDestroy() {
+		Log.d(TAG, "onDestroy");
+		super.onDestroy();
+	}
+
 }
