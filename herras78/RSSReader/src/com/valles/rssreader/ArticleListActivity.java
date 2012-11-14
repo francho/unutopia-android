@@ -52,11 +52,13 @@ public class ArticleListActivity extends Activity {
         
         FeedList.setOnItemClickListener(new OnItemClickListener() {
         	public void onItemClick(AdapterView<?> a, View v, int position, long id) {       		       		
-        		
-        		/*Intent intent = new Intent(ArticleListActivity.this, ItemReader.class);
+        		Cursor c = adapter.getCursor();
+        		c.moveToPosition(position);
+        		Intent intent = new Intent(ArticleListActivity.this, ItemReader.class);
         		Bundle bundle = new Bundle();
+        		bundle.putInt("ID",c.getInt(0));     		
         		intent.putExtras(bundle);
-        		startActivity(intent);*/
+        		startActivity(intent);
         	}
         });
     }
@@ -118,7 +120,6 @@ public class ArticleListActivity extends Activity {
 	            return super.onOptionsItemSelected(item);
 	    }
 	}
-
 }
 	
 

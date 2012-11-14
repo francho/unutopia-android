@@ -54,6 +54,10 @@
     		android:textColor="@color/blue"/>
     </LinearLayout>
     
+	<ScrollView 	
+	    android:layout_width="wrap_content" 
+     	android:layout_height="wrap_content">
+	
 	<LinearLayout
         android:layout_width="match_parent"
     	android:layout_height="wrap_content"
@@ -61,7 +65,7 @@
     	android:gravity="center_horizontal"
     	android:layout_margin="3dp"
     	android:background="@drawable/marcoitem">
-		
+
 		<TextView
 		    android:id="@+id/date_reader"
 		    android:layout_width="wrap_content" 
@@ -71,12 +75,21 @@
 			android:layout_marginTop="10dp"/>
 		
 		<TextView
-		    android:text="@string/licencia"
+		    android:id="@+id/description_reader"
 		    android:layout_width="wrap_content" 
 			android:layout_height="wrap_content"
 			android:textColor="@color/black"
-			android:textSize="15dp"
+			android:textSize="16dp"
 			android:layout_marginLeft="4dp"/>
+		
+		<TextView
+		    android:id="@+id/content_reader"
+		    android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:textColor="@color/black"
+			android:textSize="14dp"
+			android:layout_marginLeft="4dp"/>	
 	</LinearLayout>
-
+	</ScrollView>
+	
 </LinearLayout>
