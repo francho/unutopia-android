@@ -5,8 +5,9 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="10"
         android:targetSdkVersion="10" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -43,6 +44,12 @@
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        
+        <service android:name=".service.LoaderIntentService">
+            <intent-filter>
+                <action android:name="com.valles.rssreader.ACTION_INTENT_SERVICE"/>
+            </intent-filter>    
+        </service>
         
     </application>
 

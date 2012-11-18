@@ -28,8 +28,7 @@ public class MainActivity extends ListActivity {
         // getCacheDir();
         // getExternalCacheDir();
         // getExternalFilesDir(type);
-        
-        
+ 
         final MyDbHelper helper = new MyDbHelper(this);
         final SQLiteDatabase db = helper.getWritableDatabase();
         
@@ -40,9 +39,7 @@ public class MainActivity extends ListActivity {
 		long id = db.insert(UsersTable.TABLE_NAME, null, values );
 		db.close();
 		
-		
-		// 
-		
+
 		Context context = this;
 		int layout = android.R.layout.simple_list_item_2;
 		Cursor c = null;
@@ -52,26 +49,20 @@ public class MainActivity extends ListActivity {
 		
 		adapter = new SimpleCursorAdapter(context, layout, c, from, to, flags);
 		setListAdapter(adapter);
-		
-		
+
     }
-    
-    @Override
+
 	protected void onStart() {
 		super.onStart();
 		
 		adapter.changeCursor(getUsers());
 	}
 
-    @Override
 	protected void onStop() {
 		adapter.changeCursor(null);
 		
     		super.onStop();
 	}
-
-
-
 
 	private Cursor getUsers() {
 		MyDbHelper helper = new MyDbHelper(this);
@@ -87,10 +78,7 @@ public class MainActivity extends ListActivity {
 		return db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
 		}
 
-
-		@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 	
 		SharedPreferences prefs = getSharedPreferences("MisPrefs", MODE_PRIVATE);
@@ -105,7 +93,6 @@ public class MainActivity extends ListActivity {
         Log.d("Counter", ""+counter);
     }
 
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
