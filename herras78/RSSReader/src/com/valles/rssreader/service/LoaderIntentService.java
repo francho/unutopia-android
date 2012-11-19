@@ -13,7 +13,9 @@ import nl.matshofman.saxrssreader.RssReader;
 
 import android.app.IntentService;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -35,39 +37,41 @@ public class LoaderIntentService extends IntentService {
 		
 		final URL url;
 		int progress = intent.getIntExtra("progress", 0);
-		int rprogress = 0;
+		int Rprogress = 0;
 		
 		try {	
-			url = new URL("http://www.meneame.net/rss2.php?meta=0");
-			RssFeed feed = RssReader.read(url);
-			ArrayList<RssItem> rssItems = feed.getRssItems();
-		
-			SendBCI(START_LOAD,rssItems.size(), 0);
+			if(CheckLastTime()){
+				url = new URL("http://www.meneame.net/rss2.php?meta=0");
+				RssFeed feed = RssReader.read(url);
+				ArrayList<RssItem> rssItems = feed.getRssItems();
 			
-			for(RssItem rssItem : rssItems) {
-				if(CheckItem(rssItem.getPubDate().toGMTString())){
-					
-					ContentValues values = new ContentValues();
-			        values.put(FeedsTable.TITLE, rssItem.getTitle());
-			        values.put(FeedsTable.PUB_DATE, rssItem.getPubDate().toGMTString());
-			        values.put(FeedsTable.DESCRIPTION, rssItem.getDescription());
-			        values.put(FeedsTable.CONTENT, rssItem.getContent());
-			        values.put(FeedsTable.AUTOR, "Francho Joven");
-			        values.put(FeedsTable.CATEGORY, "Programacion");
-			        values.put(FeedsTable.URL, rssItem.getLink());
-			        
-			        final SQLiteDatabase WDB = helper.getWritableDatabase();
-			        WDB.insert(FeedsTable.TABLE_NAME, null, values );
-			        WDB.close();
-			        rprogress++;
-				}
+				SendBCI(START_LOAD,rssItems.size(), 0);
+				
+				for(RssItem rssItem : rssItems) {
+					if(CheckItem(rssItem.getPubDate().toGMTString())){
+						
+						ContentValues values = new ContentValues();
+				        values.put(FeedsTable.TITLE, rssItem.getTitle());
+				        values.put(FeedsTable.PUB_DATE, rssItem.getPubDate().toGMTString());
+				        values.put(FeedsTable.DESCRIPTION, rssItem.getDescription());
+				        values.put(FeedsTable.CONTENT, rssItem.getContent());
+				        values.put(FeedsTable.AUTOR, "Francho Joven");
+				        values.put(FeedsTable.CATEGORY, "Programacion");
+				        values.put(FeedsTable.URL, rssItem.getLink());
+				        
+				        final SQLiteDatabase WDB = helper.getWritableDatabase();
+				        WDB.insert(FeedsTable.TABLE_NAME, null, values );
+				        WDB.close();
+				        Rprogress++;
+					}
 		        progress++;		        
 		        SendBCI(SET_PROGRESS, 0, progress);
-			}
-			SendBCI(END_LOAD, 0, rprogress);
+				}
+			}else{}
+			SendBCI(END_LOAD, 0, Rprogress);
 			
 		} catch (Exception e) {
-			Log.d(TAG,e + "");
+			Log.d(TAG,"Error " + e + " al conectar con http://www.meneame.net/rss2.php?meta=0");
 		}
 	}
 	
@@ -93,8 +97,6 @@ public class LoaderIntentService extends IntentService {
 		Cursor cursor = null;
 		String sql = "SELECT " + FeedsTable.PUB_DATE + " FROM "+ FeedsTable.TABLE_NAME + " WHERE " + FeedsTable.PUB_DATE + "=" + "'" + pub_date + "'";
 		cursor = RDB.rawQuery(sql, null);
-		Log.e(TAG,""+cursor.getCount());
-		Log.e(TAG,pub_date);
 		
 		if(cursor.moveToFirst()){
 			RDB.close();
@@ -103,5 +105,19 @@ public class LoaderIntentService extends IntentService {
 			RDB.close();
 			return true;}
 	}
+	
+	public boolean CheckLastTime(){
+		SharedPreferences Preferences = getSharedPreferences("Preferencias",Context.MODE_PRIVATE);
+		Long LastTime = Preferences.getLong("LastTime", 0);
+		Date date = new Date();
 
+		if((LastTime + 300000) > date.getTime() ){
+			return false;
+		}else{
+			SharedPreferences.Editor editor = Preferences.edit();
+			editor.putLong("LastTime", date.getTime());
+			editor.commit();
+			return true;
+		}
+	}
 }

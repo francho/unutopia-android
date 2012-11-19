@@ -80,7 +80,7 @@ public class SplashActivity extends Activity {
         registerReceiver(progressControl, filter);
     }
     
-    public class ProgressReceiver extends BroadcastReceiver {
+    private class ProgressReceiver extends BroadcastReceiver {
 		
 		public void onReceive(Context context, Intent intent) {
 			

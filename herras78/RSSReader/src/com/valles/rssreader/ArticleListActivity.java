@@ -53,6 +53,13 @@ public class ArticleListActivity extends Activity {
             }
         });
         
+        final ImageView reload = (ImageView) findViewById(R.id.reload);
+        acercade.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {           	
+            	ToProgress();            	
+            }
+        });
+        
         FeedList.setOnItemClickListener(new OnItemClickListener() {
         	public void onItemClick(AdapterView<?> a, View v, int position, long id) {       		       		
         		c.moveToPosition(position);      		
@@ -79,6 +86,11 @@ public class ArticleListActivity extends Activity {
 	
 	public void ToAbout(){
 		Intent intent = new Intent(ArticleListActivity.this, AboutActivity.class);     
+        startActivity(intent); 
+	}
+	
+	public void ToProgress(){
+		Intent intent = new Intent(ArticleListActivity.this, ProgressActivity.class);     
         startActivity(intent); 
 	}
 	
@@ -117,6 +129,7 @@ public class ArticleListActivity extends Activity {
 	        	ToAbout();
 	            return true;
 	        case R.id.menu_buscar:
+	        	ToProgress(); 
 	            return true;
 	        case R.id.menu_mas:            
 	            return true;
