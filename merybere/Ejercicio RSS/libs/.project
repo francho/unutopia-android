@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Ejercicio RSS</name>
+	<name>SAX-RSS-Reader</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -30,10 +30,4 @@
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<variableList>
-		<variable>
-			<name>RSS_LIB</name>
-			<value>file:/C:/Users/mery/workspace/android/android/merybere/Android-RSS-Reader-Library-master</value>
-		</variable>
-	</variableList>
 </projectDescription>

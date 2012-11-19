@@ -21,12 +21,12 @@ public class ArticlesAdapter extends SimpleCursorAdapter {
     private static final String[] FROM = new String[] {ArticlesContract.Articles.TITLE, ArticlesContract.Articles.PUB_DATE};
     private static final int[] TO = new int[]{R.id.article_row_title, R.id.article_row_date};
     
-	private Context context;
+    private Context context;
     
 	// Constructor: recibe un único
-	//   - Contexto que se tiene que pasar cuando se instancia
+	// - Contexto que se tiene que pasar cuando se instancia
 	public ArticlesAdapter(Context context) {
-		
+	
 		// Llamamos al super utilizando lo que hemos definido como constantes
 		// El layout que se pasa es el que hemos definido para una línea de artículo
 		super(context, R.layout.article_row, null, FROM, TO, FLAG_REGISTER_CONTENT_OBSERVER);
@@ -36,12 +36,12 @@ public class ArticlesAdapter extends SimpleCursorAdapter {
 	}
 	
 	private void initArticlesCursor(Context context) {
-		
+	
 		// Para obtener el cursor, montamos una query
         final ArticlesDbHelper helper = new ArticlesDbHelper(context);
         // Obtener la BD en modo lectura, para obtener el cursor, ya que los datos ya están insertados
         final SQLiteDatabase db = helper.getReadableDatabase();
-		
+
         // Crear la consulta que nos devuelve los datos a mostrar
 		String table = ArticlesContract.Articles.TABLE_NAME;
 		String[] columns = new String[] { ArticlesContract.Articles._ID, ArticlesContract.Articles.TITLE, ArticlesContract.Articles.PUB_DATE};
@@ -72,12 +72,10 @@ public class ArticlesAdapter extends SimpleCursorAdapter {
 		// Relativo a la fecha actual, cuánto tiempo ha transcurrido
 		return (String)DateUtils.getRelativeTimeSpanString(context, millis);
 	}
-
+	
 	// Método que comprueba si un campo de texto es la fecha
 	private boolean isDateView(TextView v) {
 		// Obtener el id de la vista que quiero comprobar si es fecha
 		return v.getId() == R.id.article_row_date;
 	}
-
-
 }
