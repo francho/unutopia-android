@@ -63,6 +63,7 @@ public class MainActivity extends ListActivity implements LoaderCallbacks<Cursor
 	
 	@Override
 	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+		// swapCursor te devuelve el antiguo cursor por si se quiere utilizar
 		adapter.swapCursor(cursor);
 		
 	}
