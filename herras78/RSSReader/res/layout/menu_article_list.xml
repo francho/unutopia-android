@@ -10,6 +10,6 @@
           android:title="@string/m_agregar" />
  
     <item android:id="@+id/menu_buscar"
-          android:icon="@drawable/lupa"
-          android:title="@string/m_buscar" />
+          android:icon="@drawable/reload"
+          android:title="@string/m_recargar" />
 </menu>

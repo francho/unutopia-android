@@ -31,10 +31,16 @@
             android:name=".ArticleListActivity"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+            android:theme="@android:style/Theme.NoTitleBar"/>
         
         <activity
             android:name=".AboutActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTitleDialog"/>
+        
+         <activity
+            android:name=".ProgressActivity"
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/NoTitleDialog"/>

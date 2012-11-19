@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.KeyEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -37,15 +38,13 @@ public class ItemReader extends Activity {
 	    final TextView TxtDesc = (TextView) findViewById(R.id.description_reader);
 	    final TextView TxtContent = (TextView) findViewById(R.id.content_reader);
 	    final ImageView ImgReader = (ImageView)findViewById(R.id.imgen_reader);
-	    
-	    
+	        
 	    TxtTit.setText(cursor.getString(1));
 	    TxtDate.setText(cursor.getString(2));
 	    TxtDesc.setText(cursor.getString(3));
 	    TxtContent.setText(cursor.getString(4));
 	    
-	    ImgReader.setImageDrawable(context.getResources().getDrawable(R.drawable.feed_imgen));
-	    
+	    ImgReader.setImageDrawable(context.getResources().getDrawable(R.drawable.feed_imgen)); 
 	}
 	
 	private Cursor getFeed(int id) {

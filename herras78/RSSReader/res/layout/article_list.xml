@@ -61,12 +61,12 @@
     		android:src="@drawable/mas"
     		android:background="@drawable/marcocabe"/>
           <ImageView 
-            android:id="@+id/busca"
+            android:id="@+id/reload"
             android:layout_width="match_parent"
     		android:layout_height="wrap_content"
     		android:layout_weight="3"
     		android:padding="2dp"
-    		android:src="@drawable/lupa"
+    		android:src="@drawable/reload"
     		android:background="@drawable/marcocabe"/>
          <ImageView
             android:id="@+id/acercade" 

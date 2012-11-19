@@ -5,6 +5,9 @@ import com.valles.rssreader.service.LoaderIntentService;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +31,7 @@ public class SplashActivity extends Activity {
 	private CountDownTimer timer;
 	private Animation alpha;
 	String TAG ="SplashActivity";
+	private static final int NOTIFICATION_DOWNLOAD_ID = 1;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +80,7 @@ public class SplashActivity extends Activity {
         registerReceiver(progressControl, filter);
     }
     
-    public class ProgressReceiver extends BroadcastReceiver {
+    private class ProgressReceiver extends BroadcastReceiver {
 		
 		public void onReceive(Context context, Intent intent) {
 			
@@ -92,11 +96,12 @@ public class SplashActivity extends Activity {
 			}
 			else if(intent.getAction().equals(LoaderIntentService.END_LOAD)) {
 				Toast.makeText(SplashActivity.this, "Carga Finalizada", Toast.LENGTH_SHORT).show();
-				 alpha.cancel();
-    			 TxtLoad.setAnimation(null);		 
-    			 TxtLoad.setVisibility(View.GONE);
-    			 Continuar.setVisibility(View.VISIBLE);
-    			 AutoLaunch();
+				Notifications(intent.getIntExtra("progress", 0));
+				alpha.cancel();
+    			TxtLoad.setAnimation(null);		 
+    			TxtLoad.setVisibility(View.GONE);
+    			Continuar.setVisibility(View.VISIBLE);
+    			AutoLaunch();
 			}
 		}
     }
@@ -110,5 +115,31 @@ public class SplashActivity extends Activity {
                 startActivity(intent); 
    		 	}	 
 	    }.start();     
+	}
+	
+	public void Notifications(int num){
+		
+		String NotificationService = Context.NOTIFICATION_SERVICE;
+		NotificationManager notificationManager =  (NotificationManager) getSystemService(NotificationService);
+		
+		int icono = android.R.drawable.btn_star;
+		CharSequence textoEstado = num + " nuevas noticias!";
+		long hora = System.currentTimeMillis();
+		 
+		Notification notifcation =  new Notification(icono, textoEstado, hora);
+		
+		Context contexto = getApplicationContext();
+		CharSequence titulo = "HRSS Reader";
+		CharSequence descripcion = "Han sido descargadas " + num + " nuevas noticias";
+		 
+		Intent notIntent = new Intent(contexto, SplashActivity.class);
+		 
+		PendingIntent contIntent = PendingIntent.getActivity(contexto, 0, notIntent, 0);
+		 
+		notifcation.setLatestEventInfo(contexto, titulo, descripcion, contIntent);
+		notifcation.flags |= Notification.FLAG_AUTO_CANCEL;
+		notifcation.flags |= Notification.DEFAULT_VIBRATE;
+		
+		notificationManager.notify(NOTIFICATION_DOWNLOAD_ID, notifcation);
 	}
 }

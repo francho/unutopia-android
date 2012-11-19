@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
         imageView = (ImageView) findViewById(R.id.imageView1);
         
         findViewById(R.id.button1).setOnClickListener(new OnClickListener() {
-			@Override
+			
 			public void onClick(View v) {
 				Intent service = new Intent("org.francho.unutopia_android.ACTION_SERVICE");
 				startService(service);
@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
 		});
         
         findViewById(R.id.button2).setOnClickListener(new OnClickListener() {
-			@Override
+			
 			public void onClick(View v) {
 				Intent service = new Intent("org.francho.unutopia_android.ACTION_INTENT_SERVICE");
 				service.putExtra("EXTRA_MYRESULTRECEIVER", resultReceiver);
