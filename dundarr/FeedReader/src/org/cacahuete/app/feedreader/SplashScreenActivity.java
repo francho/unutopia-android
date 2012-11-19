@@ -3,6 +3,7 @@ package org.cacahuete.app.feedreader;
 import org.cacahuete.app.feedreader.R;
 
 import android.os.Bundle;
+import android.os.ResultReceiver;
 import android.app.Activity;
 import android.os.Handler;
 import android.content.Context;
@@ -18,12 +19,17 @@ import android.widget.ImageView;
 */
 public class SplashScreenActivity extends Activity {
 	private ImageView i;
+	 MyResultReceiver resultReceiver = new MyResultReceiver();
+	
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.splash);
 		
+		Intent service = new Intent("org.cacahuete.app.feedreader.ACTION_INTENT_SERVICE");
+		service.putExtra("EXTRA_MYRESULTRECEIVER", resultReceiver);
+		startService(service);
 		
 		
 		i= (ImageView) findViewById(R.id.imageView1);
@@ -56,16 +62,43 @@ public class SplashScreenActivity extends Activity {
 				//make sure we close the splash screen so the userwon't come back when it pres
 				finish();
 				//start the home screen
+				
+				
 				Intent intent = new Intent(SplashScreenActivity.this, ArticleListActivity.class);
 				SplashScreenActivity.this.startActivity(intent);
 			}
-		},30000); // time in milliseconds (1 second = 1000 milliseconds) until the run() method 
+		},5000); // time in milliseconds (1 second = 1000 milliseconds) until the run() method 
 		
 	}
 	
 	
 }
 
+class MyResultReceiver extends ResultReceiver {
 
+	public MyResultReceiver() {
+		super(new Handler());
+	}
+
+//	@Override
+//	protected void onReceiveResult(int resultCode, Bundle resultData) {
+//		super.onReceiveResult(resultCode, resultData);
+//		
+//		switch (resultCode) {
+//		case 1:
+//			progressBar.setVisibility(View.VISIBLE);
+//			break;
+//		case 0:
+//			progressBar.setVisibility(View.INVISIBLE);
+//			break;
+//		default:
+//			break;
+//		}
+		
+	
+	
+	
+	
+}
 
 

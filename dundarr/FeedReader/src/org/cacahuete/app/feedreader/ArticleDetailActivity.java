@@ -30,10 +30,10 @@ public class ArticleDetailActivity extends Activity {
 		setContentView(R.layout.article_detail);
 	
 		TextView titular = (TextView) findViewById (R.id.titular);
-		titular.setText (articulo.get("titular"));
+		titular.setText (articulo.get("title"));
 		
 		TextView texto = (TextView) findViewById (R.id.texto);
-		texto.setText (articulo.get("texto"));
+		texto.setText (articulo.get("content"));
 		
 		
 		
