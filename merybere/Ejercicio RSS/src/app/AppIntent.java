@@ -8,6 +8,7 @@ public class AppIntent extends Intent {
 	private static final String ACTION_ARTICLE_LIST = "unutopia.intent.category.ARTICLE_LIST";
 	private static final String ACTION_ABOUT = "unutopia.intent.category.ABOUT";
 	public static final String EXTRA_ID = "unutopia.intent.EXTRA_ID";
+	private static final String ACTION_FEED = "unutopia.intent.category.ACTION_SYNC_SERVICE";
 
 	public static Intent getArticleListIntent() {
 		return new Intent(ACTION_ARTICLE_LIST);
@@ -15,6 +16,10 @@ public class AppIntent extends Intent {
 	
 	public static Intent getAboutIntent() {
 		return new Intent(ACTION_ABOUT);
+	}
+	
+	public static Intent getFeedIntent() {
+		return new Intent(ACTION_FEED);
 	}
 	
 	//Cargar la activity del detalle de artículo

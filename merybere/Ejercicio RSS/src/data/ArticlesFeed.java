@@ -1,37 +1,38 @@
-package com.merybere.app.services.app;
+package data;
 
-//import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+
 
 import nl.matshofman.saxrssreader.RssFeed;
 import nl.matshofman.saxrssreader.RssItem;
 import nl.matshofman.saxrssreader.RssReader;
+
 import android.util.Log;
 
-public class Dummy {
+public class ArticlesFeed {
 
-	private static final String TAG = "Dummy";
+	private static final String TAG = "ArticlesFeed";
 
-	// Bucle que espere 5 segundos
-	public void hardWork() {
-		Log.d(TAG, "hardwork start");
-		//long endTime = System.currentTimeMillis() + 5 * 1000;
+	// Tarea pesada para ejecutar en segundo plano que accede a los feeds y los carga en la BD
+	public void loadNewArticles() {
+		Log.d(TAG, "load feed start");
 		
 		URL url;
+		RssFeed feed;
 		try {
 			url = new URL("http://gozarte.wordpress.com/feed/");
-			RssFeed feed = RssReader.read(url);
-
+			feed = RssReader.read(url);
+			
 			ArrayList<RssItem> rssItems = feed.getRssItems();
 			for(RssItem rssItem : rssItems) {
 			    Log.i("RSS Reader", rssItem.getTitle());
-			}			
+			}
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 		}
 		
-		Log.d(TAG, "hardwork stop");
+		Log.d(TAG, "load feed stop");
 	}
 }

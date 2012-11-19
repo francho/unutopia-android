@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class ArticlesDbHelper extends SQLiteOpenHelper {
 
 	// Versión de la base de datos
-	private static final int DATABASE_VERSION = 5;
+	private static final int DATABASE_VERSION = 6;
 
 	// Constructor público que recibe como parámetro el contexto
 	public ArticlesDbHelper(Context context) {
@@ -47,8 +47,6 @@ public class ArticlesDbHelper extends SQLiteOpenHelper {
 					+ ArticlesContract.Articles.CONTENT + " TEXT"
 					+ ")"
 					);
-		
-		// Cargar la tabla con los primeros datos de la clase DummyArticles
-		DummyArticles.insertDummyArticles(db);
+
 	}
 }
