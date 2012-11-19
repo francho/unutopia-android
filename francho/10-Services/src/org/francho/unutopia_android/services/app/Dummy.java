@@ -4,9 +4,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-import nl.matshofman.saxrssreader.RssFeed;
+/*import nl.matshofman.saxrssreader.RssFeed;
 import nl.matshofman.saxrssreader.RssItem;
-import nl.matshofman.saxrssreader.RssReader;
+import nl.matshofman.saxrssreader.RssReader;*/
 import android.util.Log;
 
 public class Dummy {
@@ -20,6 +20,7 @@ public class Dummy {
 		
 		URL url;
 		try {
+			/*
 			url = new URL("http://francho.org/feed");
 			RssFeed feed = RssReader.read(url);
 
@@ -27,6 +28,7 @@ public class Dummy {
 			for(RssItem rssItem : rssItems) {
 			    Log.i("RSS Reader", rssItem.getTitle());
 			}
+			*/
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

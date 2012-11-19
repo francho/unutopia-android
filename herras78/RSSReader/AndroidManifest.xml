@@ -31,7 +31,7 @@
             android:name=".ArticleListActivity"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+            android:theme="@android:style/Theme.NoTitleBar"/>
         
         <activity
             android:name=".AboutActivity"

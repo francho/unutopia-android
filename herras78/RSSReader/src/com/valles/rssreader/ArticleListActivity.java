@@ -29,20 +29,23 @@ public class ArticleListActivity extends Activity {
 	 	
 	private SimpleCursorAdapter adapter;
 	private RssDbHelper helper = new RssDbHelper(this);
+	private TextView TxtFuentes;
+	private Cursor c;
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.article_list);
 
         PrepareAdapter();
+
 		ListView FeedList = (ListView)findViewById(R.id.feedlist);
 		FeedList.setAdapter(adapter);
 		
-		final TextView TxtFuentes = (TextView) findViewById(R.id.contfuentes);
         final TextView TxtTitulo = (TextView) findViewById(R.id.lbltitulo);
         final Typeface font1 = Typeface.createFromAsset(getAssets(),"Last Ninja.ttf");
+        TxtFuentes = (TextView) findViewById(R.id.contfuentes);
         TxtTitulo.setTypeface(font1);
-          
+
         final ImageView acercade = (ImageView) findViewById(R.id.acercade);
         acercade.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {           	
@@ -52,8 +55,7 @@ public class ArticleListActivity extends Activity {
         
         FeedList.setOnItemClickListener(new OnItemClickListener() {
         	public void onItemClick(AdapterView<?> a, View v, int position, long id) {       		       		
-        		Cursor c = adapter.getCursor();
-        		c.moveToPosition(position);
+        		c.moveToPosition(position);      		
         		Intent intent = new Intent(ArticleListActivity.this, ItemReader.class);
         		Bundle bundle = new Bundle();
         		bundle.putInt("ID",c.getInt(0));     		
@@ -66,6 +68,8 @@ public class ArticleListActivity extends Activity {
 	protected void onStart() {
 		super.onStart();
 		adapter.changeCursor(getFeeds());
+		c = adapter.getCursor();
+		TxtFuentes.setText("Noticias:" + c.getCount());
 	}
 
 	protected void onStop() {
