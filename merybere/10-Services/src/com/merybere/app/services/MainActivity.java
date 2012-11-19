@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
         // 	VISIBLE
         progressBar.setVisibility(View.INVISIBLE);
         
-        // Vire para cambiar la imagen
+        // View para cambiar la imagen
         imageView = (ImageView) findViewById(R.id.imageView1);
         
         // Definimos el método a llamar al hacer click
