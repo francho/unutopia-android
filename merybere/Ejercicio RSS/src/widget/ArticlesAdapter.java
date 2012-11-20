@@ -42,7 +42,7 @@ public class ArticlesAdapter extends SimpleCursorAdapter {
         // Obtener la BD en modo lectura, para obtener el cursor, ya que los datos ya están insertados
         final SQLiteDatabase db = helper.getReadableDatabase();
 
-        // Crear la consulta que nos devuelve los datos a mostrar
+        // Crear la consulta que nos devuelve los datos a mostrar en el listado
 		String table = ArticlesContract.Articles.TABLE_NAME;
 		String[] columns = new String[] { ArticlesContract.Articles._ID, ArticlesContract.Articles.TITLE, ArticlesContract.Articles.PUB_DATE};
 		String selection = null;

@@ -24,7 +24,7 @@ public class ArticleDetailActivity extends Activity {
 		
 		setContentView(R.layout.article_detail);
 		
-		// Pasar el título al layout
+		// Identificar los campos que voy a mostrar
 		title_article_view = (TextView) findViewById(R.id.article_detail_title);
 		date_article_view = (TextView) findViewById(R.id.article_detail_pub_date);
 	}
@@ -41,6 +41,7 @@ public class ArticleDetailActivity extends Activity {
 
 	private void getArticle(long id) {
 
+		// Cargar el helper de la BD
 		ArticlesDbHelper helper = new ArticlesDbHelper(this);
 		SQLiteDatabase db = helper.getReadableDatabase();
 		
@@ -57,9 +58,11 @@ public class ArticleDetailActivity extends Activity {
 		// Caso de que la query devolviera más de un resultado, movemos el cursor al primer elemento
 		cursor.moveToFirst();
 		
+		// Coger la columna de título
 		final String title_article = cursor.getString(cursor.getColumnIndex(Articles.TITLE));
 		title_article_view.setText(title_article);
 		
+		// Coger la columna de fecha
 		final Long date_article = cursor.getLong(cursor.getColumnIndex(Articles.PUB_DATE));
 		date_article_view.setText(DateUtils.getRelativeTimeSpanString(date_article));
 		
