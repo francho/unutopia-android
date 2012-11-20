@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">12-Fragment</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string-array name="numeros">
+        <item >uno</item>
+        <item >dos</item>
+        <item>tres</item>
+        <item>cuatro</item>
+    </string-array>
+
+</resources>
