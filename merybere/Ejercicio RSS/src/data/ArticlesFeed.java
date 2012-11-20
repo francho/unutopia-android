@@ -35,7 +35,7 @@ public class ArticlesFeed {
 			for(RssItem rssItem : rssItems) {
 			    Log.i("RSS Reader", rssItem.getTitle());
 			    
-			    if(notInDb(db, rssItem.getLink())) {
+			    if(!itemInDb(db, rssItem.getLink())) {
 			    	addArticle(db, rssItem);
 			    }
 			}
@@ -48,7 +48,7 @@ public class ArticlesFeed {
 	}
 	
 	// Método para comprobar si el artículo ya está en la base de datos
-	private boolean notInDb(SQLiteDatabase db, String link) {
+	private boolean itemInDb(SQLiteDatabase db, String link) {
 
 		String table = Articles.TABLE_NAME;
 		String[] columns = null;
@@ -59,7 +59,10 @@ public class ArticlesFeed {
 		String orderBy = null;
 		Cursor cursor = db.query(table, columns, selection, selectionArgs , groupBy, having, orderBy);
 		
-		return cursor.getCount() == 0;
+		boolean existsItem = cursor.getCount() != 0;
+		cursor.close();
+		
+		return existsItem;
 	}
 
 	public static void addArticle(SQLiteDatabase db, RssItem rssItem) {
