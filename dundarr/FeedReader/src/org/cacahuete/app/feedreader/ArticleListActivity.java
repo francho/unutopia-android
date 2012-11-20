@@ -3,25 +3,31 @@ package org.cacahuete.app.feedreader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 import org.cacahuete.app.feedreader.R;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.ResultReceiver;
 import android.app.ListActivity;
+import android.app.LoaderManager.LoaderCallbacks;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.CursorLoader;
 import android.content.Intent;
-import android.support.v4.widget.SimpleCursorAdapter;
+import android.content.Loader;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 
-import org.cacahuete.app.feedreader.db.RssDbHelper;
-
+import org.cacahuete.app.feedreader.db.RssContract.ArticlesTable;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 
-import org.cacahuete.app.feedreader.db.RssContract.FeedTable;
 
 
 
@@ -31,39 +37,38 @@ import org.cacahuete.app.feedreader.db.RssContract.FeedTable;
 */
 public class ArticleListActivity extends ListActivity {
 	
-	private ArrayList<HashMap<String,String>> datos;
+	
     private SimpleCursorAdapter adapter;
+    private String TAG="ARTICLE LIST ACTIVITY";
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//datos=this.cargarNoticias();
-		//System.out.println(datos.toString());
-			
 
 		
+		Uri uri = ArticlesTable.getUri();
+		try {
+			ContentResolver mContentResolver=getContentResolver();
+			String[] projection=null;
+			String selection=null;
+			String[] selectionArgs=null;
+			String sortOrder=null;
+			Cursor cursor = mContentResolver.query(uri, projection, selection, selectionArgs, sortOrder);
 		
-			
-		
-//        final RssDbHelper helper = new RssDbHelper(this);
-//        final SQLiteDatabase db = helper.getReadableDatabase();
-//        
-//        
-//		db.close();
 		
 		
-		// 
-		
-		Context context = this;
 		int layout = android.R.layout.simple_list_item_2;
-		Cursor c = null;
-		String[] from = new String[] { FeedTable.TITLE, FeedTable.PUBDATE };
-		int[] to = new int[]{android.R.id.text1, android.R.id.text2 };
-		int flags = SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER;
 		
-		adapter = new SimpleCursorAdapter(context, layout, c, from, to, flags);
+		String[] from = new String[] { ArticlesTable.TITLE, ArticlesTable.LINK };
+		int[] to = new int[]{android.R.id.text1, android.R.id.text2 };
+		adapter = new SimpleCursorAdapter(this, layout, cursor, from, to, 0);
+	
 		setListAdapter(adapter);
 		
-		
+		}
+		catch(Exception e) {
+			Log.d(TAG,"FALLO EN BD");
+			e.printStackTrace();
+		}
 		
 		
 		
@@ -71,12 +76,7 @@ public class ArticleListActivity extends ListActivity {
 
 	
 	
-    @Override
-	protected void onStart() {
-		super.onStart();
-		
-		adapter.changeCursor(getFeeds());
-	}
+
 
     @Override
 	protected void onStop() {
@@ -96,62 +96,24 @@ public class ArticleListActivity extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		// creamos un intent para abrir la activity deseada
 		Intent intent = new Intent (this, ArticleDetailActivity.class);
+		System.out.println(l.getItemAtPosition(position).getClass());
+		Cursor q=(Cursor) l.getItemAtPosition(position);
+		String title=q.getString(q.getColumnIndex(ArticlesTable.TITLE));
+		String link=q.getString(q.getColumnIndex(ArticlesTable.LINK));
 		
-		HashMap<String,String> linea=(HashMap<String, String>) l.getItemAtPosition(position);
+		HashMap<String,String> params=new HashMap();
+		params.put("title",title);
+		params.put("link",link);
 		
-		//System.out.println(linea.toString());
+		System.out.println(params.toString());
 		
-		intent.putExtra ("articulo", (HashMap<String,String>) linea);
+		intent.putExtra ("articulo", params);
 				
 		startActivity (intent);
 	}
 	
 		
 		
-//	private ArrayList<HashMap<String, String>> cargarNoticias() {
-//		
-//		ArrayList<HashMap<String, String>> datos = new ArrayList<HashMap<String, String>>() ;
-//		
-//		HashMap<String, String> map = new HashMap<String, String>();
-//		map.put("titular", "titular 1");
-//		map.put("entradilla", "entradilla 1");
-//		map.put("fecha", "1-1-2012");
-//		map.put("texto", "texto 1");
-//		datos.add(map);
-//				
-//		HashMap<String, String> map2 = new HashMap<String, String>();
-//		map2.put("titular", "titular 2");
-//		map2.put("entradilla", "entradilla 2");
-//		map2.put("fecha", "1-1-2012");
-//		map2.put("texto", "texto 2");
-//		datos.add(map2);
-//		
-//		HashMap<String, String> map3 = new HashMap<String, String>();
-//		map3.put("titular", "titular 3");
-//		map3.put("entradilla", "entradilla 3");
-//		map3.put("fecha", "1-1-2012");
-//		map3.put("texto", "texto 3");
-//		datos.add(map3);
-//		
-//		//System.out.println(datos.toString());
-//		return datos;
-//		
-//	}
-	
-	
-	private Cursor getFeeds() {
-		RssDbHelper helper = new RssDbHelper(this);
-		SQLiteDatabase db = helper.getReadableDatabase();
-		
-		String table = FeedTable.TABLE_NAME;
-		String[] columns = new String[] { FeedTable._ID, FeedTable.TITLE, FeedTable.PUBDATE };
-		String selection = null;
-		String[] selectionArgs = null;
-		String orderBy = FeedTable.PUBDATE + " DESC";
-		String groupBy = null;
-		String having = null;
-		return db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
-		}
 	
 	
 	
@@ -180,7 +142,15 @@ public class ArticleListActivity extends ListActivity {
 		Intent intent = new Intent(context, AboutScreenActivity.class);
 		startActivity(intent);
 	}
+	
+	
+	
+	
+
 
 }
+
+
+
 
 
