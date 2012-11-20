@@ -36,7 +36,7 @@
     	android:orientation="horizontal"
     	android:gravity="center_vertical"
     	android:layout_margin="3dp"
-    	android:background="@drawable/marcoitem">
+    	android:background="@drawable/marco_titulo_reader">
 		
 		<ImageView
 	        android:id="@+id/imgen_reader"
@@ -53,18 +53,14 @@
     		android:textStyle="bold"
     		android:textColor="@color/blue"/>
     </LinearLayout>
-    
-	<ScrollView 	
-	    android:layout_width="wrap_content" 
-     	android:layout_height="wrap_content">
-	
+
 	<LinearLayout
         android:layout_width="match_parent"
     	android:layout_height="wrap_content"
     	android:orientation="vertical"
     	android:gravity="center_horizontal"
     	android:layout_margin="3dp"
-    	android:background="@drawable/marcoitem">
+    	android:background="@drawable/marcoreader">
 
 		<TextView
 		    android:id="@+id/date_reader"
@@ -72,26 +68,14 @@
 			android:layout_height="wrap_content"
 			android:textColor="@color/blue"
 			android:textSize="18dp"
-			android:layout_marginTop="10dp"/>
+			android:layout_marginTop="6dp"/>
 		
-		<TextView
-		    android:id="@+id/description_reader"
-		    android:layout_width="wrap_content" 
-			android:layout_height="wrap_content"
-			android:layout_marginTop="5dp"
-			android:textColor="@color/black"
-			android:textSize="16dp"
-			android:layout_marginLeft="4dp"/>
-		
-		<TextView
+		<WebView 
 		    android:id="@+id/content_reader"
-		    android:layout_width="wrap_content" 
-			android:layout_height="wrap_content"
-			android:layout_marginTop="5dp"
-			android:textColor="@color/black"
-			android:textSize="14dp"
-			android:layout_marginLeft="4dp"/>	
+		    android:layout_width="fill_parent" 
+			android:layout_height="fill_parent"
+			android:layout_margin="3dp" />
+		
 	</LinearLayout>
-	</ScrollView>
-	
+
 </LinearLayout>

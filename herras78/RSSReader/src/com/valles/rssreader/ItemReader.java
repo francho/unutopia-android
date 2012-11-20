@@ -12,12 +12,14 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.KeyEvent;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ItemReader extends Activity {
 
-	private RssDbHelper helper = new RssDbHelper(this);	
+	private RssDbHelper helper = new RssDbHelper(this);
+	//private WebView webContent;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -35,14 +37,14 @@ public class ItemReader extends Activity {
 	    
 	    final TextView TxtTit = (TextView) findViewById(R.id.titulo_reader);
 	    final TextView TxtDate = (TextView) findViewById(R.id.date_reader);	    
-	    final TextView TxtDesc = (TextView) findViewById(R.id.description_reader);
-	    final TextView TxtContent = (TextView) findViewById(R.id.content_reader);
 	    final ImageView ImgReader = (ImageView)findViewById(R.id.imgen_reader);
+	    final WebView webContent = (WebView)findViewById(R.id.content_reader);
 	        
 	    TxtTit.setText(cursor.getString(1));
 	    TxtDate.setText(cursor.getString(2));
-	    TxtDesc.setText(cursor.getString(3));
-	    TxtContent.setText(cursor.getString(4));
+	    //TxtDesc.setText(cursor.getString(3));
+	    
+	    webContent.loadDataWithBaseURL(null, cursor.getString(3), "text/html", "UTF-8","");
 	    
 	    ImgReader.setImageDrawable(context.getResources().getDrawable(R.drawable.feed_imgen)); 
 	}
