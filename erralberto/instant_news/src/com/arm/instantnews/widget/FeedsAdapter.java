@@ -16,7 +16,6 @@ public class FeedsAdapter extends SimpleCursorAdapter  {
 	private static final int[] TO = new int[] { R.id.feed_listitem_title,
 			R.id.feed_listitem_date };
 	private Context context;
-	
 
 	public FeedsAdapter(Context context) {
 		super(context, R.layout.feed_listitem , null, FROM, TO, FLAG_REGISTER_CONTENT_OBSERVER);
@@ -24,7 +23,6 @@ public class FeedsAdapter extends SimpleCursorAdapter  {
 		this.context = context;
 		initArticlesCursor(context);
 	}
-
 
 	private void initArticlesCursor(Context context) {
 		final FeedDbHelper helper = new FeedDbHelper(context);
@@ -36,8 +34,7 @@ public class FeedsAdapter extends SimpleCursorAdapter  {
 		String[] selectionArgs = null;
 		String groupBy = null;
 		String having = null;
-		String orderBy = FeedContract.Articles.PUB_DATE + " DESC";
-		
+		String orderBy = FeedContract.Articles.PUB_DATE + " DESC";		
 		Cursor cursor = db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
 		
 		this.swapCursor(cursor);

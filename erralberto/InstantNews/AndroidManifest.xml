@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="arm.feedreader.instantnews"
+    android:versionCode="1"
+    android:versionName="1.2" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Sherlock" >
+        
+        <activity
+            android:name=".SplashActivity"
+            android:excludeFromRecents="false"    
+            android:noHistory="true"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Theme.Sherlock.NoActionBar">
+            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                		    
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="arm.feedreader.instantnews.ItemListActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="unutopia.intent.action.LIST_ARTICLES" />
+                
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="arm.feedreader.instantnews.ItemDetailActivity"
+            android:label="@string/title_item_detail"
+            android:parentActivityName=".ItemListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ItemListActivity" />
+        </activity>
+    </application>
+
+</manifest>
