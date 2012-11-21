@@ -1,22 +1,14 @@
 package org.cacahuete.app.feedreader;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 
 import org.cacahuete.app.feedreader.R;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.ResultReceiver;
 import android.app.ListActivity;
-import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.content.Loader;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,7 +36,7 @@ public class ArticleListActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		
+		Cursor cursor=null;
 		Uri uri = ArticlesTable.getUri();
 		try {
 			ContentResolver mContentResolver=getContentResolver();
@@ -52,13 +44,13 @@ public class ArticleListActivity extends ListActivity {
 			String selection=null;
 			String[] selectionArgs=null;
 			String sortOrder=null;
-			Cursor cursor = mContentResolver.query(uri, projection, selection, selectionArgs, sortOrder);
+			cursor = mContentResolver.query(uri, projection, selection, selectionArgs, sortOrder);
 		
 		
 		
 		int layout = android.R.layout.simple_list_item_2;
 		
-		String[] from = new String[] { ArticlesTable.TITLE, ArticlesTable.LINK };
+		String[] from = new String[] { ArticlesTable.TITLE, ArticlesTable.PUBDATE };
 		int[] to = new int[]{android.R.id.text1, android.R.id.text2 };
 		adapter = new SimpleCursorAdapter(this, layout, cursor, from, to, 0);
 	
@@ -70,15 +62,17 @@ public class ArticleListActivity extends ListActivity {
 			e.printStackTrace();
 		}
 		
-		
+		//cursor.close();
 		
 	}
 
 	
-	
 
 
-    @Override
+
+
+
+	@Override
 	protected void onStop() {
 		adapter.changeCursor(null);
 		
@@ -96,18 +90,20 @@ public class ArticleListActivity extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		// creamos un intent para abrir la activity deseada
 		Intent intent = new Intent (this, ArticleDetailActivity.class);
-		System.out.println(l.getItemAtPosition(position).getClass());
-		Cursor q=(Cursor) l.getItemAtPosition(position);
-		String title=q.getString(q.getColumnIndex(ArticlesTable.TITLE));
-		String link=q.getString(q.getColumnIndex(ArticlesTable.LINK));
+//		System.out.println(l.getItemAtPosition(position).getClass());
+//		Cursor q=(Cursor) l.getItemAtPosition(position);
+//		String id=q.getString(q.getColumnIndex(ArticlesTable._ID));
+//		String link=q.getString(q.getColumnIndex(ArticlesTable.LINK));
+//		String content=q.getString(q.getColumnIndex(ArticlesTable.CONTENT));
 		
-		HashMap<String,String> params=new HashMap();
-		params.put("title",title);
-		params.put("link",link);
+//		HashMap<String,String> params=new HashMap<String,String>();
+//		
+//		params.put("id_articulo",Long.valueOf(id).toString());
+//		params.put("link",link);
+//		params.put("content",content);
+//		System.out.println(params.toString());
 		
-		System.out.println(params.toString());
-		
-		intent.putExtra ("articulo", params);
+		intent.putExtra ("id_articulo", id);
 				
 		startActivity (intent);
 	}

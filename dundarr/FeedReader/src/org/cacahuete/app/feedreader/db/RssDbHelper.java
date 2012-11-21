@@ -23,21 +23,22 @@ public class RssDbHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		Log.d(TAG,"Creando database");
-		this.vaciarDb(db);
+		
 		db.execSQL("CREATE TABLE " + ArticlesTable.TABLE_NAME + "("
 					+ ArticlesTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
 					+ ArticlesTable.TITLE + " STRING,"
 					+ ArticlesTable.LINK + " STRING,"
-					//+ ArticlesTable.PUBDATE + " DATE,"
+					+ ArticlesTable.PUBDATE + " STRING,"
+					+ ArticlesTable.TS_DATE + " INTEGER,"
 					+ ArticlesTable.DESCRIPTION + " STRING,"
-					+ ArticlesTable.CONTENT + " STRING"
+					+ ArticlesTable.CONTENT + " TEXT"
 					+")"
 				);
 		//this.rellenarDb(db);
 		db.execSQL("CREATE TABLE " + FeedsTable.TABLE_NAME + "("
 				+ FeedsTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
 				+ FeedsTable.URL + " STRING,"
-				+ FeedsTable.LASTCHECKDATE + " STRING,"
+				+ FeedsTable.LASTCHECKTIMESTAMP + " STRING,"
 				+ FeedsTable.NAME + " STRING,"
 				+ FeedsTable.DESCRIPTION + " STRING"
 				
@@ -113,7 +114,7 @@ public class RssDbHelper extends SQLiteOpenHelper {
 		
 		// insertamos los valores iniciales de la base de datos, para tener
 		String [] queryArgs = new String [] {"http://www.recetasdemama.es/feed/"
-				 						   , Long.valueOf (fecha.toMillis (true)).toString ()
+											, Long.valueOf (fecha.toMillis (true)).toString()
 				 						   , "Recetas de Mama."
 				 						  , "Noticias de cocina."
 											};
@@ -121,7 +122,7 @@ public class RssDbHelper extends SQLiteOpenHelper {
 		query = "INSERT INTO " + FeedsTable.TABLE_NAME 
 				 + " (" 
 				 + FeedsTable.URL + ", " 
-				  + FeedsTable.LASTCHECKDATE + ", "
+				  + FeedsTable.LASTCHECKTIMESTAMP + ", "
 				 + FeedsTable.NAME + ", "
 				 + FeedsTable.DESCRIPTION 
 				  + ") "
@@ -131,7 +132,7 @@ public class RssDbHelper extends SQLiteOpenHelper {
 		
 		
 		String [] queryArgs2 = new String [] {"http://www.gameover.es/feed/"
-				   , Long.valueOf (fecha.toMillis (true)).toString ()
+				   , Long.valueOf (fecha.toMillis (true)).toString()
 				   , "GameOver"
 				  , "Noticias de videojuegos"
 					};
@@ -139,7 +140,7 @@ public class RssDbHelper extends SQLiteOpenHelper {
 		query = "INSERT INTO " + FeedsTable.TABLE_NAME 
 				 + " (" 
 				 + FeedsTable.URL + ", " 
-				  + FeedsTable.LASTCHECKDATE + ", "
+				  + FeedsTable.LASTCHECKTIMESTAMP + ", "
 				 + FeedsTable.NAME + ", "
 				 + FeedsTable.DESCRIPTION 
 				  + ") "

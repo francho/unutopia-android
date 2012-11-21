@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 
 /**
@@ -26,7 +27,10 @@ public class SplashScreenActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.splash);
-		
+		ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+        progressBar.setMax(100);
+
+		// iniciamos IntentService de recarga de noticias
 		Intent service = new Intent("org.cacahuete.app.feedreader.ACTION_INTENT_SERVICE");
 		service.putExtra("EXTRA_MYRESULTRECEIVER", resultReceiver);
 		startService(service);
@@ -44,15 +48,6 @@ public class SplashScreenActivity extends Activity {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		Handler handler = new Handler();
 		// 	run a thread after 2 seconds to start the home screen
 		handler.postDelayed(new Runnable() {
@@ -67,38 +62,28 @@ public class SplashScreenActivity extends Activity {
 				Intent intent = new Intent(SplashScreenActivity.this, ArticleListActivity.class);
 				SplashScreenActivity.this.startActivity(intent);
 			}
-		},5000); // time in milliseconds (1 second = 1000 milliseconds) until the run() method 
+		},10000); // time in milliseconds (1 second = 1000 milliseconds) until the run() method 
 		
-	}
+	}//onClickListener
 	
 	
-}
-
 class MyResultReceiver extends ResultReceiver {
 
 	public MyResultReceiver() {
 		super(new Handler());
 	}
 
-//	@Override
-//	protected void onReceiveResult(int resultCode, Bundle resultData) {
-//		super.onReceiveResult(resultCode, resultData);
-//		
-//		switch (resultCode) {
-//		case 1:
-//			progressBar.setVisibility(View.VISIBLE);
-//			break;
-//		case 0:
-//			progressBar.setVisibility(View.INVISIBLE);
-//			break;
-//		default:
-//			break;
-//		}
-		
-	
-	
-	
-	
-}
+	@Override
+	protected void onReceiveResult(int resultCode, Bundle resultData) {
+		super.onReceiveResult(resultCode, resultData);
+		ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+		progressBar.setProgress(resultCode);
+			
 
+	}//onReceiveResult	
+	
+	
+}//class
+
+}//activity
 
