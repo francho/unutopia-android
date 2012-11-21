@@ -1,6 +1,6 @@
 package org.francho.apps.unutopia_android;
 
-import org.francho.apps.unutopia_android.app.AppIntent;
+import org.francho.apps.unutopia_android.app.RssIntent;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,6 +19,12 @@ public class SplashActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_splash);
 		View rootView = findViewById(R.id.splash_root);
 		rootView.setOnClickListener(this);
+		
+		launchSyncService();
+	}
+
+	private void launchSyncService() {
+		startService(RssIntent.getSyncArticlesIntent());
 	}
 
 	@Override
@@ -46,14 +52,14 @@ public class SplashActivity extends Activity implements OnClickListener {
 	};
 	
 	private void startNextActivity() {
-		final Intent intent = AppIntent.getArticleListIntent();
+		final Intent intent = RssIntent.getArticleListIntent();
 		startActivity(intent);
 	}
 
 	class NextActivityTimer extends CountDownTimer {
 
 		public NextActivityTimer() {
-			super(10000, 10000);
+			super(5000, 5000);
 		}
 
 		@Override

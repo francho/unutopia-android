@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class FeedDbHelper extends SQLiteOpenHelper {
 	
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 
 	public FeedDbHelper(Context context) {
 		super(context, FeedContract.DB_NAME, null, DATABASE_VERSION );
@@ -30,13 +30,11 @@ public class FeedDbHelper extends SQLiteOpenHelper {
 					+ Articles._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
 					+ Articles.TITLE + " STRING,"
 					+ Articles.PUB_DATE + " LONG,"
-					+ Articles.LINK + " STRING,"
+					+ Articles.LINK + " STRING UNIQUE,"
 					+ Articles.DESCRIPTION + " TEXT,"
 					+ Articles.CONTENT + " TEXT"
 					+")"
 				);
-		
-		DummyFeeds.insertDummyFeeds(db);
 	}
 
 	

@@ -1,11 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.francho.apps.unutopia_android"
-    android:versionCode="1"
+    android:versionCode="2"
     android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="15" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -24,11 +25,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ArticleListActivity"
+            android:name="org.francho.apps.unutopia_android.MainActivity"
             android:clearTaskOnLaunch="true"
             android:exported="false" >
             <intent-filter>
-                <action android:name="unutopia.intent.category.LIST_ARTICLES" />
+                <action android:name="unutopia.intent.action.LIST_ARTICLES" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -38,21 +39,30 @@
             android:exported="false"
             android:theme="@style/AppTheme.Dialog" >
             <intent-filter>
-                <action android:name="unutopia.intent.category.ABOUT" />
+                <action android:name="unutopia.intent.action.ABOUT" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         
         <activity
-            android:name=".ArticleActivity"
+            android:name="org.francho.apps.unutopia_android.ArticleDetailActivity"
             android:exported="false">
             <intent-filter>
-                <action android:name="unutopia.intent.category.VIEW_ARTICLE" />
+                <action android:name="unutopia.intent.action.VIEW_ARTICLE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        
+        <provider android:name=".data.FeedContentProvider" android:authorities="org.francho.unutopia_android" android:exported="false"/>
+    
+    		<service android:name=".app.RssSyncService" android:exported="false">
+    		    <intent-filter >
+    		        <action android:name="unutopia.intent.action.SYNC_ARTICLES" />
+    		    		<category android:name="android.intent.category.DEFAULT" />
+    		    </intent-filter>
+    		</service>
     </application>
 
 </manifest>

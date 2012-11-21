@@ -60,7 +60,18 @@ public class RssContentProvider extends ContentProvider {
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
 		// TODO Auto-generated method stub
-		return 0;
+		final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+		String whereClause="";
+		Long id;
+		String last_segment = uri.getLastPathSegment();
+		if (esId(last_segment)==true) {
+			id=Long.parseLong(last_segment);
+			whereClause = ArticlesTable._ID + "==" + id;
+		}
+		
+		String whereArgs[]=null;
+		int num=db.delete(ArticlesTable.TABLE_NAME, whereClause, whereArgs);
+		return num;		
 	}
 
 	
@@ -84,32 +95,37 @@ public class RssContentProvider extends ContentProvider {
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
-		
+		Long id=null;
 		Log.d(TAG,"Empezando query con uri "+uri.toString()	);
 		try {
 			SQLiteDatabase db = mDbHelper.getReadableDatabase();
-
+			if (esId(uri.getLastPathSegment())==true) {
+				id=Long.parseLong(uri.getLastPathSegment());
+			}
+		
 		
 		switch(sUriMatcher.match(uri)) {
 		case TYPE_ARTICLES_ITEM:
 			Log.d(TAG,"estamos en articles item");
-			String id = uri.getLastPathSegment();
+			
 			if(selection==null) { selection = ""; } 
 			selection += (!TextUtils.isEmpty(selection)) ? " AND" : "";
-			selection += ArticlesTable._ID + "==" + id;
+			selection += ArticlesTable._ID + "=" + id.toString();
 		case TYPE_ARTICLES_COLLECTION:
 			Log.d(TAG,"estamos en articles collection");
 			String table = ArticlesTable.TABLE_NAME;
 			String groupBy = null;
 			String having = null;
+			Log.d(TAG,"selection es "+selection);
 			Cursor cursor = db.query(table, projection, selection, selectionArgs, groupBy, having, sortOrder);
+			Log.d(TAG,"Devolviendo cursor con "+cursor.getCount()+" elementos");
 			return cursor;
 		case TYPE_FEEDS_ITEM:
 			Log.d(TAG,"estamos en feeds item");
-			String id2 = uri.getLastPathSegment();
+			
 			if(selection==null) { selection = ""; } 
 			selection += (!TextUtils.isEmpty(selection)) ? " AND" : "";
-			selection += FeedsTable._ID + "==" + id2;
+			selection += FeedsTable._ID + "==" + id.toString();
 		case TYPE_FEEDS_COLLECTION:
 			Log.d(TAG,"estamos en feeds collection");
 			String table2 = FeedsTable.TABLE_NAME;
@@ -138,5 +154,20 @@ public class RssContentProvider extends ContentProvider {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	
+	/*
+	 * Si fragment es un numero devuelve true, si no false
+	 */
+	private boolean esId(String fragment) {
+		
+		try {
+			
+			Long.parseLong(fragment);
+		}
+		catch (Exception e) {return false;}
+		return true;
+	}
+	
 
 }

@@ -21,7 +21,8 @@ public class RssContract {
 		
 		public static final String TITLE="title";
 		public static final String LINK="link";
-		//public static final String PUBDATE="pubDate";
+		public static final String PUBDATE="pubDate";
+		public static final String TS_DATE="ts_date";
 		public static final String DESCRIPTION="description";
 		public static final String CONTENT="content";
 		
@@ -40,7 +41,7 @@ public class RssContract {
 		public static final String TABLE_NAME = "feeds";
 		
 		public static final String URL="url";
-		public static final String LASTCHECKDATE="lastCheckDate";
+		public static final String LASTCHECKTIMESTAMP="lastCheckTimestamp";
 		public static final String NAME="name";
 		public static final String DESCRIPTION="description";
 		
