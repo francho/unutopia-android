@@ -59,7 +59,7 @@ public class SplashActivity extends Activity implements OnClickListener {
 	class NextActivityTimer extends CountDownTimer {
 
 		public NextActivityTimer() {
-			super(10000, 10000);
+			super(5000, 5000);
 		}
 
 		@Override
