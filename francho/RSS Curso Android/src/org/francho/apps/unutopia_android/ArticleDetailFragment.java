@@ -1,6 +1,6 @@
 package org.francho.apps.unutopia_android;
 
-import org.francho.apps.unutopia_android.app.AppIntent;
+import org.francho.apps.unutopia_android.app.RssIntent;
 import org.francho.apps.unutopia_android.data.FeedContract.Articles;
 
 import android.content.Context;
@@ -25,7 +25,7 @@ import android.widget.TextView;
  */
 public class ArticleDetailFragment extends Fragment {
 
-	private Uri mUri;
+	private String mLink;
 
 	/**
 	 * Mandatory empty constructor for the fragment manager to instantiate the
@@ -38,9 +38,8 @@ public class ArticleDetailFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		if (getArguments().containsKey(AppIntent.EXTRA_ARTICLE_ID)) {
-			long id = getArguments().getLong(AppIntent.EXTRA_ARTICLE_ID);
-			mUri = Articles.getUri(id);
+		if (getArguments().containsKey(RssIntent.EXTRA_ARTICLE_LINK)) {
+			mLink = getArguments().getString(RssIntent.EXTRA_ARTICLE_LINK);
 		}
 	}
 
@@ -59,7 +58,7 @@ public class ArticleDetailFragment extends Fragment {
 				.findViewById(R.id.article_date);
 
 		// Show the dummy content as text in a TextView.
-		if (mUri != null) {
+		if (mLink != null) {
 
 			String[] projection = new String[] { Articles.TITLE, // 0
 					Articles.CONTENT, // 1
@@ -67,8 +66,8 @@ public class ArticleDetailFragment extends Fragment {
 					Articles.LINK // 3
 			};
 
-			Cursor cursor = getActivity().getContentResolver().query(mUri,
-					projection, null, null, null);
+			Cursor cursor = getActivity().getContentResolver().query(Articles.getUri(),
+					projection, Articles.LINK + "=?", new String[]{mLink}, null);
 			if (cursor != null && cursor.moveToFirst()) {
 				String title = cursor.getString(0);
 				titleView.setText(title);

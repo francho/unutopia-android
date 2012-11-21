@@ -1,6 +1,6 @@
 package org.francho.apps.unutopia_android;
 
-import org.francho.apps.unutopia_android.app.AppIntent;
+import org.francho.apps.unutopia_android.app.RssIntent;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -15,12 +15,8 @@ public class ArticleDetailActivity extends FragmentActivity {
 		setContentView(R.layout.activity_article_detail);
 
 		if (savedInstanceState == null) {
-			long id = getIntent().getLongExtra(AppIntent.EXTRA_ARTICLE_ID, -1);
-			Bundle arguments = new Bundle();
-			arguments.putLong(AppIntent.EXTRA_ARTICLE_ID, id);
-			
 			ArticleDetailFragment fragment = new ArticleDetailFragment();
-			fragment.setArguments(arguments);
+			fragment.setArguments(getIntent().getExtras());
 			
 			FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 			transaction.replace(R.id.article_detail_container, fragment);

@@ -1,7 +1,7 @@
 package org.francho.apps.unutopia_android;
 
 import org.francho.apps.unutopia_android.ArticleListFragment.ArticlesListener;
-import org.francho.apps.unutopia_android.app.AppIntent;
+import org.francho.apps.unutopia_android.app.RssIntent;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,7 +40,7 @@ public class MainActivity extends FragmentActivity implements ArticlesListener {
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_about:
-			startActivity(AppIntent.getAboutIntent());
+			startActivity(RssIntent.getAboutIntent());
 			return true;
 		default:
 			return super.onMenuItemSelected(featureId, item);
@@ -49,10 +49,10 @@ public class MainActivity extends FragmentActivity implements ArticlesListener {
 	}
 
 	@Override
-	public void onArticleSelected(long id) {
+	public void onArticleSelected(String link) {
 		if(mTwoPane) {
 			final Bundle arguments = new Bundle();
-			arguments.putLong(AppIntent.EXTRA_ARTICLE_ID, id);
+			arguments.putString(RssIntent.EXTRA_ARTICLE_LINK, link);
 			
 			final ArticleDetailFragment fragment = new ArticleDetailFragment();
 			fragment.setArguments(arguments);
@@ -61,7 +61,7 @@ public class MainActivity extends FragmentActivity implements ArticlesListener {
 			transaction.replace(R.id.article_detail_container, fragment);
 			transaction.commit();
 		} else {
-			final Intent intent = AppIntent.getArticleIntent(id);
+			final Intent intent = RssIntent.getArticleIntent(link);
 			startActivity(intent);
 		}
 	}

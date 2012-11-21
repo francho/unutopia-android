@@ -1,6 +1,6 @@
 package org.francho.apps.unutopia_android;
 
-import org.francho.apps.unutopia_android.app.AppIntent;
+import org.francho.apps.unutopia_android.app.RssIntent;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -24,7 +24,7 @@ public class SplashActivity extends Activity implements OnClickListener {
 	}
 
 	private void launchSyncService() {
-		startService(AppIntent.getSyncArticlesIntent());
+		startService(RssIntent.getSyncArticlesIntent());
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class SplashActivity extends Activity implements OnClickListener {
 	};
 	
 	private void startNextActivity() {
-		final Intent intent = AppIntent.getArticleListIntent();
+		final Intent intent = RssIntent.getArticleListIntent();
 		startActivity(intent);
 	}
 

@@ -32,7 +32,7 @@ public class FeedsAdapter extends SimpleCursorAdapter  {
 		String[] projection = new String[]{FeedContract.Articles._ID, FeedContract.Articles.TITLE, FeedContract.Articles.PUB_DATE};
 		String selection = null;
 		String[] selectionArgs = null;
-		String sortOrder = FeedContract.Articles.PUB_DATE + " DESC";
+		String sortOrder = FeedContract.Articles.PUB_DATE + " ASC";
 		
 		final Cursor cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs, sortOrder);
 		this.changeCursor(cursor);

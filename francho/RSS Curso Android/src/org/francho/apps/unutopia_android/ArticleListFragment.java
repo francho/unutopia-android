@@ -1,9 +1,11 @@
 package org.francho.apps.unutopia_android;
 
+import org.francho.apps.unutopia_android.data.FeedContract.Articles;
 import org.francho.apps.unutopia_android.widget.FeedsAdapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
@@ -29,7 +31,7 @@ public class ArticleListFragment extends ListFragment {
 		/**
 		 * Callback for when an item has been selected.
 		 */
-		public void onArticleSelected(long articleId);
+		public void onArticleSelected(String articleUrl);
 	}
 	
 	@Override
@@ -77,8 +79,17 @@ public class ArticleListFragment extends ListFragment {
 			long id) {
 		super.onListItemClick(listView, view, position, id);
 
+		String[] projection = new String[]{Articles.LINK};
+		Cursor cursor = getActivity().getContentResolver().query(Articles.getUri(id), projection , null, null, null);
+		
+		String link = null;
+		if(cursor.moveToFirst()) {
+			link = cursor.getString(0);
+		}
+		cursor.close();
+		
 		if(mArticlesListener != null) {
-			mArticlesListener.onArticleSelected(id);
+			mArticlesListener.onArticleSelected(link);
 		}
 	}
 
