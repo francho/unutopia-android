@@ -33,8 +33,7 @@ public class LoaderIntentService extends IntentService {
 	}
 
 	protected void onHandleIntent(Intent intent) {
-		
-		
+
 		final URL url;
 		int progress = intent.getIntExtra("progress", 0);
 		int Rprogress = 0;

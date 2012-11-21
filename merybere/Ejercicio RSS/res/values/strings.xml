@@ -20,6 +20,7 @@
     <!-- Textos del detalle de artículo -->
     <string name="article_detail_title">Aquí el título del artículo</string>
     <string name="article_detail_pub_date">Aquí la fecha de publicación</string>
+    <string name="article_detail_content">Aquí el contenido del artículo</string>
     
     <!-- Textos de la pantalla Acerca de -->
     <string name="about_version">versión 1.0</string>

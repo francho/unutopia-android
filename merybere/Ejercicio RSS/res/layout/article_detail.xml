@@ -31,4 +31,11 @@
         android:text="@string/article_detail_pub_date"
         android:textSize="@dimen/text_small" />
 
+    <WebView
+        android:id="@+id/article_detail_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/article_detail_pub_date"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

@@ -1,11 +1,11 @@
 package com.merybere.apps.ejercicio_rss;
 
+import data.RSSInterface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.ResultReceiver;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
@@ -28,8 +28,10 @@ public class SplashActivity extends Activity {
         
         setContentView(R.layout.splash);
         
+        // Servicio de carga de artículos
         Intent feedService = AppIntent.getFeedIntent();
-        feedService.putExtra("com.merybere.apps.EXTRA_MYRESULTRECEIVER", resultReceiver);
+        // ResultReceiver
+        feedService.putExtra(RSSInterface.INTENT_RESULTRECEIVER, resultReceiver);
         startService(feedService);
         
         // Cachear el objeto título clickable
@@ -66,8 +68,8 @@ public class SplashActivity extends Activity {
 		super.onResume();
 		
 		// Contador a 10 segundos
-		//timer = new SplashTimer(10000, 10000);
-		//timer.start();
+		timer = new SplashTimer(RSSInterface.SPLASH_TIMER, RSSInterface.SPLASH_TIMER);
+		timer.start();
 	}
 
 
@@ -121,7 +123,7 @@ public class SplashActivity extends Activity {
 			
 			// Mostrar y ocultar la barra de progreso al recibir el código correspondiente
 			switch (resultCode) {
-			case 0:
+			case RSSInterface.CODE_END_TASK:
 				// Lanzar la siguiente actividad cuando acaba la tarea
 				nextActivity();
 				break;

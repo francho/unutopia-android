@@ -57,6 +57,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        
+        <!-- Declaración del servicio de carga de artículos -->
         <service android:name="app.SyncService">
             <intent-filter>
                 <action android:name="unutopia.intent.category.ACTION_SYNC_SERVICE" />
