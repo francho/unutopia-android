@@ -12,4 +12,5 @@
     
     <item type="id" name="article_title" />
     <item type="id" name="article_date" />
+    <item type="id" name="article_detail" />
 </resources>

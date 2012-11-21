@@ -19,6 +19,12 @@ public class SplashActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_splash);
 		View rootView = findViewById(R.id.splash_root);
 		rootView.setOnClickListener(this);
+		
+		launchSyncService();
+	}
+
+	private void launchSyncService() {
+		startService(AppIntent.getSyncArticlesIntent());
 	}
 
 	@Override

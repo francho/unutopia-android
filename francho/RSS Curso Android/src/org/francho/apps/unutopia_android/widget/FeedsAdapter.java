@@ -2,11 +2,11 @@ package org.francho.apps.unutopia_android.widget;
 
 import org.francho.apps.unutopia_android.R;
 import org.francho.apps.unutopia_android.data.FeedContract;
-import org.francho.apps.unutopia_android.data.FeedDbHelper;
+import org.francho.apps.unutopia_android.data.FeedContract.Articles;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.text.format.DateUtils;
 import android.widget.TextView;
@@ -27,20 +27,16 @@ public class FeedsAdapter extends SimpleCursorAdapter  {
 
 
 	private void initArticlesCursor(Context context) {
-		final FeedDbHelper helper = new FeedDbHelper(context);
-		final SQLiteDatabase db = helper.getReadableDatabase();
 		
-		String table = FeedContract.Articles.TABLE_NAME;
-		String[] columns = new String[]{FeedContract.Articles._ID, FeedContract.Articles.TITLE, FeedContract.Articles.PUB_DATE};
+		Uri uri = Articles.getUri();
+		String[] projection = new String[]{FeedContract.Articles._ID, FeedContract.Articles.TITLE, FeedContract.Articles.PUB_DATE};
 		String selection = null;
 		String[] selectionArgs = null;
-		String groupBy = null;
-		String having = null;
-		String orderBy = FeedContract.Articles.PUB_DATE + " DESC";
+		String sortOrder = FeedContract.Articles.PUB_DATE + " DESC";
 		
-		Cursor cursor = db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
+		final Cursor cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs, sortOrder);
+		this.changeCursor(cursor);
 		
-		this.swapCursor(cursor);
 	}
 
 
