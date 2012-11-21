@@ -51,6 +51,12 @@ public class ArticleListActivity extends ListActivity {
 				
 				startActivity(intent);
 				return true;
+			case R.id.menu_refresh:
+		        // Servicio de carga de artículos
+		        final Intent feedService = AppIntent.getFeedIntent();
+		        
+		        startService(feedService);
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}

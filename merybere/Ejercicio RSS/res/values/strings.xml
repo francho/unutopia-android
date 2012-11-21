@@ -11,6 +11,7 @@
     
     <!-- Textos de los menús -->
     <string name="menu_about">Acerca de</string>
+    <string name="menu_refresh">Actualizar</string>
     
     <!-- Textos de la lista de artículos -->
     <string name="article_list_title">Artículos</string>
