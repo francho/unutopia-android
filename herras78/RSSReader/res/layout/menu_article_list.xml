@@ -9,7 +9,7 @@
           android:icon="@drawable/mas"
           android:title="@string/m_agregar" />
  
-    <item android:id="@+id/menu_buscar"
+    <item android:id="@+id/menu_reload"
           android:icon="@drawable/reload"
           android:title="@string/m_recargar" />
 </menu>

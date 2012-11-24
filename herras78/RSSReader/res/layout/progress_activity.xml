@@ -2,20 +2,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" 
     android:orientation="vertical" 
-    android:layout_gravity="center">
-    
-  <LinearLayout 
-      android:layout_width="wrap_content" 
-      android:layout_height="wrap_content"
-      android:background="@drawable/marco" 
-      android:orientation="vertical"
-      android:gravity="center">
-      
+    android:layout_gravity="center"
+    android:background="@drawable/marco" >
+          
       <LinearLayout 
          android:layout_width="wrap_content" 
      	 android:layout_height="wrap_content"
      	 android:orientation="horizontal"
-     	 android:gravity="center_horizontal">
+     	 android:gravity="center">
 	      
 	      <ImageView
 	            android:layout_width="wrap_content"
@@ -40,7 +34,7 @@
 		      android:text="@string/load"
 		      android:textSize="16dp" 
 		      android:textColor="@color/white"	      
-		      android:padding="3dp"/>
+		      android:layout_marginLeft="5dp"/>
 	  
 	  <ProgressBar 
       style="@android:style/Widget.ProgressBar.Horizontal" 
@@ -50,8 +44,4 @@
       android:layout_height="15dp" 
       android:layout_margin="5dp" /> 
 
-  </LinearLayout>
-   
-  
-      
   </LinearLayout>

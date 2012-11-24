@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:orientation="vertical" 
+    android:layout_gravity="center"
+    android:background="@drawable/marco" >
+          
+      <LinearLayout 
+        android:layout_width="220dp"
+    	android:layout_height="wrap_content"
+    	android:layout_marginLeft="10dp"
+    	android:layout_marginRight="10dp"
+    	android:orientation="horizontal"
+    	android:layout_marginTop="10dp"
+    	android:gravity="left">
+    	
+        <TextView
+            android:text="@string/s_select_name"
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_marginRight="3dp" />
+        <EditText 
+            android:id="@+id/s_text_name"
+            android:maxLength="15"
+            android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"/>
+        
+    </LinearLayout>
+	  
+     <LinearLayout 
+        android:layout_width="220dp"
+    	android:layout_height="wrap_content"
+    	android:layout_marginLeft="10dp"
+    	android:layout_marginRight="10dp"
+    	android:orientation="horizontal"
+    	android:gravity="left">
+    	
+        <TextView
+            android:text="@string/s_select_url"
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_marginRight="3dp" />
+        <EditText 
+            android:id="@+id/s_text_url"
+            android:inputType="textUri"
+            android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"/>
+        
+    </LinearLayout>
+	  
+	  <Button 
+        android:id="@+id/s_button_save"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_margin="5dp"
+    	android:layout_gravity="center"
+    	android:text="@string/s_button_save"/>
+
+  </LinearLayout>
+
+

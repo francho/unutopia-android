@@ -46,20 +46,27 @@ public class ArticleListActivity extends Activity {
         TxtFuentes = (TextView) findViewById(R.id.contfuentes);
         TxtTitulo.setTypeface(font1);
 
-        final ImageView acercade = (ImageView) findViewById(R.id.acercade);
-        acercade.setOnClickListener(new OnClickListener() {
+        final ImageView about = (ImageView) findViewById(R.id.acercade);
+        about.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {           	
             	ToAbout();            	
             }
         });
         
         final ImageView reload = (ImageView) findViewById(R.id.reload);
-        acercade.setOnClickListener(new OnClickListener() {
+        reload.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {           	
             	ToProgress();            	
             }
         });
         
+        final ImageView addSource = (ImageView) findViewById(R.id.add);
+        addSource.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {           	
+            	ToSourceCreation();            	
+            }
+        });
+
         FeedList.setOnItemClickListener(new OnItemClickListener() {
         	public void onItemClick(AdapterView<?> a, View v, int position, long id) {       		       		
         		c.moveToPosition(position);      		
@@ -86,6 +93,11 @@ public class ArticleListActivity extends Activity {
 	
 	public void ToAbout(){
 		Intent intent = new Intent(ArticleListActivity.this, AboutActivity.class);     
+        startActivity(intent); 
+	}
+	
+	public void ToSourceCreation(){
+		Intent intent = new Intent(ArticleListActivity.this, SourceCreation.class);     
         startActivity(intent); 
 	}
 	
@@ -128,10 +140,11 @@ public class ArticleListActivity extends Activity {
 	        case R.id.menu_about:
 	        	ToAbout();
 	            return true;
-	        case R.id.menu_buscar:
+	        case R.id.menu_reload:
 	        	ToProgress(); 
 	            return true;
-	        case R.id.menu_mas:            
+	        case R.id.menu_mas:
+	        	ToSourceCreation();
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);

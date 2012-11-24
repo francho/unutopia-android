@@ -17,7 +17,7 @@
         <activity
             android:name=".SplashActivity"
             android:label="@string/load"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:noHistory="true">
             <intent-filter>
                 
@@ -30,26 +30,32 @@
         <activity
             android:name=".ArticleListActivity"
             android:noHistory="true"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@android:style/Theme.NoTitleBar"/>
         
         <activity
             android:name=".AboutActivity"
             android:noHistory="true"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/NoTitleDialog"/>
         
          <activity
             android:name=".ProgressActivity"
             android:noHistory="true"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/NoTitleDialog"/>
         
         <activity
             android:name=".ItemReader"
             android:noHistory="true"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        
+        <activity
+            android:name=".SourceCreation"
+            android:noHistory="true"
+            android:screenOrientation="unspecified"
+            android:theme="@style/NoTitleDialog"/>
         
         <service android:name=".service.LoaderIntentService">
             <intent-filter>
