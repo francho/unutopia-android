@@ -66,8 +66,7 @@ public class FeedContentProvider extends ContentProvider {
 		}
 		
 		final SQLiteDatabase db = mDbHelper.getWritableDatabase();
-		long id = db.replace(Articles.TABLE_NAME, null, values);
-		db.close();
+		long id = db.replace(Articles.TABLE_NAME, null, values); 
 		
 		Uri newUri = Articles.getUri(id);
 		
