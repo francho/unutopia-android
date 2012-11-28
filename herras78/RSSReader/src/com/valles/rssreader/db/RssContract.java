@@ -21,6 +21,17 @@ import android.provider.BaseColumns;
 		public static final String CONTENT = "content";
 		public static final String AUTOR = "autor";
 		public static final String CATEGORY = "category";
+		public static final String SOURCE = "source";
+		public static final String URL = "url";
+		
+	}
+	
+	public static class SourceTable implements BaseColumns{
+		private SourceTable() {}
+		
+		public static final String TABLE_NAME = "source";
+		public static final String NAME = "name";
+		public static final String IMAGE = "image";
 		public static final String URL = "url";
 		
 	}

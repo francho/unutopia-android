@@ -12,9 +12,13 @@
     <string name="btncontinuar">Continuar</string>
     <string name="m_acercade">Acerca de..</string>
     <string name="m_recargar">Recargar</string>
-    <string name="m_agregar">Agregar</string> 
+    <string name="m_agregar">Agregar</string>
+    <string name="s_select_name">Nombre de fuente:</string> 
+    <string name="s_select_url">URL:</string>
+    <string name="s_button_save">Guardar</string>
+    <string name="added_source">Nueva fuebte añadida</string>
     <string name="acerca">
-        Version 1.0.0 \n
+        Version 0.6.0 \n
         Desarrollado por Hertec Studios.
     </string>
 	<string name="licencia">

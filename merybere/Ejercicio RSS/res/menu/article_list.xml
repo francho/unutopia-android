@@ -2,7 +2,12 @@
 <!-- Menu de la pantalla article_list -->
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    
+
+    <item android:id="@+id/menu_refresh"
+        android:title="@string/menu_refresh"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+        
     <item android:id="@+id/menu_about"
         android:title="@string/menu_about"
         android:orderInCategory="100"

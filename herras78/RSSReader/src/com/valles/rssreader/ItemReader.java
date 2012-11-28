@@ -19,7 +19,7 @@ import android.widget.TextView;
 public class ItemReader extends Activity {
 
 	private RssDbHelper helper = new RssDbHelper(this);
-	//private WebView webContent;
+	
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -42,9 +42,9 @@ public class ItemReader extends Activity {
 	        
 	    TxtTit.setText(cursor.getString(1));
 	    TxtDate.setText(cursor.getString(2));
-	    //TxtDesc.setText(cursor.getString(3));
+	    String Desc_Cont = cursor.getString(3)+"\n\n"+cursor.getString(4);
 	    
-	    webContent.loadDataWithBaseURL(null, cursor.getString(3), "text/html", "UTF-8","");
+	    webContent.loadDataWithBaseURL(null, Desc_Cont, "text/html", "UTF-8","");
 	    
 	    ImgReader.setImageDrawable(context.getResources().getDrawable(R.drawable.feed_imgen)); 
 	}

@@ -59,8 +59,9 @@ public class ArticleActivity extends Activity {
 		cursor.close();
 	}
 
+	@SuppressWarnings("unused")
 	private CharSequence parseDate(long pubdate) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

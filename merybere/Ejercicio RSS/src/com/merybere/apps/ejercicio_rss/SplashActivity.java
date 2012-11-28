@@ -29,7 +29,7 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.splash);
         
         // Servicio de carga de artículos
-        Intent feedService = AppIntent.getFeedIntent();
+        final Intent feedService = AppIntent.getFeedIntent();
         // ResultReceiver
         feedService.putExtra(RSSInterface.INTENT_RESULTRECEIVER, resultReceiver);
         startService(feedService);
@@ -43,12 +43,6 @@ public class SplashActivity extends Activity {
 			public void onClick(View view) {
 				
 				nextActivity();
-				/*Context context = SplashActivity.this;
-				// Mensajero (se crea el mensaje que se va a pasar)
-				Intent intent = new Intent(context, ArticleListActivity.class);
-				
-				startActivity(intent);*/
-				
 			}
         });
     }
@@ -104,7 +98,7 @@ public class SplashActivity extends Activity {
         }
     }
     
- // Clase que android utiliza internamente para enviar y recibir resultados
+    // Clase que android utiliza internamente para enviar y recibir resultados
     class MyResultReceiver extends ResultReceiver {
 
     	private static final String TAG = "MyResultReceiver";
