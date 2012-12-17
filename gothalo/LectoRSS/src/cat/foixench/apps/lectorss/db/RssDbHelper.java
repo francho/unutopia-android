@@ -4,8 +4,6 @@ import cat.foixench.apps.lectorss.db.RssContract.FeedsTable;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.text.format.Time;
-import android.util.Log;
 
 public class RssDbHelper extends SQLiteOpenHelper {
 	
@@ -36,7 +34,7 @@ public class RssDbHelper extends SQLiteOpenHelper {
 		
 		
 		
-		Time ahora = new Time ();
+/*		Time ahora = new Time ();
 		ahora.setToNow();
 		
 		// insertamos los valores iniciales de la base de datos, para tener
@@ -80,7 +78,7 @@ public class RssDbHelper extends SQLiteOpenHelper {
 				 + ") "
 				 + "VALUES (?, ?, ?, ?, ?)";
 		
-		db.execSQL(strQuery, queryArgs);
+		db.execSQL(strQuery, queryArgs);*/
 		
 		//	db.close ();
 

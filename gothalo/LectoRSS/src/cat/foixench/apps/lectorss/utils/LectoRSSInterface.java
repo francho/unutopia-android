@@ -31,9 +31,28 @@ public interface LectoRSSInterface {
 	final static String PARAM_TITLE = "titulo"; 
 	final static String PARAM_AUTHOR = "autor";
 	final static String PARAM_DATE = "fecha";
+	final static String PARAM_ID = "id";
 	
 	/**
 	 * identificadores de callbacks de carga
 	 */
 	final static int LOADER_LECTORSS_CONTENT_PROVIDER = 1;
+	
+	/**
+	 * tag para identificar los intent services
+	 */
+	final static String SERVICE_TAG = "LectoRSSIntentService";
+	
+	/**
+	 * Identificadores de los extras de los intents
+	 */
+	
+	final static String EXTRA_FEED_RECEIVER = "EXTRA_FEED_RECEIVER";
+	
+	/** 
+	 * flags proceso de carga de feeds
+	 */
+	
+	final static int LOAD_STARTED = 1;
+	final static int LOAD_ENDED = 0;
 }

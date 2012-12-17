@@ -3,13 +3,20 @@
  */
 package cat.foixench.apps.lectorss;
 
-import cat.foixench.apps.lectorss.utils.LectoRSSInterface;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 import android.widget.TextView;
+import cat.foixench.apps.lectorss.db.RssContract;
+import cat.foixench.apps.lectorss.db.RssContract.FeedsTable;
+import cat.foixench.apps.lectorss.utils.LectoRSSInterface;
+import cat.foixench.apps.lectorss.utils.Utils;
 
 /**
  * clase que implementa la construcci—n de la activity detalle de articulo
@@ -25,15 +32,44 @@ public class ArticleDetailActivity extends Activity implements LectoRSSInterface
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
+		String strTitle = "";
+		String strDate = "";
+		String strAuthor = "";
+		String strDescription = "";
+		
 		super.onCreate(savedInstanceState);
 		setContentView (R.layout.articledetail);
 		
 		// recuperamos los parametros via Intent
 		Intent intent = this.getIntent ();
-		String strTitle = intent.getStringExtra(PARAM_TITLE);
-		String strDate = intent.getStringExtra (PARAM_DATE);
-		String strAuthor = intent.getStringExtra (PARAM_AUTHOR);
 		
+		String strId = intent.getStringExtra (PARAM_ID);
+		
+		// Recuperamos la informaci—n del item a partir del id recibido como parametro.
+		
+		Uri uri = RssContract.FeedsTable.getUri();
+		String projection [] = new String [] {FeedsTable._ID, FeedsTable.COLUMN_TITLE, FeedsTable.COLUMN_AUTHOR, FeedsTable.COLUMN_PUB_DATE, FeedsTable.COLUMN_DESCRIPTION, FeedsTable.COLUMN_LINK};
+		String selection = FeedsTable._ID + " = ? ";
+		String selectionArgs [] = new String [] {strId};
+		
+		Cursor cursor = getContentResolver().query (uri, projection, selection, selectionArgs, null);
+		
+		
+		
+		if (cursor.moveToFirst()) {
+			strTitle = cursor.getString (cursor.getColumnIndex (FeedsTable.COLUMN_TITLE));
+			strDate = Utils.millisToDate (this, cursor.getLong (cursor.getColumnIndex (FeedsTable.COLUMN_PUB_DATE)));
+			strAuthor = cursor.getString (cursor.getColumnIndex (FeedsTable.COLUMN_AUTHOR));
+			strDescription = cursor.getString (cursor.getColumnIndex (FeedsTable.COLUMN_DESCRIPTION));
+		}
+		
+		
+		
+//		String strTitle = intent.getStringExtra(PARAM_TITLE);
+//		String strDate = intent.getStringExtra (PARAM_DATE);
+//		String strAuthor = intent.getStringExtra (PARAM_AUTHOR);
+//		
 		TextView tvDetailTitle = (TextView) findViewById (R.id.detail_title);
 		tvDetailTitle.setText (strTitle);
 		
@@ -43,6 +79,19 @@ public class ArticleDetailActivity extends Activity implements LectoRSSInterface
 		TextView tvAuthor = (TextView) findViewById (R.id.author);
 		tvAuthor.setText (strAuthor);
 		
+		WebView tvDescription = (WebView) findViewById (R.id.article_content);
+		// damos un poco de contenido al texto, para que mantenga la apariencia de la aplicacion
+		String strDescHead, strDescFoot, strBackground, strColor;
+		strBackground = "#" + Integer.toHexString (getResources ().getColor (R.color.app_background)).substring (2);
+		strColor = "#"  + Integer.toHexString (getResources ().getColor (R.color.default_color)).substring (2);
+		strDescHead = "<body style='background-color:" + strBackground + "; color:" + strColor + "'>";
+		strDescFoot = "</body>";
+		
+		Log.d ("ArticleDetailActivity", strDescHead + strDescription + strDescFoot);
+		
+		tvDescription.loadDataWithBaseURL (null, strDescHead + strDescription + strDescFoot, "text/html", "utf-8", null);
+		
+		cursor.close();
 	}
 
 	/** 

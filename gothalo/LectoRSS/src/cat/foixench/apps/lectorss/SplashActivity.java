@@ -4,6 +4,7 @@ import cat.foixench.apps.lectorss.utils.LectoRSSInterface;
 import cat.foixench.apps.lectorss.utils.Utils;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.ResultReceiver;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
@@ -11,16 +12,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+// import android.widget.Toast;
 
 public class SplashActivity extends Activity implements OnClickListener , LectoRSSInterface {
 	
 	SplashActivity splash;
 	
 	LinearLayout splashBox;
-	private Handler delayed;
+	// private Handler delayed;
+	MyResultReceiver resultReceiver = new MyResultReceiver();
 	
-	private Runnable delayedTask = new Runnable () {
+/*	private Runnable delayedTask = new Runnable () {
 
 		public void run() {
 			
@@ -34,7 +36,7 @@ public class SplashActivity extends Activity implements OnClickListener , LectoR
 		}
 		
 		
-	};
+	};*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,10 +56,17 @@ public class SplashActivity extends Activity implements OnClickListener , LectoR
         splashBox.setOnClickListener(this);
         
         // creamos un temporizador para que, pasados 30 segundos, se muestre la activity ArticleListActivity
-        delayed = new Handler ();
+/*        delayed = new Handler ();
         delayed.removeCallbacks(delayedTask);
-        delayed.postDelayed(delayedTask, 30000);
+        delayed.postDelayed(delayedTask, 30000);*/
         
+        // llamamos al volcado de feeds en la bbdd
+        Intent service = new Intent ("cat.foixench.lectoRSS.LOAD_FEED");
+		
+		// a–adimos info extra via el result receiver
+		service.putExtra (EXTRA_FEED_RECEIVER, resultReceiver);
+		
+		startService (service);
         
     }
     
@@ -71,10 +80,9 @@ public class SplashActivity extends Activity implements OnClickListener , LectoR
 	protected void onPause() {
 		super.onPause();
 		// desactivamos el timer
-		delayed.removeCallbacks(delayedTask);
+		// delayed.removeCallbacks(delayedTask);
 		
 	}
-
 
 
 	/**
@@ -106,5 +114,31 @@ public class SplashActivity extends Activity implements OnClickListener , LectoR
     	} else {
     		Log.e (SPLASH_ACTIVITY_TAG, "activity no v‡lida");
     	}
+    }
+    
+    class MyResultReceiver extends ResultReceiver {
+    	public MyResultReceiver () {
+    		super (new Handler ());
+    	}
+
+		/**
+		 * clase encargada de registrar el proceso carga de feeds.
+		 * @see android.os.ResultReceiver#onReceiveResult(int, android.os.Bundle)
+		 */
+		@Override
+		protected void onReceiveResult(int resultCode, Bundle resultData) {
+			super.onReceiveResult(resultCode, resultData);
+			
+			switch (resultCode) {
+				case LOAD_STARTED :
+					
+					break;
+				case LOAD_ENDED : 
+					showActivity (ARTICLE_LIST_ACTIVITY);
+					break;
+			}
+		}
+    	
+    	
     }
 }

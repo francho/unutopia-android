@@ -1,14 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cat.foixench.apps.lectorss"
     android:versionCode="1"
-    android:versionName="1.0.5.1"
+    android:versionName="1.0.6.2"
     android:installLocation="auto" >
 
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="15" />
 
-    
+    <uses-permission 
+        android:name="android.permission.INTERNET"/>
     
     <application
         android:icon="@drawable/ic_launcher"
@@ -40,8 +41,17 @@
         
         <provider 
             android:name=".db.LectoRSSContentProvider"
-           	android:authorities="cat.foixench.apps.lectorss" >
+           	android:authorities="cat.foixench.apps.lectorss" 
+           	android:exported="false">
         </provider>
+        
+        <service
+            android:name=".app.SyncService"
+            android:exported="false">
+            <intent-filter >
+                <action android:name="cat.foixench.lectoRSS.LOAD_FEED" />
+            </intent-filter>
+       	</service>	
     </application>
 
 </manifest>

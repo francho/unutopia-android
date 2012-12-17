@@ -45,4 +45,12 @@
     
 	<!-- fin articledetail.xml -->
 	
+	<!-- mensajes clase FeedsLoader -->
+	
+	<string name="feedsloader_error_malformed">La dirección URL del feed no es válida</string>
+	<string name="feedsloader_error_io">No se ha podido acceder a la URL del feed</string>
+	<string name="feedsloader_error_sax">No se ha podido leer la información almacenada en el feed</string>
+	
+	<!-- fin mensajes clase FeedsLoader -->
+	
 </resources>

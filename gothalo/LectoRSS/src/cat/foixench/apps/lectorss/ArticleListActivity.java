@@ -1,25 +1,25 @@
 package cat.foixench.apps.lectorss;
 
-import cat.foixench.apps.lectorss.db.RssContract;
-import cat.foixench.apps.lectorss.db.RssContract.FeedsTable;
-import cat.foixench.apps.lectorss.utils.LectoRSSInterface;
-import cat.foixench.apps.lectorss.widget.FeedsAdapter;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.TextView;
+import cat.foixench.apps.lectorss.db.RssContract;
+import cat.foixench.apps.lectorss.db.RssContract.FeedsTable;
+import cat.foixench.apps.lectorss.utils.LectoRSSInterface;
+import cat.foixench.apps.lectorss.widget.FeedsAdapter;
 
 public class ArticleListActivity extends ListActivity implements LectoRSSInterface {
 
 	
 	private FeedsAdapter adapter;
+	Cursor cursor;
 	
 	/**
 	 *  Crea la activity, cargando el layout asociado articlelist.xml
@@ -64,8 +64,6 @@ public class ArticleListActivity extends ListActivity implements LectoRSSInterfa
 	}
 
 
-
-
 	/**
 	 * gestiona el evento click en un elemento de la lista. en este caso
 	 * muestra llama la activity ArticleDetailActivity
@@ -77,15 +75,16 @@ public class ArticleListActivity extends ListActivity implements LectoRSSInterfa
 		// creamos un intent para abrir la activity deseada
 		Intent intent = new Intent (this, ArticleDetailActivity.class);
 		
-		intent.putExtra (PARAM_TITLE, ((TextView) v.findViewById(R.id.title)).getText ());
-		intent.putExtra (PARAM_AUTHOR, ((TextView) v.findViewById (R.id.author)).getText ());
-		intent.putExtra (PARAM_DATE, ((TextView) v.findViewById (R.id.date)).getText ());
+		Log.d ("ArticleListActivity", "id = " + id);
+		
+//		intent.putExtra (PARAM_TITLE, ((TextView) v.findViewById(R.id.title)).getText ());
+//		intent.putExtra (PARAM_AUTHOR, ((TextView) v.findViewById (R.id.author)).getText ());
+//		intent.putExtra (PARAM_DATE, ((TextView) v.findViewById (R.id.date)).getText ());
+		
+		intent.putExtra (PARAM_ID, "" +  id);
 		
 		startActivity (intent);
 	}
-
-
-
 
 	/**
 	 * genera el menœ de 
@@ -145,7 +144,6 @@ public class ArticleListActivity extends ListActivity implements LectoRSSInterfa
 		
 		//LectoRSSContentProvider lectorssData = new LectoRSSContentProvider();
 		
-		Cursor cursor;
 		Uri uri = RssContract.FeedsTable.getUri();
 		String projection [] = new String [] {FeedsTable._ID, FeedsTable.COLUMN_TITLE, FeedsTable.COLUMN_AUTHOR, FeedsTable.COLUMN_PUB_DATE};
 		String sortOrder = FeedsTable.COLUMN_PUB_DATE + " DESC";

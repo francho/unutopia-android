@@ -69,14 +69,23 @@
 		            android:layout_height="wrap_content" />
 		        </LinearLayout>
 	        
-	        	<TextView
+	        	<WebView 
 	        	    android:id="@+id/article_content"
 	        	    android:layout_width="match_parent"
 	        	    android:layout_height="wrap_content"
 	        	    android:textColor="@color/default_color"
 	        	    android:text="@string/lorem_ipsum"
 	        	    android:textSize="@dimen/text_normal"
-	        	    android:padding="5dp" />
+	        	    android:padding="5dp"/>
+	        	
+	        	<!--TextView
+	        	    android:id="@+id/article_content"
+	        	    android:layout_width="match_parent"
+	        	    android:layout_height="wrap_content"
+	        	    android:textColor="@color/default_color"
+	        	    android:text="@string/lorem_ipsum"
+	        	    android:textSize="@dimen/text_normal"
+	        	    android:padding="5dp" /-->
 	        
 	    </LinearLayout>
 	</LinearLayout>

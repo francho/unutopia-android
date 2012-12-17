@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 
 public class LectoRSSContentProvider extends ContentProvider {
 
@@ -64,14 +63,10 @@ public class LectoRSSContentProvider extends ContentProvider {
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
 		
-		Log.d ("LECTORSS_CP", "En la query");
-		
 		Cursor cursor = null;
 		
 		// recuperamos la base de datos
-		Log.d ("LECTORSS_CP", "llamando a bbdd");
 		SQLiteDatabase db = rssDbHelper.getReadableDatabase();
-		Log.d ("LECTORSS_CP", "obtenida bbdd");
 		
 		// verificamos el tipo de consulta
 		switch (sUriMatcher.match (uri)) {
