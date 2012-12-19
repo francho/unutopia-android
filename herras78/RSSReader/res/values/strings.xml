@@ -15,8 +15,11 @@
     <string name="m_agregar">Agregar</string>
     <string name="s_select_name">Nombre de fuente:</string> 
     <string name="s_select_url">URL:</string>
-    <string name="s_button_save">Guardar</string>
-    <string name="added_source">Nueva fuebte añadida</string>
+    <string name="s_btn_save">Guardar</string>
+    <string name="added_source">Nueva fuente añadida</string>
+    <string name="mal_formed_url">Compruebe que la URL esta escrita correctamente</string>
+    <string name="no_connect_url">La URL no existe o no dispone de conexion a internet</string>
+    <string name="complet_fields">Debe rellenar los campos</string>
     <string name="acerca">
         Version 0.6.0 \n
         Desarrollado por Hertec Studios.

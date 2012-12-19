@@ -6,7 +6,7 @@
     android:background="@drawable/marco" >
           
       <LinearLayout 
-        android:layout_width="220dp"
+        android:layout_width="250dp"
     	android:layout_height="wrap_content"
     	android:layout_marginLeft="10dp"
     	android:layout_marginRight="10dp"
@@ -21,6 +21,7 @@
     		android:layout_marginRight="3dp" />
         <EditText 
             android:id="@+id/s_text_name"
+            android:hint="Nombre "
             android:maxLength="15"
             android:layout_width="fill_parent"
     		android:layout_height="wrap_content"/>
@@ -28,7 +29,7 @@
     </LinearLayout>
 	  
      <LinearLayout 
-        android:layout_width="220dp"
+        android:layout_width="250dp"
     	android:layout_height="wrap_content"
     	android:layout_marginLeft="10dp"
     	android:layout_marginRight="10dp"
@@ -43,6 +44,7 @@
         <EditText 
             android:id="@+id/s_text_url"
             android:inputType="textUri"
+            android:hint="Introduzca URL"
             android:layout_width="fill_parent"
     		android:layout_height="wrap_content"/>
         
@@ -54,7 +56,7 @@
     	android:layout_height="wrap_content"
     	android:layout_margin="5dp"
     	android:layout_gravity="center"
-    	android:text="@string/s_button_save"/>
+    	android:text="@string/s_btn_save"/>
 
   </LinearLayout>
 

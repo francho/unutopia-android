@@ -85,10 +85,12 @@ public class SplashActivity extends Activity {
 		public void onReceive(Context context, Intent intent) {
 			
 			if(intent.getAction().equals(LoaderIntentService.START_LOAD)) {
+				String URLs = intent.getStringExtra("url").toString();
 				int max = intent.getIntExtra("set_max", 0);
-				int prog = intent.getIntExtra("progress", 0);
+				int prog = intent.getIntExtra("progress", 0);				
 				Loadpro.setMax(max);
 				Loadpro.setProgress(prog);
+				Toast.makeText(SplashActivity.this, "Cargando: " + URLs, Toast.LENGTH_SHORT).show();
 			}
 			else if(intent.getAction().equals(LoaderIntentService.SET_PROGRESS)) {
 				int prog = intent.getIntExtra("progress", 0);

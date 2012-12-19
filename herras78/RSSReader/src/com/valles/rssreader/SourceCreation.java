@@ -1,5 +1,15 @@
 package com.valles.rssreader;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+
+import nl.matshofman.saxrssreader.RssFeed;
+import nl.matshofman.saxrssreader.RssItem;
+import nl.matshofman.saxrssreader.RssReader;
+
 import com.valles.rssreader.db.RssDbHelper;
 import com.valles.rssreader.db.RssContract.FeedsTable;
 import com.valles.rssreader.db.RssContract.SourceTable;
@@ -9,6 +19,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -27,15 +38,13 @@ public class SourceCreation extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.source_creation);
 		
-		EditText SourceName  = (EditText)findViewById(R.id.s_text_name);
-		EditText SourceURL = (EditText)findViewById(R.id.s_text_url);
+		SourceName  = (EditText)findViewById(R.id.s_text_name);
+		SourceURL = (EditText)findViewById(R.id.s_text_url);
 		
 		final Button Aceptar = (Button) findViewById(R.id.s_button_save);
 		Aceptar.setOnClickListener(new OnClickListener() {
             public void onClick(View v) { 
-            	SaveSource();
-            	Toast.makeText(SourceCreation.this, R.string.added_source, Toast.LENGTH_SHORT).show();
-            	Salir();            	
+            	SaveSource();       	
             }
         });
 	}
@@ -53,6 +62,27 @@ public class SourceCreation extends Activity{
         startActivity(intent); 
 	}
 	
+	public void CheckFields(){
+		try {	
+			if( SourceName.getText().toString() != "" || SourceURL.getText().toString() != ""){
+				
+				URL url = new URL(SourceURL.getText().toString());
+				RssFeed feed = RssReader.read(url);
+				ArrayList<RssItem> rssItems = feed.getRssItems();
+				
+				if(rssItems.size() > 0 && rssItems != null){	SaveSource();	}
+				else{	Toast.makeText(SourceCreation.this, R.string.no_connect_url, Toast.LENGTH_SHORT).show();	}
+				
+			}else{
+				Toast.makeText(SourceCreation.this, R.string.complet_fields, Toast.LENGTH_SHORT).show();
+			}
+
+		} catch (Exception e) {
+			Toast.makeText(SourceCreation.this, "Error al conectar con " + SourceURL.getText().toString(), Toast.LENGTH_SHORT).show();
+			Log.d("RSS","Error " + e + " al conectar con " + SourceURL.getText().toString());
+		}		
+	}
+	
 	public void SaveSource(){
 		
 		ContentValues values = new ContentValues();
@@ -63,6 +93,9 @@ public class SourceCreation extends Activity{
         final SQLiteDatabase WDB = helper.getWritableDatabase();
         WDB.insert(SourceTable.TABLE_NAME, null, values );
         WDB.close();
+        
+        Toast.makeText(SourceCreation.this, R.string.added_source, Toast.LENGTH_SHORT).show();
+        Salir();
 	}
 	
 	

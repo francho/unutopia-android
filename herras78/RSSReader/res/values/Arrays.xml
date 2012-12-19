@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="URLS">
+        <item >http://meneame.feedsportal.com/rss</item>
+        <item >http://feeds.weblogssl.com/xataka2</item>
+        <item >http://francho.org/feed/</item>
+        <item >http://mundowdg.com/blog/feed/</item>
+        <item >http://nukegaming.enjin.com/home/m/7922914/rss/true</item>
+    </string-array>
    
     
     
